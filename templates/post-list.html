@@ -2,6 +2,12 @@
     $for(posts)$
         <li>
             <a href="$url$">$title$</a> - $date$
+            <p>
+                $if(teaser)$
+                    $teaser$
+                    <a href="$url$">Read more</a>
+                $endif$
+            </p>
         </li>
     $endfor$
 </ul>
