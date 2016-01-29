@@ -15,6 +15,11 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
+    {- added this for java script -}
+    match "js/*" $ do
+        route   idRoute
+        compile compressCssCompiler
+
     match (fromList ["about.rst", "contact.markdown"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
