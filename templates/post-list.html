@@ -1,3 +1,4 @@
+<!--
 <ul>
     $for(posts)$
         <li>
@@ -11,3 +12,17 @@
         </li>
     $endfor$
 </ul>
+-->
+
+$for(posts)$
+    <div class="blog-post">
+        <h2 class="blog-post-list-title"><a href="$url$">$title$</a></h2>
+        <p class="blog-post-list-meta">$date$</p>
+        <p>
+            $if(teaser)$
+                $teaser$
+                <a href="$url$">Read more</a>
+            $endif$
+        </p>      
+    </div><!-- /.blog-post -->
+$endfor$
