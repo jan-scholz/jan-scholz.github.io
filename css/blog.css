@@ -51,18 +51,20 @@ h6, .h6 {
   position: relative;
   display: inline-block;
   padding: 10px;
-  color: #999;
+  color: #000;
 }
 .blog-nav-item:hover,
 .blog-nav-item:focus {
   color: #000;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 /* Active state gets a caret at the bottom */
+/*
 .blog-nav .active {
   color: #000;
 }
+*/
 /*
 .blog-nav .active:after {
   position: absolute;

@@ -2,7 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
-
+import           Hakyll.Web.R
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -26,13 +26,29 @@ main = hakyll $ do
         compile copyFileCompiler
     -}
 
-    match (fromList ["about.rst", "contact.markdown"]) $ do
+    {-
+    match "test.Rmd" $ do
+        route idRoute
+        compile $ pandocRmdCompiler
+    -}
+
+    match (fromList ["about.markdown", "contact.markdown"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
-    match "posts/*" $ do
+    -- Rmd
+    match "posts/*.Rmd" $ do
+        route   $ setExtension "html"
+        compile $ pandocRmdCompiler
+            >>= saveSnapshot "content"
+            >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= relativizeUrls
+
+    -- markdown
+    match "posts/*.markdown" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
             >>= saveSnapshot "content"
@@ -40,6 +56,16 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
 
+    -- projects
+    match "projects/*" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= saveSnapshot "content"
+            >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= relativizeUrls
+
+    -- archive.html
     create ["archive.html"] $ do
         route idRoute
         compile $ do
@@ -54,7 +80,22 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
+    -- projects.html
+    create ["projects.html"] $ do
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAll "projects/*"
+            let archiveCtx =
+                    listField "posts" teaserCtx (return posts) `mappend`
+                    constField "title" "Projects"            `mappend`
+                    defaultContext
 
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/projects.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+                >>= relativizeUrls
+
+    -- index.html
     match "index.html" $ do
         route idRoute
         compile $ do

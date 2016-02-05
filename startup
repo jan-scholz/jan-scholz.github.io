@@ -1,0 +1,1 @@
+mvim -p site.hs templates/default.html css/blog.css

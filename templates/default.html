@@ -31,8 +31,9 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item active" href="/">Home</a>
-          <a class="blog-nav-item" href="/projects">Projects</a>
+            <!-- <a class="blog-nav-item active" href="/">Home</a> -->
+          <a class="blog-nav-item" $if(title)$ class="active" $endif$ href="/">Home</a>
+          <a class="blog-nav-item" href="/projects.html">Projects</a>
           <a class="blog-nav-item" href="/archive.html">Archive</a>
           <a class="blog-nav-item" href="/about.html">About</a>
         </nav>
@@ -54,11 +55,13 @@
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module">
+              <!--
             <h4>Archives</h4>
             <ol class="list-unstyled">
               <li><a href="#">January 2015</a></li>
               <li><a href="#">February 2015</a></li>
             </ol>
+              -->
           </div>
           <div class="sidebar-module">
             <h4>Elsewhere</h4>

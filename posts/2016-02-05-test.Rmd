@@ -1,0 +1,26 @@
+---
+title: Some R-title
+author: Jan
+tags: research, r
+---
+
+Some intro text.
+
+<div></div><!--more-->
+
+Some more text.
+
+```{r testchunk}
+x <- 1:10
+y <- round(rnorm(10, x, 1), 2)
+df <- data.frame(x, y)
+plot(df)
+```
+
+The end.
+
+## References
+
+<!-- R --no-restore --no-save -e "library(knitr); knit('test.Rmd');" && pandoc -s -o test.pdf test.md -->
+
+
