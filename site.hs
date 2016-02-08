@@ -46,7 +46,7 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
-
+    
     -- markdown
     match "posts/*.markdown" $ do
         route $ setExtension "html"

@@ -1,0 +1,207 @@
+---
+title: Principles of Data Munging & Wrangling
+author: Jan
+tags: data munging, dplyr
+---
+
+Terms like data *munging* or *wrangling* have come to refer to the act of preparing raw data for further processing.
+This often involves transformation into a format that is supported by the analysis software of choice, discarding unnecessary information, re-arranging the layout of the data and replacing/reformatting entries to facilitate processing.
+Deriving new measures from one or several entries could already count as 'analysis' but is often seen as part of pre-processing if simple enough.
+In the following I'll describe each of the <em>munging/wrangling</em> categories and illustrate them with a practical R example.
+
+<div></div><!--more-->
+
+We'll follow this [dplyr](http://seananderson.ca/2014/09/13/dplyr-intro.html) introduction closely and incorporate additional sources[^konduforov].
+Let's go through each of the ten or so major <em>munging/wrangling</em> steps.
+
+* import/conversion
+* exploration
+* renaming
+* subsetting/filtering
+* ordering/sorting
+* rearranging
+* mutating/summarizing
+
+
+There is no strict order to these actions.
+It is even quite common to repeat and alternate between these steps until the data is in 'shape'.
+
+[^konduforov]: [Fast data munging in R](http://www.slideshare.net/AlexMerle/data-munging-r).
+
+
+## Import and Conversion
+
+Data *import* refers to reading data into memory, usually from a file.
+Let's start by downloading a data set and reading it into [R](https://www.r-project.org).
+
+```{r eval=FALSE}
+url <- 'http://esapubs.org/archive/ecol/E090/184/PanTHERIA_1-0_WR05_Aug2008.txt'
+t <- read.table(url, header=T, sep='\t', check.names=F)
+```
+
+It might be more convenient to download the 2.2 MB large data set to a local directory using `curl -O URL` on OS X or `wget URL` on Linux and then run the following instead.
+
+
+```{r eval=TRUE}
+url <- '/tmp/PanTHERIA_1-0_WR05_Aug2008.txt'
+t <- read.table(url, header=T, sep='\t', check.names=F)
+```
+
+Although it seems as if we've only copied or imported the data from a remote source, the data has already been interpreted and converted to an internal representation.
+This happened magically with the `read.table` command, which reads or 'scans' a text file of whitespace-separated columns into a `R` data frame.
+Type `?read.table` on the `R`-prompt for an explanation of the arguments.
+In a nutshell: `header=T` indicates that the first row should be used for the column names, `sep=\t` indicates that the columns are separated by tabulators (but not spaces), and `check.names=F` prevents `R` from replacing characters such as spaces with periods.
+These options could be seen as 'hints' that help a parser to interpret the information.
+
+It is surprisingly common to come across data formatted as a table in a text file, because these files can be easily viewed and understood (just open them in a text editor).
+It is also very easy to write these files out or parse them using only a few lines of code in most programming languages.
+In contrast, binary encoding or markup languages allow to store data that does not conform to 2D-tables.
+However, these formats usually require more complicated 'readers' and 'writers'.
+This can lead to *format hell*[^formathell], especially with proprietary formats.
+
+[^formathell]: The problem where format A needs to be converted to format D, but available converters only support conversion from A to B or C to D. The user is than forced to find a converter B to D or A to C, which is equivalent to the problem the user started out with.
+
+
+## Exploration
+
+Before we continue we should quickly to check that the data has been successfully imported into `R`.
+Let's print the first five rows of the first three columns:
+
+```{r comment=''}
+t[1:5,5:7]
+```
+
+Apparently we have different types of data, such as *strings*, *integers*, and *floats* (i.e. floating point numbers).
+Altogether we have `r nrow(t)` rows and `r ncol(t)` columns.
+
+```{r comment=''}
+dim(t)
+```
+
+We can explore the data set by printing individual columns and using the `head`, `tail` `summary`, and `str` functions.
+This should quickly reveal that the value `-999` seems to have some special meaning, possibly indicating a missing entry.
+`R` supports missing entries with the `NA` value.
+
+Let's pretend we are back in the import/conversion section and set `-999` to `NA` throughout.
+
+```{r comment=''}
+t[t==-999] <- NA
+```
+
+As we explore the data set we might make further adjustments related to import/conversion, such as changing the *type* of a column (by using `as.numeric`, `as.character`, `as.factor`, etc.).
+Sometimes it is also desirable to substitute characters (by using `gsub`).
+For example, column names that contain spaces or other special characters can sometimes complicate processing further down the line.
+
+Sometimes a plot is worth a thousand characters.
+It is helpful to `plot` columns or their histograms (`hist`).
+Let's plot a histogram of the body mass column.
+
+
+```{r comment='', fig.width=6, fig.height=4, fig.cap=""}
+hist(log(t$`5-1_AdultBodyMass_g`), main='log adult body mass [g]', xlab='')
+```
+
+
+## Subsetting/Filtering
+
+We are often only interested in a subset of the data.
+As long as we are not running out of memory there is no technical reason to remove data.
+However, it usually makes life easier if we remove 'clutter' that obscures relevant information when a data frame is printed on the screen.
+In addition, removing irrelevant information in advance can simplify or remove the need for indexing or subsetting expressions later on.
+
+We'll be using the [dplyr](https://github.com/hadley/dplyr) package in the following.
+
+```{r comment='', message=FALSE}
+library(dplyr)
+t <- dplyr::tbl_df(t) # pretty print
+```
+
+Using `select` and `filter` functions we can keep or remove specific columns and rows.
+
+
+### Select
+Columns can be selected by matching their names with `starts_with`, `ends_with`, `contains`, `matches `.
+Prefixing a `-` will drop the matched column(s).
+
+```{r comment=''}
+# select all columns with 'body' in their name
+select(t, contains("body"))[,1:3]
+
+# drop these columns
+select(t, -contains("body"))[,1:3]
+```
+
+
+### Filter
+The `filter` function filters rows based on values, often involving logical expressions >, <, ==, &, |, etc.
+
+```{r comment=''}
+# select rows with large BMI
+filter(t, `5-1_AdultBodyMass_g` > 1e6)[,c(1:3,7)]
+
+# restrict to a specific 'order'
+filter(t, `MSW05_Order`=='Carnivora' & `5-1_AdultBodyMass_g` > 1e6)[,c(1:3,7)]
+```
+
+
+
+## Ordering/Sorting
+Ordering or sorting a data frame is usually not necessary for the actual analysis, it helps, however, with planning and confirming filtering operations.
+
+
+```{r comment=''}
+arrange(t, `MSW05_Order`)[,c(1:3,7)]
+# arrange(t, desc(`MSW05_Order`))[,c(1:3,7)]
+```
+
+
+## Rearranging
+
+melt, cast
+
+
+## Renaming
+
+No text.
+
+
+## Mutating/Summarizing
+
+### Mutating
+Adding values derived (usually in a simple manner) form entries in the data to facilitate further analysis.
+
+```{r comment=''}
+#glimpse(mutate(t, g_per_mm = adult_body_mass_g / adult_head_body_len_mm))
+```
+
+
+### Summarizing
+Creating a new table that collapses information into summaries according to grouping factors.
+For example, one can calculate the mean body mass for each `order`.
+
+
+```{r comment=''}
+summarise(group_by(t, `MSW05_Order`), 
+          mean_mass = mean(`5-1_AdultBodyMass_g`, na.rm = TRUE))
+```
+
+
+## Piping Data
+
+The pipe operator `%>%` allows to connect several of the above functions.
+It is essentially a better way to write hard to parse *nested braces* expressions $h(g(f(x)))$ in a more natural way that mimics the *flow* of the date: $x \rightarrow f \rightarrow g \rightarrow h$
+
+Let's recapitulated [Sean Anderson's](http://seananderson.ca/2014/09/13/dplyr-intro.html) example and find the species with the highest body-mass-to-length ratio:
+
+
+```{r comment=''}
+t %>%
+ mutate(mass_to_length=`5-1_AdultBodyMass_g`/`13-1_AdultHeadBodyLen_mm`) %>%
+ arrange(desc(mass_to_length)) %>%
+ select(`MSW05_Species`, mass_to_length)
+```
+
+Although this is a very simple example it already illustrates how the different *munging* and *wrangling* lego bricks can be stacked together to create the data frame(s) necessary for the model fitting and further analyses.
+
+
+
