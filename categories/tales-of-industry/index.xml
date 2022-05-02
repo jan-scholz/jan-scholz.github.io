@@ -8,19 +8,19 @@
     <lastBuildDate>Tue, 16 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jan-scholz.github.io/categories/tales-of-industry/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data Science Anti-Patterns: Proliferating Data Artifacts</title>
-      <link>https://jan-scholz.github.io/post/2018-03-09-data-science-anti-patterns/</link>
+      <link>https://jan-scholz.github.io/post/2021-11-16-data-science-anti-patterns/</link>
       <pubDate>Tue, 16 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jan-scholz.github.io/post/2018-03-09-data-science-anti-patterns/</guid>
+      <guid>https://jan-scholz.github.io/post/2021-11-16-data-science-anti-patterns/</guid>
       <description>Use pipelines to fend off the curse of proliferating data artifacts.</description>
     </item>
     
     <item>
       <title>Three Rules of Success for Data Science Projects</title>
-      <link>https://jan-scholz.github.io/post/2018-02-08-three-rules-of-success/</link>
+      <link>https://jan-scholz.github.io/post/2021-08-03-three-rules-of-success/</link>
       <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jan-scholz.github.io/post/2018-02-08-three-rules-of-success/</guid>
+      <guid>https://jan-scholz.github.io/post/2021-08-03-three-rules-of-success/</guid>
       <description>Data science projects are people projects.</description>
     </item>
     
