@@ -4,6 +4,43 @@
     <title>Tags on Tales of Industry</title>
     <link>https://jan-scholz.github.io/tags/</link>
     <description>Recent content in Tags on Tales of Industry</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://jan-scholz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 16 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jan-scholz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>best practices</title>
+      <link>https://jan-scholz.github.io/tags/best-practices/</link>
+      <pubDate>Tue, 16 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jan-scholz.github.io/tags/best-practices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data</title>
+      <link>https://jan-scholz.github.io/tags/data/</link>
+      <pubDate>Tue, 16 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jan-scholz.github.io/tags/data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pipelines</title>
+      <link>https://jan-scholz.github.io/tags/pipelines/</link>
+      <pubDate>Tue, 16 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jan-scholz.github.io/tags/pipelines/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>project management</title>
+      <link>https://jan-scholz.github.io/tags/project-management/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jan-scholz.github.io/tags/project-management/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

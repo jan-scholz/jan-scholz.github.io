@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>project management on Tales of Industry</title>
+    <link>https://jan-scholz.github.io/tags/project-management/</link>
+    <description>Recent content in project management on Tales of Industry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jan-scholz.github.io/tags/project-management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Three Rules of Success for Data Science Projects</title>
+      <link>https://jan-scholz.github.io/post/2018-02-08-three-rules-of-success/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jan-scholz.github.io/post/2018-02-08-three-rules-of-success/</guid>
+      <description>Data science projects are people projects.</description>
+    </item>
+    
+  </channel>
+</rss>
