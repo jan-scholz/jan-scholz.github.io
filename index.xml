@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>Tales of Industry</title>
     <link>https://jan-scholz.github.io/</link>
-    <description>Recent content on My New Hugo Site</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://jan-scholz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content on Tales of Industry</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://jan-scholz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://jan-scholz.github.io/about/</link>
+      <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jan-scholz.github.io/about/</guid>
+      <description>Who am I? I&amp;rsquo;m Jan. In my past life as a Neuroscientist I studied how the brain learns. This peaked my interest into complex dynamical systems, what laws govern them, and how they can be improved.
+After transitioning into the Data Science and Machine Learning (ML) industry, I become fascinated by the complex dynamics that play out when data, software, and humans come together to build products.
+ All machine learning challenges are technical challenges.</description>
+    </item>
+    
+    <item>
+      <title>Disclaimer</title>
+      <link>https://jan-scholz.github.io/disclaimer/</link>
+      <pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jan-scholz.github.io/disclaimer/</guid>
+      <description>None of the content on this site represents the conditions, strategies, or opinions at previous or current employers. Descriptions of individuals, organizations, and events are fictional and often exaggerated to support arguments and contrasting views.</description>
+    </item>
+    
+    
+    
   </channel>
 </rss>

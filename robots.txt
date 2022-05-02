@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://jan-scholz.github.io/sitemap.xml

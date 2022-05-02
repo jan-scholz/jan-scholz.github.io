@@ -2,10 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jan-scholz.github.io/about/</loc>
+    <lastmod>2022-05-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jan-scholz.github.io/disclaimer/</loc>
+    <lastmod>2022-04-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jan-scholz.github.io/archives/</loc>
+  </url><url>
     <loc>https://jan-scholz.github.io/categories/</loc>
   </url><url>
-    <loc>https://jan-scholz.github.io/</loc>
+    <loc>https://jan-scholz.github.io/search/</loc>
   </url><url>
     <loc>https://jan-scholz.github.io/tags/</loc>
+  </url><url>
+    <loc>https://jan-scholz.github.io/</loc>
   </url>
 </urlset>
