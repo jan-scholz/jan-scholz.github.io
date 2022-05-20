@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>How To Create This Blog | Tales of Industry</title>
+<meta name="keywords" content="hugo, blogging">
+<meta name="description" content="Getting Started with Hugo Hugo is a static site generator (SSG). Simply put, an SSG prepares everything needed to display a website. In contrast, dynamically assembled websites obtain their assets only after they get accessed. An SSG thus minimizes the computational demand on the server, which allows providers, such as GitHub Pages and others1, to host your static sites for free. More importantly, SSGs emanate a philosophy of simplicity-by-design stemming from a number of limitations.">
+<meta name="author" content="Jan Scholz">
+<link rel="canonical" href="https://jan-scholz.github.io/post/2022-03-05-how-to-create-this-blog/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.33b6fd0ebc03810b99883ca083f3acd1a361804bf487116beaf22467eed830a6.css" integrity="sha256-M7b9DrwDgQuZiDygg/Os0aNhgEv0hxFr6vIkZ&#43;7YMKY=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://jan-scholz.github.io/images/faviconT.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jan-scholz.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jan-scholz.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jan-scholz.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jan-scholz.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6NMJL1CGE7"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-6NMJL1CGE7', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="How To Create This Blog" />
+<meta property="og:description" content="Getting Started with Hugo Hugo is a static site generator (SSG). Simply put, an SSG prepares everything needed to display a website. In contrast, dynamically assembled websites obtain their assets only after they get accessed. An SSG thus minimizes the computational demand on the server, which allows providers, such as GitHub Pages and others1, to host your static sites for free. More importantly, SSGs emanate a philosophy of simplicity-by-design stemming from a number of limitations." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jan-scholz.github.io/post/2022-03-05-how-to-create-this-blog/" />
+<meta property="og:image" content="https://jan-scholz.github.io/images/agileisdead.jpg" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-20T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-03-20T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://jan-scholz.github.io/images/agileisdead.jpg" />
+<meta name="twitter:title" content="How To Create This Blog"/>
+<meta name="twitter:description" content="Getting Started with Hugo Hugo is a static site generator (SSG). Simply put, an SSG prepares everything needed to display a website. In contrast, dynamically assembled websites obtain their assets only after they get accessed. An SSG thus minimizes the computational demand on the server, which allows providers, such as GitHub Pages and others1, to host your static sites for free. More importantly, SSGs emanate a philosophy of simplicity-by-design stemming from a number of limitations."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://jan-scholz.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "How To Create This Blog",
+      "item": "https://jan-scholz.github.io/post/2022-03-05-how-to-create-this-blog/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How To Create This Blog",
+  "name": "How To Create This Blog",
+  "description": "Getting Started with Hugo Hugo is a static site generator (SSG). Simply put, an SSG prepares everything needed to display a website. In contrast, dynamically assembled websites obtain their assets only after they get accessed. An SSG thus minimizes the computational demand on the server, which allows providers, such as GitHub Pages and others1, to host your static sites for free. More importantly, SSGs emanate a philosophy of simplicity-by-design stemming from a number of limitations.",
+  "keywords": [
+    "hugo", "blogging"
+  ],
+  "articleBody": "Getting Started with Hugo Hugo is a static site generator (SSG). Simply put, an SSG prepares everything needed to display a website. In contrast, dynamically assembled websites obtain their assets only after they get accessed. An SSG thus minimizes the computational demand on the server, which allows providers, such as GitHub Pages and others1, to host your static sites for free. More importantly, SSGs emanate a philosophy of simplicity-by-design stemming from a number of limitations. Being constraint forces content creators to focus on the content itself and minimizes the distractions of layout and design. SSGs are thus especially suited for blogs, landing pages, documentation and portfolio sites.\nThe following is based on Ryan Schachte’s excellent video2 and similar tutorials (see links below).\nInstall Hugo On MacOS install Hugo from the command line using the Homebrew package manager.\nbrew install hugo On Debian Linux install Hugo with:\nsudo apt-get install hugo More installation instructions can be found here.\nSetting Up Two Repositories We will use GitHub Pages to host our static site for free. GitHub Pages are easily set up by creating a new public repository named username.github.io, where username is your GitHub username. If you were do save a simple HTML page as index.html in such a repo, you’d be able to view it at https://username.github.io.\nHowever, we’ll be slightly more considerate than dumping all of Hugo’s configuration code, templates, themes and markdown content into the GitHub repository. After all, to display the website correctly only the static site assets that Hugo compiles are needed. We are going to track all the rest in a separate repository called “blog”.\nSo please head over to GitHub and create two repositories:\n username.github.io: A public repository for the static site assets. blog (can have a different name): A private repository for Hugo containing configurations, themes, and unpublished posts.  Setting up Hugo Once we’ve created two repositories, we’ll clone them on our local system (git clone git@github.com:username/blog.git) and enter the “blog” repository (cd blog).\nHere we create the scaffolding for our website. In this case Hugo will create a new directory hugo-blog that contains all the Hugo assets.\nhugo new site hugo-blog Adding a Theme Enter the hugo-blog/themes directory and clone your preferred Hugo theme. For example, Hugo Bear Blog from Jan Raasch. Click on the “Download” button, copy the repository URL, and clone the theme into your themes/ folder using the submodule action. The submodule action avoids problems arising from nested cloning3.\n# Option 1: Original theme repo git submodule add https://github.com/janraasch/hugo-bearblog.git themes/hugo-bearblog Alternatively, you can first fork the theme directory by going to GitHub and clicking ‘Fork’. This has the advantage of being able to push changes to your fork of the themes directory later on.\nDon’t forget to add the fork as a submodule instead of the original repo. Replace username and hugo-theme with the respective values.\n# Option 2: Forked theme repo git submodule add https://github.com/username/hugo-theme.git themes/hugo-theme Then we add the theme’s name to the config.toml in blog’s base directory, e.g. hugo-blog/. The file might look like this:\nbaseURL = 'https://username.github.io/' languageCode = 'en-us' title = 'My Blog Title' theme = 'hugo-bearblog' The values of baseURL and theme obviously depend on your choice of host and theme.\nAdding the static site content repo as a submodule As mentioned above, we are decided to create a separate repository for the compiled static site content. In essence, we will let the username.github.io repository only track Hugo’s public/ output directory and nothing else. This way the commit history will purely reflect content updates. Plus, we can track any unpublished content in a private repo hidden from public view. The downside is that we have to remember to update both repositories.\nRun the following command from within the blog’s base directory (e.g. hugo-blog/) to link your public GitHub Pages repo to the public/ directory of your private blog repo. (If you receive an ‘already exists’ error you might have to remove the public/ directory or its contents first.)\ngit submodule add -b main https://github.com/username/username.github.io.git public Building the site To perform the site build, run the following commands\n# create static assets in the 'public/' directory hugo # commit the changes to the public submodule repository cd public git add . git commit -m \"initial build\" # commit references to submodule changes cd .. git add . git commit -m \"initial build - update submodule references\" # push both the source project and the submodule to remote git push -u origin master --recurse-submodules=on-demand Remember these command, you’ll have to repeat them for most changes to the site.\nThis concludes the basic Hugo setup. In the following we’ll go through posting, theme customization, adding images, and analytics. Let’s create our first post.\nCreating a Post Hugo posts are created in Markdown. The limited formatting options force authors to focus on the content. In general, it’s good advice not to try to change the formatting beyond what markdown offers. The theme’s template and CSS files provide better options while ensuring that the layout stays consistent across the site.\nTo create a new post, run:\nhugo new blog/mypost.md This will create a markdown file in the content/ directory, e.g. content/blog/mypost.md. Depending on your theme, you might have to substitute blog/ with post/ or posts/. Consult your theme’s documentation.\nOpen the freshly created post with your favorite editor. Hugo posts start with a preamble, the key: value pairs between the lines (---). The preamble sets various variables that Hugo will use to compile the site. Depending on the theme, you can add cover images, tags, and category labels. The draft status and publication date affect whether a post is published. You can add content below the preamble, like so.\n--- title: \"My First Post\" date: 2020-01-01T12:15:00+01:00 draft: true --- # Introduction  Some **bold** text and a [link](example.com). Now fire up the Hugo server locally in ‘draft’ mode and open the respective URL with your browser, e.g. http://localhost:1313.\nhugo server -D If you’re new to Hugo, check out a particular theme’s example content. Not every theme will display posts the way you might expect. If you get stuck, start with the theme’s configuration files (config.toml) and content directories. The Bearblog example site  is a good start if you decided to use this theme.\nDrafts and Future Posts Note that the server doesn’t show blog posts with draft status by default. You can either set draft: true in the markdown file’s preamble or run the hugo server in draft mode. Besides draft status there are two more conditions that might prevent a post from being published, i.e. posts with a publication date in the future and posts with an expiry date4.\n# compile posts with draft status hugo server -D # compile posts with a future publication date hugo server -F Publishing To publish your site, run Hugo excluding drafts and future posts and push the changes to the remote repositories as described above.\nTracking Visitors Hugo and various themes make it easy to add analytics. Start by creating a new account or sign in with an existing Google account at https://analytics.google.com/.\nThen set up your “Property”, give it a name, and point it to the URL of the site you plan on tracking. Finally, click through the basic options until you land on a page with a Tracking Code which might look something like this: G-XXXXXXXXXX.\nEdit Hugo’s configuration file, e.g. config.toml, and add the tracking code.\ngoogleAnalytics = 'G-XXXXXXXXXX' You should now be able to track visitors after publishing these changes. Then click on ‘Reports’ and then on ‘Realtime’ on https://analytics.google.com/ to track yourself visiting the page. This should work even if you run a server on your own machine and browse the site locally.\nCustomization Hugo provides endless possibilities for customization. Virtually everything can be adjusted, including spacing, font sizes, colors, text alignment, and content interaction. The basic principle is to ‘override’ a theme’s default templates. It’s relatively easy to use a browser’s ‘inspection’ tools, click on the ⌖ , and hover over the element that you want to adjust. This should help you understand what CSS properties are being applied to this element. You might also be able to glean a few keywords that you can later use to search for.\nModifying a Theme Most theme modifications can be done without modifying the theme’s source code repository. Hugo allows overwriting template files with your own modified version that you keep in a separate directory5.\nFor example, it’s relatively straight-forward to modify the copyright footer because most themes keep its template in a separate file. Let’s assume the footer template is kept in\nthemes//layouts//footer.html Obviously, the  and  directories depend on your particular theme. If you have trouble finding the right file, browse your theme’s layouts/_default directory or grep for a keyword, e.g. grep footer -R. That should give you a rough idea of where to look.\nOnce we have identified the right file we make a copy of it and place it in:\nlayouts//footer.html You might have to create the directory structure first, e.g. mkdir -p layouts/ before you copy the template with cp -iv themes//layouts//footer.html layouts//\nThis copy has precedence over the theme’s ‘default’ templates. You can edit the copy to your heart’s content. The changes should be immediately visible (or any errors) if you’re running the server (hugo server) at the same time. Reverting back to the original theme is as easy as deleting the file.\nImages Images help your site stand out. They are added to the static/ directory or any subdirectory within. For example, after creating a subdirectory (mkdir -p static/images/), images can then be referenced in markdown.\n![Alt Description](/images/cover.jpeg) Alternatively, some themes allow adding a caption (i.e. title) by using the Go syntax.\n{{ figure src=\"/images/cover.jpeg\" title=\"Caption text.\" }} Conclusion We’ve barely scratched the surface of what Hugo can do. Setting up a basic static site is not as easy as some commercial offers like Squarespace and Wordpress. But if you’re comfortable on the command line and using an markdown editor this setup offers you full freedom over every aspect of your site. And it’s free!\nFAQ How do I update themes? If you’ve used the git submodule add command to clone a theme repository into the themes/ folder you can preview possible updates\ngit fetch origin git status or pull updates and merge them automatically\ngit pull More info here.\nI forgot to add –recurse-submodules You might not see changes appear on GitHub Pages if you forgot to add the --recurse-submodules switch when pushing the main source repository. You can rectify this by entering the submodules directory (e.g. cd public) and running git push there manually.\nLinks   Static sites can be hosted in a number of locations, such as Amazon S3, Azure, CloudFront, DreamHost, Firebase, GitHub Pages, GitLab Pages, Google Cloud Storage, Heroku, Netlify, Surge. ↩︎\n Creating a Blog with Hugo and Github in 10 minutes ↩︎\n Avoiding Git Problems When Installing a Theme to Hugo ↩︎\n Hugo: Draft, Future, and Expired Content ↩︎\n Customize a Theme ↩︎\n   ",
+  "wordCount" : "1833",
+  "inLanguage": "en",
+  "image":"https://jan-scholz.github.io/images/agileisdead.jpg","datePublished": "2022-03-20T00:00:00Z",
+  "dateModified": "2022-03-20T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jan Scholz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jan-scholz.github.io/post/2022-03-05-how-to-create-this-blog/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tales of Industry",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jan-scholz.github.io/images/faviconT.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jan-scholz.github.io/" accesskey="h" title="Tales of Industry (Alt + H)">Tales of Industry</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jan-scholz.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://jan-scholz.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://jan-scholz.github.io/post/">Posts</a></div>
+    <h1 class="post-title">
+      How To Create This Blog
+    </h1>
+    <div class="post-meta"><span title='2022-03-20 00:00:00 +0000 UTC'>March 20, 2022</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Jan Scholz
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://jan-scholz.github.io/images/agileisdead.jpg" alt="A Picture">
+        
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#getting-started-with-hugo" aria-label="Getting Started with Hugo">Getting Started with Hugo</a><ul>
+                        
+                <li>
+                    <a href="#install-hugo" aria-label="Install Hugo">Install Hugo</a></li>
+                <li>
+                    <a href="#setting-up-two-repositories" aria-label="Setting Up Two Repositories">Setting Up Two Repositories</a></li></ul>
+                </li>
+                <li>
+                    <a href="#setting-up-hugo" aria-label="Setting up Hugo">Setting up Hugo</a><ul>
+                        
+                <li>
+                    <a href="#adding-a-theme" aria-label="Adding a Theme">Adding a Theme</a></li>
+                <li>
+                    <a href="#adding-the-static-site-content-repo-as-a-submodule" aria-label="Adding the static site content repo as a submodule">Adding the static site content repo as a submodule</a></li>
+                <li>
+                    <a href="#building-the-site" aria-label="Building the site">Building the site</a></li></ul>
+                </li>
+                <li>
+                    <a href="#creating-a-post" aria-label="Creating a Post">Creating a Post</a><ul>
+                        
+                <li>
+                    <a href="#drafts-and-future-posts" aria-label="Drafts and Future Posts">Drafts and Future Posts</a></li>
+                <li>
+                    <a href="#publishing" aria-label="Publishing">Publishing</a></li></ul>
+                </li>
+                <li>
+                    <a href="#tracking-visitors" aria-label="Tracking Visitors">Tracking Visitors</a></li>
+                <li>
+                    <a href="#customization" aria-label="Customization">Customization</a><ul>
+                        
+                <li>
+                    <a href="#modifying-a-theme" aria-label="Modifying a Theme">Modifying a Theme</a></li>
+                <li>
+                    <a href="#images" aria-label="Images">Images</a></li></ul>
+                </li>
+                <li>
+                    <a href="#conclusion" aria-label="Conclusion">Conclusion</a></li>
+                <li>
+                    <a href="#faq" aria-label="FAQ">FAQ</a><ul>
+                        
+                <li>
+                    <a href="#how-do-i-update-themes" aria-label="How do I update themes?">How do I update themes?</a></li>
+                <li>
+                    <a href="#i-forgot-to-add---recurse-submodules" aria-label="I forgot to add &amp;ndash;recurse-submodules">I forgot to add &ndash;recurse-submodules</a></li></ul>
+                </li>
+                <li>
+                    <a href="#links" aria-label="Links">Links</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="getting-started-with-hugo">Getting Started with Hugo<a hidden class="anchor" aria-hidden="true" href="#getting-started-with-hugo">#</a></h1>
+<p><a href="https://gohugo.io/">Hugo</a> is a static site generator (SSG). Simply put, an SSG prepares everything needed to display a website. In contrast, dynamically assembled websites obtain their assets only after they get accessed. An SSG thus minimizes the computational demand on the server, which allows providers, such as GitHub Pages and others<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, to host your static sites for free. More importantly, SSGs emanate a philosophy of simplicity-by-design stemming from a number of limitations. Being constraint forces content creators to focus on the content itself and minimizes the distractions of layout and design. SSGs are thus especially suited for blogs, landing pages, documentation and portfolio sites.</p>
+<p>The following is based on Ryan Schachte&rsquo;s excellent video<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> and similar tutorials (see <a href="#links">links</a> below).</p>
+<h2 id="install-hugo">Install Hugo<a hidden class="anchor" aria-hidden="true" href="#install-hugo">#</a></h2>
+<p>On MacOS install Hugo from the command line using the <a href="https://brew.sh/">Homebrew</a> package manager.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">brew install hugo
+</span></span></code></pre></div><p>On Debian Linux install Hugo with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo apt-get install hugo
+</span></span></code></pre></div><p>More installation instructions can be found <a href="https://gohugo.io/getting-started/installing/">here</a>.</p>
+<h2 id="setting-up-two-repositories">Setting Up Two Repositories<a hidden class="anchor" aria-hidden="true" href="#setting-up-two-repositories">#</a></h2>
+<p>We will use <a href="https://pages.github.com/">GitHub Pages</a> to host our static site for free. GitHub Pages are easily set up by creating a new public repository named <code>username.github.io</code>, where <code>username</code> is your GitHub username. If you were do save a simple HTML page as <code>index.html</code> in such a repo, you&rsquo;d be able to view it at <code>https://username.github.io</code>.</p>
+<p>However, we&rsquo;ll be slightly more considerate than dumping all of Hugo&rsquo;s configuration code, templates, themes and markdown content into the GitHub repository. After all, to display the website correctly only the static site assets that Hugo compiles are needed. We are going to track all the rest in a separate repository called &ldquo;blog&rdquo;.</p>
+<p>So please head over to GitHub and create two repositories:</p>
+<ul>
+<li><code>username.github.io</code>: A public repository for the static site assets.</li>
+<li><code>blog</code> (can have a different name): A private repository for Hugo containing configurations, themes, and unpublished posts.</li>
+</ul>
+<h1 id="setting-up-hugo">Setting up Hugo<a hidden class="anchor" aria-hidden="true" href="#setting-up-hugo">#</a></h1>
+<p>Once we&rsquo;ve created two repositories, we&rsquo;ll clone them on our local system (<code>git clone git@github.com:username/blog.git</code>) and enter the &ldquo;blog&rdquo; repository (<code>cd blog</code>).</p>
+<p>Here we create the scaffolding for our website. In this case Hugo will create a new directory <code>hugo-blog</code> that contains all the Hugo assets.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">hugo new site hugo-blog
+</span></span></code></pre></div><h2 id="adding-a-theme">Adding a Theme<a hidden class="anchor" aria-hidden="true" href="#adding-a-theme">#</a></h2>
+<p>Enter the <code>hugo-blog/themes</code> directory and clone your preferred <a href="https://themes.gohugo.io/">Hugo theme</a>. For example, <a href="https://themes.gohugo.io/themes/hugo-bearblog/">Hugo Bear Blog</a> from Jan Raasch. Click on the &ldquo;Download&rdquo; button, copy the repository URL, and clone the theme into your <code>themes/</code> folder using the <code>submodule</code> action. The <code>submodule</code> action avoids problems arising from nested cloning<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Option 1: Original theme repo</span>
+</span></span><span class="line"><span class="cl">git submodule add https://github.com/janraasch/hugo-bearblog.git themes/hugo-bearblog
+</span></span></code></pre></div><p>Alternatively, you can first fork the theme directory by going to GitHub and clicking &lsquo;Fork&rsquo;. This has the advantage of being able to push changes to your fork of the themes directory later on.</p>
+<p>Don&rsquo;t forget to add the fork as a submodule instead of the original repo. Replace <code>username</code> and <code>hugo-theme</code> with the respective values.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Option 2: Forked theme repo</span>
+</span></span><span class="line"><span class="cl">git submodule add https://github.com/username/hugo-theme.git themes/hugo-theme
+</span></span></code></pre></div><p>Then we add the theme&rsquo;s name to the <code>config.toml</code> in blog&rsquo;s base directory, e.g. <code>hugo-blog/</code>. The file might look like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s1">&#39;https://username.github.io/&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">languageCode</span> <span class="p">=</span> <span class="s1">&#39;en-us&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">title</span> <span class="p">=</span> <span class="s1">&#39;My Blog Title&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s1">&#39;hugo-bearblog&#39;</span>
+</span></span></code></pre></div><p>The values of <code>baseURL</code> and <code>theme</code> obviously depend on your choice of host and theme.</p>
+<h2 id="adding-the-static-site-content-repo-as-a-submodule">Adding the static site content repo as a submodule<a hidden class="anchor" aria-hidden="true" href="#adding-the-static-site-content-repo-as-a-submodule">#</a></h2>
+<p>As mentioned above, we are decided to create a separate repository for the compiled static site content. In essence, we will let the <code>username.github.io</code> repository only track Hugo&rsquo;s <code>public/</code> output directory and nothing else. This way the commit history will purely reflect content updates. Plus, we can track any unpublished content in a private repo hidden from public view. The downside is that we have to remember to update both repositories.</p>
+<p>Run the following command from within the blog&rsquo;s base directory (e.g. <code>hugo-blog/</code>) to link your public GitHub Pages repo to the <code>public/</code> directory of your private <code>blog</code> repo. (If you receive an &lsquo;already exists&rsquo; error you might have to remove the <code>public/</code> directory or its contents first.)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git submodule add -b main https://github.com/username/username.github.io.git public
+</span></span></code></pre></div><h2 id="building-the-site">Building the site<a hidden class="anchor" aria-hidden="true" href="#building-the-site">#</a></h2>
+<p>To perform the site build, run the following commands</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># create static assets in the &#39;public/&#39; directory</span>
+</span></span><span class="line"><span class="cl">hugo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># commit the changes to the public submodule repository</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span>  public
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;initial build&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># commit references to submodule changes</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;initial build - update submodule references&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># push both the source project and the submodule to remote</span>
+</span></span><span class="line"><span class="cl">git push -u origin master --recurse-submodules<span class="o">=</span>on-demand
+</span></span></code></pre></div><p>Remember these command, you&rsquo;ll have to repeat them for most changes to the site.</p>
+<p>This concludes the basic Hugo setup. In the following we&rsquo;ll go through posting, theme customization, adding images, and analytics. Let&rsquo;s create our first post.</p>
+<h1 id="creating-a-post">Creating a Post<a hidden class="anchor" aria-hidden="true" href="#creating-a-post">#</a></h1>
+<p>Hugo posts are created in <a href="https://www.markdownguide.org/basic-syntax">Markdown</a>. The limited formatting options force authors to focus on the content. In general, it&rsquo;s good advice not to try to change the formatting beyond what markdown offers. The theme&rsquo;s template and CSS files provide better options while ensuring that the layout stays consistent across the site.</p>
+<p>To create a new post, run:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">hugo new blog/mypost.md
+</span></span></code></pre></div><p>This will create a markdown file in the <code>content/</code> directory, e.g. <code>content/blog/mypost.md</code>. Depending on your theme, you might have to substitute <code>blog/</code> with <code>post/</code> or <code>posts/</code>. Consult your theme&rsquo;s documentation.</p>
+<p>Open the freshly created post with your favorite editor. Hugo posts start with a preamble, the <code>key: value</code> pairs between the lines (<code>---</code>). The preamble sets various variables that Hugo will use to compile the site. Depending on the theme, you can add cover images, tags, and category labels. The <code>draft</code> status and publication <code>date</code> affect whether a post is published. You can add content below the preamble, like so.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: &#34;My First Post&#34;
+</span></span><span class="line"><span class="cl">date: 2020-01-01T12:15:00+01:00
+</span></span><span class="line"><span class="cl">draft: true
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gh"># Introduction
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span>
+</span></span><span class="line"><span class="cl">Some <span class="gs">**bold**</span> text and a [<span class="nt">link</span>](<span class="na">example.com</span>).
+</span></span></code></pre></div><p>Now fire up the Hugo server locally in &lsquo;draft&rsquo; mode and open the respective URL with your browser, e.g. <code>http://localhost:1313</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">hugo server -D
+</span></span></code></pre></div><p>If you&rsquo;re new to Hugo, check out a particular theme&rsquo;s example content. Not every theme will display posts the way you might expect. If you get stuck, start with the theme&rsquo;s configuration files (<code>config.toml</code>) and content directories. The <a href="https://github.com/janraasch/hugo-bearblog/tree/master/exampleSite">Bearblog example site </a> is a good start if you decided to use this theme.</p>
+<h2 id="drafts-and-future-posts">Drafts and Future Posts<a hidden class="anchor" aria-hidden="true" href="#drafts-and-future-posts">#</a></h2>
+<p>Note that the server doesn&rsquo;t show blog posts with draft status by default. You can either set <code>draft: true</code> in the markdown file&rsquo;s preamble or run the hugo server in draft mode. Besides draft status there are two more conditions that might prevent a post from being published, i.e. posts with a publication <code>date</code> in the future and posts with an expiry date<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># compile posts with draft status</span>
+</span></span><span class="line"><span class="cl">hugo server -D
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># compile posts with a future publication date</span>
+</span></span><span class="line"><span class="cl">hugo server -F
+</span></span></code></pre></div><h2 id="publishing">Publishing<a hidden class="anchor" aria-hidden="true" href="#publishing">#</a></h2>
+<p>To publish your site, run Hugo excluding drafts and future posts and push the changes to the remote repositories as described <a href="#building-the-site">above</a>.</p>
+<h1 id="tracking-visitors">Tracking Visitors<a hidden class="anchor" aria-hidden="true" href="#tracking-visitors">#</a></h1>
+<p>Hugo and various themes make it easy to add analytics. Start by creating a new account or sign in with an existing Google account at <a href="https://analytics.google.com/">https://analytics.google.com/</a>.</p>
+<p>Then set up your &ldquo;Property&rdquo;, give it a name, and point it to the URL of the site you plan on tracking. Finally, click through the basic options until you land on a page with a Tracking Code which might look something like this: <code>G-XXXXXXXXXX</code>.</p>
+<p>Edit Hugo&rsquo;s configuration file, e.g. <code>config.toml</code>, and add the tracking code.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">googleAnalytics</span> <span class="p">=</span> <span class="s1">&#39;G-XXXXXXXXXX&#39;</span>
+</span></span></code></pre></div><p>You should now be able to track visitors after <a href="#building-the-site">publishing</a> these changes. Then click on &lsquo;Reports&rsquo; and then on &lsquo;Realtime&rsquo; on <code>https://analytics.google.com/</code> to track yourself visiting the page. This should work even if you run a server on your own machine and browse the site locally.</p>
+<h1 id="customization">Customization<a hidden class="anchor" aria-hidden="true" href="#customization">#</a></h1>
+<p>Hugo provides endless possibilities for customization. Virtually everything can be adjusted, including spacing, font sizes, colors, text alignment, and content interaction. The basic principle is to &lsquo;override&rsquo; a theme&rsquo;s default templates. It&rsquo;s relatively easy to use a browser&rsquo;s &lsquo;inspection&rsquo; tools, click on the ⌖ , and hover over the element that you want to adjust. This should help you understand what CSS properties are being applied to this element. You might also be able to glean a few keywords that you can later use to search for.</p>
+<h2 id="modifying-a-theme">Modifying a Theme<a hidden class="anchor" aria-hidden="true" href="#modifying-a-theme">#</a></h2>
+<p>Most theme modifications can be done without modifying the theme&rsquo;s source code repository. Hugo allows overwriting template files with your own modified version that you keep in a separate directory<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>.</p>
+<p>For example, it&rsquo;s relatively straight-forward to modify the copyright footer because most themes keep its template in a separate file. Let&rsquo;s assume the footer template is kept in</p>
+<pre tabindex="0"><code>themes/&lt;THEME&gt;/layouts/&lt;SUBDIR&gt;/footer.html
+</code></pre><p>Obviously, the <code>&lt;THEME&gt;</code> and <code>&lt;SUBDIR&gt;</code> directories depend on your particular theme. If you have trouble finding the right file, browse your theme&rsquo;s <code>layouts/_default</code> directory or grep for a keyword, e.g. <code>grep footer -R</code>. That should give you a rough idea of where to look.</p>
+<p>Once we have identified the right file we make a copy of it and place it in:</p>
+<pre tabindex="0"><code>layouts/&lt;SUBDIR&gt;/footer.html
+</code></pre><p>You might have to create the directory structure first, e.g. <code>mkdir -p layouts/&lt;SUBDIR&gt;</code> before you copy the template with <code>cp -iv themes/&lt;THEME&gt;/layouts/&lt;SUBDIR&gt;/footer.html layouts/&lt;SUBDIR&gt;/</code></p>
+<p>This copy has precedence over the theme&rsquo;s &lsquo;default&rsquo; templates. You can edit the copy to your heart&rsquo;s content. The changes should be immediately visible (or any errors) if you&rsquo;re running the server (<code>hugo server</code>) at the same time. Reverting back to the original theme is as easy as deleting the file.</p>
+<!-- https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-faq/ -->
+<!-- ``` -->
+<!-- .(site root) -->
+<!-- ├── config.yml -->
+<!-- ├── content/ -->
+<!-- ├── theme/THEME/ -->
+<!-- └── assets/ -->
+<!--     └── css/ -->
+<!--         └── extended/ -->
+<!--             ├── custom.css -->
+<!--             └── custom2.css -->
+<!-- ``` -->
+<h2 id="images">Images<a hidden class="anchor" aria-hidden="true" href="#images">#</a></h2>
+<p>Images help your site stand out. They are added to the <code>static/</code> directory or any subdirectory within. For example, after creating a subdirectory (<code>mkdir -p static/images/</code>), images can then be referenced in markdown.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">![<span class="nt">Alt Description</span>](<span class="na">/images/cover.jpeg</span>)
+</span></span></code></pre></div><p>Alternatively, some themes allow adding a caption (i.e. <code>title</code>) by using the Go syntax.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">{{<span class="p">&lt;</span> <span class="nt">figure</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/images/cover.jpeg&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;Caption text.&#34;</span> <span class="p">&gt;</span>}}
+</span></span></code></pre></div><h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>We&rsquo;ve barely scratched the surface of what Hugo can do. Setting up a basic static site is not as easy as some commercial offers like Squarespace and Wordpress. But if you&rsquo;re comfortable on the command line and using an markdown editor this setup offers you full freedom over every aspect of your site. And it&rsquo;s free!</p>
+<h1 id="faq">FAQ<a hidden class="anchor" aria-hidden="true" href="#faq">#</a></h1>
+<h2 id="how-do-i-update-themes">How do I update themes?<a hidden class="anchor" aria-hidden="true" href="#how-do-i-update-themes">#</a></h2>
+<p>If you&rsquo;ve used the <code>git submodule add</code> command to clone a theme repository into the <code>themes/</code> folder you can preview possible updates</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git fetch origin
+</span></span><span class="line"><span class="cl">git status
+</span></span></code></pre></div><p>or pull updates and merge them automatically</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git pull
+</span></span></code></pre></div><p>More info <a href="https://www.adamormsby.com/posts/000/hugo-themes-making-modifications/">here</a>.</p>
+<h2 id="i-forgot-to-add---recurse-submodules">I forgot to add &ndash;recurse-submodules<a hidden class="anchor" aria-hidden="true" href="#i-forgot-to-add---recurse-submodules">#</a></h2>
+<p>You might not see changes appear on GitHub Pages if you forgot to add the <code>--recurse-submodules</code> switch when pushing the main source repository. You can rectify this by entering the submodules directory (e.g. <code>cd public</code>) and running <code>git push</code> there manually.</p>
+<h1 id="links">Links<a hidden class="anchor" aria-hidden="true" href="#links">#</a></h1>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Static sites can be hosted in a number of locations, such as <a href="https://aws.amazon.com/s3/">Amazon S3</a>, <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website">Azure</a>, <a href="https://aws.amazon.com/cloudfront/">CloudFront</a>, <a href="https://www.dreamhost.com/">DreamHost</a>, <a href="https://firebase.google.com/docs/hosting/">Firebase</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="https://about.gitlab.com/features/pages/">GitLab Pages</a>, <a href="https://cloud.google.com/storage/">Google Cloud Storage</a>, <a href="https://www.heroku.com/">Heroku</a>, <a href="https://netlify.com">Netlify</a>, <a href="https://surge.sh">Surge</a>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://www.youtube.com/watch?v=LIFvgrRxdt4">Creating a Blog with Hugo and Github in 10 minutes</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://goulet.dev/posts/avoiding-git-problems-when-installing-a-theme-to-hugo/">Avoiding Git Problems When Installing a Theme to Hugo</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://gohugo.io/getting-started/usage/#draft-future-and-expired-content">Hugo: Draft, Future, and Expired Content</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://gohugobrasil.netlify.app/themes/customizing/">Customize a Theme</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jan-scholz.github.io/tags/hugo/">hugo</a></li>
+      <li><a href="https://jan-scholz.github.io/tags/blogging/">blogging</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://jan-scholz.github.io/post/2021-11-16-data-science-anti-patterns/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Data Science Anti-Patterns: Proliferating Data Artifacts</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://jan-scholz.github.io/">Tales of Industry</a></span>
+    <span>by Jan Scholz.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
