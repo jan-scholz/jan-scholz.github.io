@@ -13,3 +13,6 @@
 
 # OS files
 .DS_Store
+#
+# Hugo
+**/images/drafts/
