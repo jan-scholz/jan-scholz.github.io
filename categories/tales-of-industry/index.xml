@@ -5,7 +5,16 @@
     <link>https://jan-scholz.github.io/categories/tales-of-industry/</link>
     <description>Recent content in tales of industry on Tales of Industry</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 16 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jan-scholz.github.io/categories/tales-of-industry/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jan-scholz.github.io/categories/tales-of-industry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Product Development (Part I)</title>
+      <link>https://jan-scholz.github.io/post/2022-05-08-ai-product-development-part1/</link>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jan-scholz.github.io/post/2022-05-08-ai-product-development-part1/</guid>
+      <description>Build a product, not a model.</description>
+    </item>
+    
     <item>
       <title>Data Science Anti-Patterns: Proliferating Data Artifacts</title>
       <link>https://jan-scholz.github.io/post/2021-11-16-data-science-anti-patterns/</link>

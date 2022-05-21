@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI Product Development (Part I) | Tales of Industry</title>
+<meta name="keywords" content="product development, design thinking, double diamond">
+<meta name="description" content="Build a product, not a model.">
+<meta name="author" content="Jan Scholz">
+<link rel="canonical" href="https://jan-scholz.github.io/post/2022-05-08-ai-product-development-part1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.33b6fd0ebc03810b99883ca083f3acd1a361804bf487116beaf22467eed830a6.css" integrity="sha256-M7b9DrwDgQuZiDygg/Os0aNhgEv0hxFr6vIkZ&#43;7YMKY=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://jan-scholz.github.io/images/faviconT.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jan-scholz.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jan-scholz.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jan-scholz.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jan-scholz.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6NMJL1CGE7"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-6NMJL1CGE7', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="AI Product Development (Part I)" />
+<meta property="og:description" content="Build a product, not a model." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jan-scholz.github.io/post/2022-05-08-ai-product-development-part1/" />
+<meta property="og:image" content="https://jan-scholz.github.io/images/hp2647a.jpg" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-05-08T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-05-08T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://jan-scholz.github.io/images/hp2647a.jpg" />
+<meta name="twitter:title" content="AI Product Development (Part I)"/>
+<meta name="twitter:description" content="Build a product, not a model."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://jan-scholz.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AI Product Development (Part I)",
+      "item": "https://jan-scholz.github.io/post/2022-05-08-ai-product-development-part1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI Product Development (Part I)",
+  "name": "AI Product Development (Part I)",
+  "description": "Build a product, not a model.",
+  "keywords": [
+    "product development", "design thinking", "double diamond"
+  ],
+  "articleBody": "Introduction Depending on how you count, “legacy” enterprises have tried to adopt modern machine learning for close to a decade. And while some organizations have been successful, there are still large swaths of companies that are fighting to even automate their internal reporting. At the same time, data science training is widely available and lots of machine learning tools have matured and are freely available as open source. So why have some organizations barely started to leverage AI?\nNon-digitally native enterprises often struggle with three broad challenges when it comes to creating AI-powered products.\n Identifying the right opportunities Product development Avoiding common pitfalls  Identifying AI Opportunities The news are awash with the most extraordinary advances in AI and machine learning. AI can write entire essays to answer questions1, generate convincing portraits2, and create pictures according to a description3.\nIronically, all that does is to set the expectations for AI much too high for your typical enterprise. Companies such as Amazon, Google, Microsoft, Apple, and Meta spend tens of billions of dollars on R\u0026D4. Don’t expect the same outcome with any less commitment!\nIn any case, identifying AI opportunities in an enterprise context is often approached backwards. Starting with a particular ML approach (no matter how exciting) and then trying to find problems that can be solved by it, is a sure-fire way to solving the wrong problems.\nEnterprises need to follow a human-centered approach that starts with understanding user needs and see AI as a tool, a very powerful one, that allows us to imagine further than we ever thought possible.\nThe Double Diamond Framework The Double Diamond Framework puts the observation and discovery of user needs at the start of the problem-solving process. There are various alternative Design Thinking approaches, all of which try to help answer the two most important questions of product ideation and development.\n1. What is the right _problem_ to solve? 2. What is the right _way_ to solve it? These two questions correspond to the two diamonds of the Double Diamond Framework. The goal of the first diamond is to ensure that we are solving the right problem. We do this by uncovering the core challenges faced by users and translating these insights into ideas during the divergent discovery phase. All ideas are then filtered to ensure that they are desirable and feasible within the project context during the convergent definition phase. Once the problem has been well defined, we move to the second diamond.\n  The Double Diamond highlights the two stages of Design Thinking and the alternation between divergent and convergent thinking.   The goal of the second diamond is to solve the problem the right way. We do this by designing and building the experience often in form of a prototype or MVP during the development phase. Any assumptions can be verified quickly based on the data gathered via a solid build-measure-learn process. The final delivery phase is then all about delivering a viable solution to the user or customer.\nThe Double Diamond framework has been described in more detail here5 and here6. It might, however, be worth highlighting how it applies to AI specifically.\nThe table summarizes some key activities and outcomes of Double Diamond’s four phases. These might look familiar to anyone who has used this approach before to build a software product. The “AI Awareness” column highlights the questions that can be asked by the product designer and members of the AI team to identify AI opportunities. They should be asked with humility and not with the aim to shoehorn AI into the final solution.\n Step Activities Outcomes AI Awareness    1. Explore and Learn  User interviews Existing experience journey map   Synthesize and prioritize User needs across social, emotional and functional dimensions Pain points across the end-to-end user journey   Is the task repetitive? Is work offshored/ outsourced? Is the quality of work variable?   2. Ideate and Define  Future state journey map \u0026 ideation Low fidelity designs   Product vision, objectives, and measures of success Product roadmap   What if we could automate X? What if we could support task X with predictions and insights?   3. Design and Develop  High fidelity design Prototyping \u0026 technical implementation   Build and launching a product or feature   Consider starting with few/ simulated data Test model output with users early   4. Evaluate and Evolve  Measure user behaviour Scale \u0026 and stabilize   Validate hypothesis Determine whether pivot or persevere   Continue to learn from user feedback Monitor model performance \u0026 address model drift    © 2022 talesofindustry.org     Being aware of the tremendous capabilities that AI provides can lead to better ideas. For example, we can consider AI whenever we come across users who are frustrated by having to engage in tedious or repetitive tasks. AI is well-suited for automating tasks that require insights derived from unstructured data, such as images and text.\nAgain, AI should not be the starting point. The design process starts with the user and their frustrations, and then devise ideas to solve the problem. These ideas might or might not include AI as a tool to engineer the better solution.\nConclusion A formalized process, such as the Double Diamond, has been proven useful across the industry and can be adapted to include AI as discussed. If your organization is struggling to identify opportunities and deliver on them, you can try to adopt this approach. Depending on the maturity level of your organization or team, it might also be worthwhile hiring a specialist who can provide training and advice. There’s no need to “reinvent the wheel”. Taking a human-centered approach by starting with user needs and then thinking about how AI can address those needs is a powerful recipe for building experiences users love7.\nWe will address the two remaining challenges to AI adoption (“product development” and “avoiding common pitfalls”) in the upcoming Part II of this series.\n}}) of this series. --   GPT-3 Powers the Next Generation of Apps ↩︎\n Alias-Free Generative Adversarial Networks (StyleGAN3) ↩︎\n DALL·E: Creating Images from Text ↩︎\n Google Needs To Make Machine Learning Their Growth Fuel ↩︎\n What is the framework for innovation? ↩︎\n Design Thinking 101 — What Is It? (Part I), (Part II) ↩︎\n This article is based on a version Aneesh Datta and I previously published on Rangle.IO ↩︎\n   ",
+  "wordCount" : "1032",
+  "inLanguage": "en",
+  "image":"https://jan-scholz.github.io/images/hp2647a.jpg","datePublished": "2022-05-08T00:00:00Z",
+  "dateModified": "2022-05-08T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jan Scholz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jan-scholz.github.io/post/2022-05-08-ai-product-development-part1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tales of Industry",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jan-scholz.github.io/images/faviconT.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jan-scholz.github.io/" accesskey="h" title="Tales of Industry (Alt + H)">Tales of Industry</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jan-scholz.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://jan-scholz.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://jan-scholz.github.io/post/">Posts</a></div>
+    <h1 class="post-title">
+      AI Product Development (Part I)
+    </h1>
+    <div class="post-description">
+      Build a product, not a model.
+    </div>
+    <div class="post-meta"><span title='2022-05-08 00:00:00 +0000 UTC'>May 8, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Jan Scholz
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://jan-scholz.github.io/images/hp2647a.jpg" alt="A picture of someone typing away on an old computer.">
+        <p>Bob builds a model. Will it make it to production? (<a href="https://commons.wikimedia.org/wiki/File:HP_2647A_terminal.jpg">CC BY-SA 3.0</a>).</p>
+</figure>
+  <div class="post-content"><h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<p>Depending on how you count, &ldquo;legacy&rdquo; enterprises have tried to adopt modern machine learning for close to a decade. And while some organizations have been successful, there are still large swaths of companies that are fighting to even automate their internal reporting. At the same time, data science training is widely available and lots of machine learning tools have matured and are freely available as open source. So why have some organizations barely started to leverage AI?</p>
+<p>Non-digitally native enterprises often struggle with three broad challenges when it comes to creating AI-powered products.</p>
+<ol>
+<li>Identifying the right opportunities</li>
+<li>Product development</li>
+<li>Avoiding common pitfalls</li>
+</ol>
+<h1 id="identifying-ai-opportunities">Identifying AI Opportunities<a hidden class="anchor" aria-hidden="true" href="#identifying-ai-opportunities">#</a></h1>
+<p>The news are awash with the most extraordinary advances in AI and machine learning. AI can write entire essays to answer questions<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, generate convincing portraits<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, and create pictures according to a description<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
+<p>Ironically, all that does is to set the expectations for AI much too high for your typical enterprise. Companies such as Amazon, Google, Microsoft, Apple, and Meta spend tens of <em>billions</em> of dollars on R&amp;D<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. Don&rsquo;t expect the same outcome with any less commitment!</p>
+<p>In any case, identifying AI opportunities in an enterprise context is often approached backwards. Starting with a particular ML approach (no matter how exciting) and then trying to find problems that can be solved by it, is a sure-fire way to solving the wrong problems.</p>
+<p>Enterprises need to follow a human-centered approach that starts with understanding user needs and see AI as a tool, a very powerful one, that allows us to imagine further than we ever thought possible.</p>
+<h2 id="the-double-diamond-framework">The Double Diamond Framework<a hidden class="anchor" aria-hidden="true" href="#the-double-diamond-framework">#</a></h2>
+<p>The <em>Double Diamond Framework</em> puts the observation and discovery of user needs at the start of the problem-solving process. There are various alternative <a href="https://hbr.org/2018/09/why-design-thinking-works">Design Thinking</a> approaches, all of which try to help answer the two most important questions of product ideation and development.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="k">1.</span> What is the right <span class="ge">_problem_</span> to solve?
+</span></span><span class="line"><span class="cl"><span class="k">2.</span> What is the right <span class="ge">_way_</span> to solve it?
+</span></span></code></pre></div><p>These two questions correspond to the two diamonds of the <em>Double Diamond Framework</em>. The goal of the first diamond is to ensure that we are solving the right problem. We do this by uncovering the core challenges faced by users and translating these insights into ideas during the divergent discovery phase. All ideas are then filtered to ensure that they are desirable and feasible within the project context during the convergent definition phase. Once the problem has been well defined, we move to the second diamond.</p>
+<figure>
+    <img loading="lazy" src="/images/double_diamond.jpeg"/> <figcaption>
+            The Double Diamond highlights the two stages of Design Thinking and the alternation between divergent and convergent thinking.
+        </figcaption>
+</figure>
+
+<p>The goal of the second diamond is to solve the problem the right way. We do this by designing and building the experience often in form of a prototype or MVP during the development phase. Any assumptions can be verified quickly based on the data gathered via a solid build-measure-learn process. The final delivery phase is then all about delivering a viable solution to the user or customer.</p>
+<p>The Double Diamond framework has been described in more detail here<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> and here<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>. It might, however, be worth highlighting how it applies to AI specifically.</p>
+<p>The table summarizes some key activities and outcomes of Double Diamond&rsquo;s four phases. These might look familiar to anyone who has used this approach before to build a software product. The &ldquo;AI Awareness&rdquo; column highlights the questions that can be asked by the product designer and members of the AI team to identify AI opportunities. They should be asked with humility and not with the aim to shoehorn AI into the final solution.</p>
+<table style="font-size:70%;border: 1px solid #DDDDDD;">
+<thead>
+<tr style="background-color:#DDDDDD">
+<th>Step</th>
+<th>Activities</th>
+<th>Outcomes</th>
+<th>AI Awareness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="even" style="vertical-align:top">
+<td><b>1. Explore and Learn</b></td>
+<td><ul>
+<li>User interviews</li>
+<li>Existing experience journey map</li>
+</ul></td>
+<td><ul>
+<li>Synthesize and prioritize</li>
+<li>User needs across social, emotional and functional dimensions</li>
+<li>Pain points across the end-to-end user journey</li>
+</ul></td>
+<td><ul>
+<li>Is the task repetitive?</li>
+<li>Is work offshored/ outsourced?</li>
+<li>Is the quality of work variable?</li>
+</ul></td>
+</tr>
+<tr class="odd" style="vertical-align:top; background-color:#EEEEEE">
+<td><b>2. Ideate and Define</b></td>
+<td><ul>
+<li>Future state journey map &amp; ideation</li>
+<li>Low fidelity designs</li>
+</ul></td>
+<td><ul>
+<li>Product vision, objectives, and measures of success</li>
+<li>Product roadmap</li>
+</ul></td>
+<td><ul>
+<li>What if we could automate X?</li>
+<li>What if we could support task X with predictions and insights?</li>
+</ul></td>
+</tr>
+<tr class="even" style="vertical-align:top">
+<td><b>3. Design and Develop</b></td>
+<td><ul>
+<li>High fidelity design</li>
+<li>Prototyping &amp; technical implementation</li>
+</ul></td>
+<td><ul>
+<li>Build and launching a product or feature</li>
+</ul></td>
+<td><ul>
+<li>Consider starting with few/ simulated data</li>
+<li>Test model output with users early</li>
+</ul></td>
+</tr>
+<tr class="odd" style="vertical-align:top; background-color:#EEEEEE">
+<td><b>4. Evaluate and Evolve</b></td>
+<td><ul>
+<li>Measure user behaviour</li>
+<li>Scale &amp; and stabilize</li>
+</ul></td>
+<td><ul>
+<li>Validate hypothesis</li>
+<li>Determine whether pivot or persevere</li>
+</ul></td>
+<td><ul>
+<li>Continue to learn from user feedback</li>
+<li>Monitor model performance &amp; address model drift</li>
+</ul></td>
+</tr>
+<tr>
+<td colspan="4" style="text-align: right">
+&copy; 2022 <a href="https://talesofindustry.org/post/2022-05-08-ai-product-development-part1/">talesofindustry.org</a>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Being aware of the tremendous capabilities that AI provides can lead to better ideas. For example, we can consider AI whenever we come across users who are frustrated by having to engage in tedious or repetitive tasks. AI is well-suited for automating tasks that require insights derived from unstructured data, such as images and text.</p>
+<p>Again, AI should not be the starting point. The design process starts with the user and their frustrations, and then devise ideas to solve the problem. These ideas might or might not include AI as a tool to engineer the better solution.</p>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>A formalized process, such as the Double Diamond, has been proven useful across the industry and can be adapted to include AI as discussed. If your organization is struggling to identify opportunities and deliver on them, you can try to adopt this approach. Depending on the maturity level of your organization or team, it might also be worthwhile hiring a specialist who can provide training and advice. There&rsquo;s no need to &ldquo;reinvent the wheel&rdquo;. Taking a human-centered approach by starting with user needs and then thinking about how AI can address those needs is a powerful recipe for building experiences users love<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>.</p>
+<p>We will address the two remaining challenges to AI adoption (&ldquo;product development&rdquo; and &ldquo;avoiding common pitfalls&rdquo;) in the upcoming Part II of this series.</p>
+<!-- [Part II]({{<ref "/post/2022-05-08-ai-product-development-part2.md">}}) of this series. -->
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://openai.com/blog/gpt-3-apps/">GPT-3 Powers the Next Generation of Apps</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://nvlabs.github.io/stylegan3/">Alias-Free Generative Adversarial Networks (StyleGAN3)</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://openai.com/blog/dall-e/">DALL·E: Creating Images from Text</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://www.forbes.com/sites/louiscolumbus/2018/08/26/google-needs-to-make-machine-learning-their-growth-fuel/?sh=2cd33cf62431">Google Needs To Make Machine Learning Their Growth Fuel</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://www.designcouncil.org.uk/news-opinion/what-framework-innovation-design-councils-evolved-double-diamond">What is the framework for innovation?</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Design Thinking 101 — What Is It? <a href="https://medium.com/seek-user-experience/design-thinking-101-what-is-it-part-i-of-ii-c90d653699d1">(Part I)</a>, <a href="https://medium.com/seek-blog/design-thinking-101-the-double-diamond-approach-ii-4c0ce62f64c7">(Part II)</a>&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>This article is based on a version Aneesh Datta and I previously published on <a href="https://rangle.io/blog/how-to-succeed-at-ai-product-development/">Rangle.IO</a>&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jan-scholz.github.io/tags/product-development/">product development</a></li>
+      <li><a href="https://jan-scholz.github.io/tags/design-thinking/">design thinking</a></li>
+      <li><a href="https://jan-scholz.github.io/tags/double-diamond/">double diamond</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://jan-scholz.github.io/post/2022-03-05-how-to-create-this-blog/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>How To Create This Blog</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://jan-scholz.github.io/">Tales of Industry</a></span>
+    <span>by Jan Scholz.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

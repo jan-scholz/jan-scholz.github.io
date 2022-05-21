@@ -5,7 +5,16 @@
     <link>https://jan-scholz.github.io/</link>
     <description>Recent content on Tales of Industry</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jan-scholz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jan-scholz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Product Development (Part I)</title>
+      <link>https://jan-scholz.github.io/post/2022-05-08-ai-product-development-part1/</link>
+      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jan-scholz.github.io/post/2022-05-08-ai-product-development-part1/</guid>
+      <description>Build a product, not a model.</description>
+    </item>
+    
     <item>
       <title>About</title>
       <link>https://jan-scholz.github.io/about/</link>

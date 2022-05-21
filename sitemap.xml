@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jan-scholz.github.io/post/2022-05-08-ai-product-development-part1/</loc>
+    <lastmod>2022-05-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jan-scholz.github.io/categories/</loc>
+    <lastmod>2022-05-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jan-scholz.github.io/tags/design-thinking/</loc>
+    <lastmod>2022-05-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jan-scholz.github.io/tags/double-diamond/</loc>
+    <lastmod>2022-05-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jan-scholz.github.io/post/</loc>
+    <lastmod>2022-05-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jan-scholz.github.io/tags/product-development/</loc>
+    <lastmod>2022-05-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jan-scholz.github.io/tags/</loc>
+    <lastmod>2022-05-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jan-scholz.github.io/categories/tales-of-industry/</loc>
+    <lastmod>2022-05-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jan-scholz.github.io/</loc>
+    <lastmod>2022-05-08T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jan-scholz.github.io/about/</loc>
     <lastmod>2022-05-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -11,9 +38,6 @@
     <loc>https://jan-scholz.github.io/tags/blogging/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jan-scholz.github.io/categories/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jan-scholz.github.io/categories/hands-on-keyboard/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
@@ -21,15 +45,6 @@
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jan-scholz.github.io/tags/hugo/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jan-scholz.github.io/post/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jan-scholz.github.io/tags/</loc>
-    <lastmod>2022-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jan-scholz.github.io/</loc>
     <lastmod>2022-03-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jan-scholz.github.io/tags/best-practices/</loc>
@@ -42,9 +57,6 @@
     <lastmod>2021-11-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jan-scholz.github.io/tags/pipelines/</loc>
-    <lastmod>2021-11-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jan-scholz.github.io/categories/tales-of-industry/</loc>
     <lastmod>2021-11-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jan-scholz.github.io/tags/project-management/</loc>
