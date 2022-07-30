@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI Product Development (Part III) | Tales of Industry</title>
+<meta name="keywords" content="product development, project management">
+<meta name="description" content="How to avoid common AI pitfalls.">
+<meta name="author" content="Jan Scholz">
+<link rel="canonical" href="https://jan-scholz.github.io/post/2022-07-30-ai-product-development-part3/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.e7bdcb76bf86089a5e414a2b5b847d063790be439329df5d5e010efbeb86ea87.css" integrity="sha256-573Ldr&#43;GCJpeQUorW4R9BjeQvkOTKd9dXgEO&#43;&#43;uG6oc=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.e85ad0406048e8176e1c7661b25d5c69297ddfe41dc4124cf75ecb99a4f7b3d1.js" integrity="sha256-6FrQQGBI6BduHHZhsl1caSl93&#43;QdxBJM917LmaT3s9E="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://jan-scholz.github.io/images/faviconT.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jan-scholz.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jan-scholz.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jan-scholz.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jan-scholz.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6NMJL1CGE7"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-6NMJL1CGE7', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="AI Product Development (Part III)" />
+<meta property="og:description" content="How to avoid common AI pitfalls." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jan-scholz.github.io/post/2022-07-30-ai-product-development-part3/" />
+<meta property="og:image" content="https://jan-scholz.github.io/images/pitfall.jpg" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-07-30T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-07-30T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://jan-scholz.github.io/images/pitfall.jpg" />
+<meta name="twitter:title" content="AI Product Development (Part III)"/>
+<meta name="twitter:description" content="How to avoid common AI pitfalls."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://jan-scholz.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AI Product Development (Part III)",
+      "item": "https://jan-scholz.github.io/post/2022-07-30-ai-product-development-part3/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI Product Development (Part III)",
+  "name": "AI Product Development (Part III)",
+  "description": "How to avoid common AI pitfalls.",
+  "keywords": [
+    "product development", "project management"
+  ],
+  "articleBody": "Introduction In this three-part series we discussed the challenges that enterprises face when it comes to adopting AI – especially those organizations that have traditionally not been in the business of software engineering:\nIdentifying the right opportunities (Part I) Product development (Part II) Avoiding common pitfalls This final part will conclude the series by going over a few common pitfalls of AI product development and how to avoid them. This list is by no means exhaustive and focuses on business and organizational pitfalls1 rather than those related to AI theory and technology.\nAvoiding Common AI Pitfalls Get a business sponsor AI projects are by their very nature complex and show value only slowly. In this regard they are more akin to R\u0026D or innovation-type projects that require an initial investment without immediate payback. It’s thus all the more important to secure strong support from the side of the business that is supposed to benefit from (and often funds) the work.\nA good proportion of data science teams struggle, because they have entered an antagonistic, one-sided relationship with the business where they are seen as service providers. As a result, these teams loose their ability to identify with the business’ goals and start to look inward, focusing on technical challenges instead of driving business value.\nGetting a business sponsors who is invested into the team’s success can help mitigate these risks. A sponsor ensures that the business relationship is collaborative and that goals are shared across teams. Developing an effective relationship with business stakeholders can be difficult2 and data science teams can benefit from someone who can liaise between them and the stakeholders. Finally, a sponsor can also help support project funding discussions by communicating timelines and risks to decision makers.\nStart simple Once a business sponsor has been found it is time to define the scope of the project. Data scientists and ML engineers are an especially ambitious bunch – which is great – but often associated with a tendency to overengineer and overachieve. Especially at the start of a project it is expedient to scale back the aspirations of the team and focus on what value can be delivered quickly with a reasonable amount of effort.\nThis initial, imperfect solution can then be used as a springboard to get the buy-in to develop a more sophisticated product. The added benefit is that user feedback can be collected. The question of whether an AI product provides value to the user or customer carries the largest risk and can often be answered without taking the most sophisticated AI approach.\nIt takes discipline and experience to identify the business problems that have the right complexity and don’t require unreasonable time and effort before value is measurable. But a good guideline is to halve the complexity of the AI solution that was initially proposed. In many enterprises ample value can be delivered even after radically scaling back the scope, especially when this is the first attempt of rolling out AI or machine learning at scale for a particular business unit.\nStart with augmentation over automation Augmentation and human-in-the-loop solutions are a good example of simplifying AI product design during the initial roll-out. Although full automation might be the end goal, a transitional augmentation phase has many advantages.\nAugmentation can be an effective way to incrementally work towards automation. It often takes time to narrow down the exact problem to solve with AI. Individuals who used to complete a task manually can help capture all the implicit assumptions and business rules when they are part of the augmentation phase.\nAugmentation can also speed up time-to-market. An AI application can already start generating value by augmenting the human user on the easiest-to-automate tasks. The experience can demonstrate whether it is worth automating the entire workflow.\nSometimes augmentation can free up enough time3 for humans to focus on tasks where we’re still superior to machines. In the end, this approach can find the sweet spot between augmentation and automation, which would have been overlooked by attempting full automation from the get-go.\nOf course, augmentation can also help minimize risk where an error may compromise human safety or increase financial risk. The benefit of fully automating a task may not outweigh the cost of the AI making occasional mistakes.\nIn summary, aiming for augmentation first can help de-risk AI projects, especially in enterprises with low AI maturity.\nDon’t get distracted by data This final AI pitfall refers the lack of data access or availability that hobbles so many projects in the beginning. This is especially frustrating for data scientists who joined the project to work on machine learning models and want to get started as quickly as possible.\nWhile the reasons for a lack of data can be manifold, they often shift focus away from the business problem. Instead, time is spent deliberating with data management, data governance, or IT teams on how to gain access to already existing data. Or plans have to be made to collect or buy new data.\nAI products need to straddle data requirements, model insights and user experience. Focusing efforts on one corner of the triangle, e.g. data, can risk falling behind on modelling and user experience.\nThis is not to say that data isn’t important, but time spent on data availability is time not spent on working toward a great user experience. Data, model, and user experience are interdependent and cannot be solved independently. Spending time on data alone risks acquiring the wrong data or creating data infrastructure that is incompatible with the use case. Data lakes, which enterprises spend years filling, are a good example. AI product development is sometimes delayed by these projects and often requires significant adjustments to data and data infrastructure once started.\nIt should not be forgotten that building models and exposing them to the user can help inform the data acquisition process. Many of the questions around volume, state, and predictiveness of the data can only be answered by starting the modelling process. The question of whether the model’s insights are needed, useful, and actionable can only be answered once the user is exposed to them.\nConclusion Not every team or project will encounter the same AI product development pitfalls. Many problems can be avoided with experience, foresight, and adherence to best practices. But these pitfalls also stem in part from patterns that bias teams to behave in certain ways.\nTeams might be reluctant to interact with the business to get a sponsor, because these are usually people from a different background, who speak a different language. Teams might be ambitious, thinking they can or should solve the challenge by themselves. It’s easy to get enamoured with new, shiny frameworks and start designing solutions that are too complex and built on technology that people have little experience with.\nSo the journey to embrace best practices is also always a fight against the forces that pull us away from adopting them.\nRead about “how to identify AI opportunities” in Part I and “AI product development” in Part II of this series.\nHow AI Fits into Your Data Science Team ↩︎\nHow to Work With Stakeholders as a Data Scientist ↩︎\nIf done right, this will also provide a way to introduce AI more gracefully without threatening to displace someone’s job. ↩︎\n",
+  "wordCount" : "1213",
+  "inLanguage": "en",
+  "image":"https://jan-scholz.github.io/images/pitfall.jpg","datePublished": "2022-07-30T00:00:00Z",
+  "dateModified": "2022-07-30T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jan Scholz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jan-scholz.github.io/post/2022-07-30-ai-product-development-part3/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tales of Industry",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jan-scholz.github.io/images/faviconT.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jan-scholz.github.io/" accesskey="h" title="Tales of Industry (Alt + H)">Tales of Industry</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jan-scholz.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jan-scholz.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://jan-scholz.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://jan-scholz.github.io/post/">Posts</a></div>
+    <h1 class="post-title">
+      AI Product Development (Part III)
+    </h1>
+    <div class="post-description">
+      How to avoid common AI pitfalls.
+    </div>
+    <div class="post-meta"><span title='2022-07-30 00:00:00 +0000 UTC'>July 30, 2022</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Jan Scholz
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://jan-scholz.github.io/images/pitfall.jpg" alt="A still from an old movie showing a woman and a man arguing augmentation vs automation.">
+        <p>Alice helps Bob avoid those common AI pitfalls.</p>
+</figure>
+  <div class="post-content"><h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<p>In this three-part series we discussed the challenges that enterprises face when it comes to adopting AI &ndash; especially those organizations that have traditionally not been in the business of software engineering:</p>
+<ol>
+<li>Identifying the right opportunities (<a href="https://jan-scholz.github.io/post/2022-05-08-ai-product-development-part1/">Part I</a>)</li>
+<li>Product development (<a href="https://jan-scholz.github.io/post/2022-06-01-ai-product-development-part2/">Part II</a>)</li>
+<li>Avoiding common pitfalls</li>
+</ol>
+<p>This final part will conclude the series by going over a few common pitfalls of AI product development and how to avoid them. This list is by no means exhaustive and focuses on business and organizational pitfalls<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> rather than those related to AI theory and technology.</p>
+<h1 id="avoiding-common-ai-pitfalls">Avoiding Common AI Pitfalls<a hidden class="anchor" aria-hidden="true" href="#avoiding-common-ai-pitfalls">#</a></h1>
+<h2 id="get-a-business-sponsor">Get a business sponsor<a hidden class="anchor" aria-hidden="true" href="#get-a-business-sponsor">#</a></h2>
+<p>AI projects are by their very nature complex and show value only slowly. In this regard they are more akin to R&amp;D or innovation-type projects that require an initial investment without immediate payback. It&rsquo;s thus all the more important to secure strong support from the side of the business that is supposed to benefit from (and often funds) the work.</p>
+<p>A good proportion of data science teams struggle, because they have entered an antagonistic, one-sided relationship with the business where they are seen as service providers. As a result, these teams loose their ability to identify with the business&rsquo; goals and start to look inward, focusing on technical challenges instead of driving business value.</p>
+<p>Getting a business sponsors who is invested into the team&rsquo;s success can help mitigate these risks. A sponsor ensures that the business relationship is collaborative and that goals are shared across teams. Developing an effective relationship with business stakeholders can be difficult<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> and data science teams can benefit from someone who can liaise between them and the stakeholders. Finally, a sponsor can also help support project funding discussions by communicating timelines and risks to decision makers.</p>
+<h2 id="start-simple">Start simple<a hidden class="anchor" aria-hidden="true" href="#start-simple">#</a></h2>
+<p>Once a business sponsor has been found it is time to define the scope of the project. Data scientists and ML engineers are an especially ambitious bunch &ndash; which is great &ndash; but often associated with a tendency to overengineer and overachieve. Especially at the start of a project it is expedient to scale back the aspirations of the team and focus on what value can be delivered quickly with a reasonable amount of effort.</p>
+<p>This initial, imperfect solution can then be used as a springboard to get the buy-in to develop a more sophisticated product. The added benefit is that user feedback can be collected. The question of whether an AI product provides value to the user or customer carries the largest risk and can often be answered without taking the most sophisticated AI approach.</p>
+<p>It takes discipline and experience to identify the business problems that have the right complexity and don&rsquo;t require unreasonable time and effort before value is measurable. But a good guideline is to halve the complexity of the AI solution that was initially proposed. In many enterprises ample value can be delivered even after radically scaling back the scope, especially when this is the first attempt of rolling out AI or machine learning at scale for a particular business unit.</p>
+<h2 id="start-with-augmentation-over-automation">Start with augmentation over automation<a hidden class="anchor" aria-hidden="true" href="#start-with-augmentation-over-automation">#</a></h2>
+<p>Augmentation and human-in-the-loop solutions are a good example of simplifying AI product design during the initial roll-out. Although full automation might be the end goal, a transitional augmentation phase has many advantages.</p>
+<p>Augmentation can be an effective way to incrementally work towards automation. It often takes time to narrow down the exact problem to solve with AI. Individuals who used to complete a task manually can help capture all the implicit assumptions and business rules when they are part of the augmentation phase.</p>
+<p>Augmentation can also speed up time-to-market. An AI application can already start generating value by augmenting the human user on the easiest-to-automate tasks. The experience can demonstrate whether it is worth automating the entire workflow.</p>
+<p>Sometimes augmentation can free up enough time<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> for humans to focus on tasks where we&rsquo;re still superior to machines. In the end, this approach can find the sweet spot between augmentation and automation, which would have been overlooked by attempting full automation from the get-go.</p>
+<p>Of course, augmentation can also help minimize risk where an error may compromise human safety or increase financial risk. The benefit of fully automating a task may not outweigh the cost of the AI making occasional mistakes.</p>
+<p>In summary, aiming for augmentation first can help de-risk AI projects, especially in enterprises with low AI maturity.</p>
+<h2 id="dont-get-distracted-by-data">Don&rsquo;t get distracted by data<a hidden class="anchor" aria-hidden="true" href="#dont-get-distracted-by-data">#</a></h2>
+<p>This final AI pitfall refers the lack of data access or availability that hobbles so many projects in the beginning. This is especially frustrating for data scientists who joined the project to work on machine learning models and want to get started as quickly as possible.</p>
+<p>While the reasons for a lack of data can be manifold, they often shift focus away from the business problem. Instead, time is spent deliberating with data management, data governance, or IT teams on how to gain access to already existing data. Or plans have to be made to collect or buy new data.</p>
+<figure>
+    <img loading="lazy" src="/images/data_model_ux.png"
+         alt="AI products need to straddle data requirements, model insights and user experience. Focusing efforts on one corner of the triangle, e.g. data, can risk falling behind on modelling and user experience."/> <figcaption>
+            <p>AI products need to straddle data requirements, model insights and user experience. Focusing efforts on one corner of the triangle, e.g. data, can risk falling behind on modelling and user experience.</p>
+        </figcaption>
+</figure>
+
+<p>This is not to say that data isn&rsquo;t important, but time spent on data availability is time not spent on working toward a great user experience. Data, model, and user experience are interdependent and cannot be solved independently. Spending time on data alone risks acquiring the wrong data or creating data infrastructure that is incompatible with the use case. Data lakes, which enterprises spend years filling, are a good example. AI product development is sometimes delayed by these projects and often requires significant adjustments to data and data infrastructure once started.</p>
+<p>It should not be forgotten that building models and exposing them to the user can help inform the data acquisition process. Many of the questions around volume, state, and predictiveness of the data can only be answered by starting the modelling process. The question of whether the model’s insights are needed, useful, and actionable can only be answered once the user is exposed to them.</p>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>Not every team or project will encounter the same AI product development pitfalls. Many problems can be avoided with experience, foresight, and adherence to best practices. But these pitfalls also stem in part from patterns that bias teams to behave in certain ways.</p>
+<p>Teams might be reluctant to interact with the business to get a sponsor, because these are usually people from a different background, who speak a different language. Teams might be ambitious, thinking they can or should solve the challenge by themselves. It&rsquo;s easy to get enamoured with new, shiny frameworks and start designing solutions that are too complex and built on technology that people have little experience with.</p>
+<p>So the journey to embrace best practices is also always a fight against the forces that pull us away from adopting them.</p>
+<p>Read about &ldquo;how to identify AI opportunities&rdquo; in <a href="https://jan-scholz.github.io/post/2022-05-08-ai-product-development-part1/">Part I</a> and &ldquo;AI product development&rdquo; in <a href="https://jan-scholz.github.io/post/2022-06-01-ai-product-development-part2/">Part II</a> of this series.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://hbr.org/2017/07/how-ai-fits-into-your-data-science-team">How AI Fits into Your Data Science Team</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://towardsdatascience.com/how-to-work-with-stakeholders-as-a-data-scientist-13a1769c8152">How to Work With Stakeholders as a Data Scientist</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>If done right, this will also provide a way to introduce AI more gracefully without threatening to displace someone&rsquo;s job.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jan-scholz.github.io/tags/product-development/">product development</a></li>
+      <li><a href="https://jan-scholz.github.io/tags/project-management/">project management</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://jan-scholz.github.io/post/2022-06-01-ai-product-development-part2/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>AI Product Development (Part II)</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://jan-scholz.github.io/">Tales of Industry</a></span>
+    <span>by Jan Scholz.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

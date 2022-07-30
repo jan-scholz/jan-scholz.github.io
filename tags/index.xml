@@ -5,22 +5,31 @@
     <link>https://jan-scholz.github.io/tags/</link>
     <description>Recent content in Tags on Tales of Industry</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 01 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jan-scholz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jan-scholz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>product development</title>
+      <link>https://jan-scholz.github.io/tags/product-development/</link>
+      <pubDate>Sat, 30 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jan-scholz.github.io/tags/product-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>project management</title>
+      <link>https://jan-scholz.github.io/tags/project-management/</link>
+      <pubDate>Sat, 30 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jan-scholz.github.io/tags/project-management/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>discovery</title>
       <link>https://jan-scholz.github.io/tags/discovery/</link>
       <pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jan-scholz.github.io/tags/discovery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>product development</title>
-      <link>https://jan-scholz.github.io/tags/product-development/</link>
-      <pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jan-scholz.github.io/tags/product-development/</guid>
       <description></description>
     </item>
     
@@ -102,15 +111,6 @@
       <pubDate>Tue, 16 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jan-scholz.github.io/tags/pipelines/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>project management</title>
-      <link>https://jan-scholz.github.io/tags/project-management/</link>
-      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jan-scholz.github.io/tags/project-management/</guid>
       <description></description>
     </item>
     
