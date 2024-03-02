@@ -10,7 +10,7 @@
 <meta name="description" content="Getting Started with Hugo Hugo is a static site generator (SSG). Simply put, an SSG prepares everything needed to display a website. In contrast, dynamically assembled websites obtain their assets only after they get accessed. An SSG thus minimizes the computational demand on the server, which allows providers, such as GitHub Pages and others1, to host your static sites for free. More importantly, SSGs emanate a philosophy of simplicity-by-design stemming from a number of limitations.">
 <meta name="author" content="Jan Scholz">
 <link rel="canonical" href="https://www.talesofindustry.org/post/2022-03-05-how-to-create-this-blog/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.818346c123c1b059dd88ebcd7b22c0ebe748e22972b0409a17282c397f72047b.css" integrity="sha256-gYNGwSPBsFndiOvNeyLA6&#43;dI4ilysECaFygsOX9yBHs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3224db8f74a1aa9da88b8b7bbd37defcddaf7b18d0803082a8b8878acc39e07a.css" integrity="sha256-MiTbj3Shqp2oi4t7vTfe/N2vexjQgDCCqLiHisw54Ho=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://www.talesofindustry.org/images/faviconT.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://www.talesofindustry.org/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.talesofindustry.org/favicon-32x32.png">
@@ -18,6 +18,7 @@
 <link rel="mask-icon" href="https://www.talesofindustry.org/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://www.talesofindustry.org/post/2022-03-05-how-to-create-this-blog/">
 <noscript>
     <style>
         #theme-toggle,
@@ -149,7 +150,7 @@ if (!doNotTrack) {
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://www.talesofindustry.org" accesskey="h" title="Tales of Industry (Alt + H)">Tales of Industry</a>
+            <a href="https://www.talesofindustry.org/" accesskey="h" title="Tales of Industry (Alt + H)">Tales of Industry</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -171,6 +172,8 @@ if (!doNotTrack) {
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -206,7 +209,7 @@ if (!doNotTrack) {
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://www.talesofindustry.org">Home</a>&nbsp;»&nbsp;<a href="https://www.talesofindustry.org/post/">Posts</a></div>
+    <div class="breadcrumbs"><a href="https://www.talesofindustry.org/">Home</a>&nbsp;»&nbsp;<a href="https://www.talesofindustry.org/post/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       How To Create This Blog
     </h1>
@@ -291,7 +294,7 @@ if (!doNotTrack) {
 
   <div class="post-content"><h1 id="getting-started-with-hugo">Getting Started with Hugo<a hidden class="anchor" aria-hidden="true" href="#getting-started-with-hugo">#</a></h1>
 <p><a href="https://gohugo.io/">Hugo</a> is a static site generator (SSG). Simply put, an SSG prepares everything needed to display a website. In contrast, dynamically assembled websites obtain their assets only after they get accessed. An SSG thus minimizes the computational demand on the server, which allows providers, such as GitHub Pages and others<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, to host your static sites for free. More importantly, SSGs emanate a philosophy of simplicity-by-design stemming from a number of limitations. Being constraint forces content creators to focus on the content itself and minimizes the distractions of layout and design. SSGs are thus especially suited for blogs, landing pages, documentation and portfolio sites.</p>
-<p>The following is based on Ryan Schachte&rsquo;s excellent video<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> and similar tutorials (see <a href="#links">links</a> below).</p>
+<p>The following is based on Ryan Schachte&rsquo;s excellent video<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> and similar tutorials (see <a href="/post/2022-03-05-how-to-create-this-blog/#links">links</a> below).</p>
 <h2 id="install-hugo">Install Hugo<a hidden class="anchor" aria-hidden="true" href="#install-hugo">#</a></h2>
 <p>On MacOS install Hugo from the command line using the <a href="https://brew.sh/">Homebrew</a> package manager.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">brew install hugo
@@ -507,8 +510,8 @@ if (!doNotTrack) {
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://www.talesofindustry.org/tags/hugo/">hugo</a></li>
-      <li><a href="https://www.talesofindustry.org/tags/blogging/">blogging</a></li>
+      <li><a href="https://www.talesofindustry.org/tags/hugo/">Hugo</a></li>
+      <li><a href="https://www.talesofindustry.org/tags/blogging/">Blogging</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://www.talesofindustry.org/post/2022-05-08-ai-product-development-part1/">
@@ -528,7 +531,7 @@ if (!doNotTrack) {
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://www.talesofindustry.org">Tales of Industry</a></span>
+    <span>&copy; 2024 <a href="https://www.talesofindustry.org/">Tales of Industry</a></span>
     <span>by Jan Scholz.</span>
     <span>
         Powered by
