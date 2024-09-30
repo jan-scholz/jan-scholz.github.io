@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Commandline on Tales of Industry</title>
+    <link>http://localhost:1313/tags/commandline/</link>
+    <description>Recent content in Commandline on Tales of Industry</description>
+    <image>
+      <title>Tales of Industry</title>
+      <url>http://localhost:1313/images/talesofindustry_cover.png</url>
+      <link>http://localhost:1313/images/talesofindustry_cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 08 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/commandline/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DRAFT: Mastering the Command Line</title>
+      <link>http://localhost:1313/post/2022-07-31-mastering-the-command-line/</link>
+      <pubDate>Mon, 08 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/2022-07-31-mastering-the-command-line/</guid>
+      <description>Mastering the Command Line</description>
+    </item>
+  </channel>
+</rss>

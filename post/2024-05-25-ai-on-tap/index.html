@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>DRAFT: AI On Tap | Tales of Industry</title>
+<meta name="keywords" content="">
+<meta name="description" content="AI on Tap">
+<meta name="author" content="Jan Scholz">
+<link rel="canonical" href="http://localhost:1313/post/2024-05-25-ai-on-tap/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f689a0f4dbe4498657f258203900979e0690d357488ff8a6a3b36a38f0c5124f.css" integrity="sha256-9omg9NvkSYZX8lggOQCXngaQ01dIj/imo7NqOPDFEk8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/faviconT.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/post/2024-05-25-ai-on-tap/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NMJL1CGE7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-6NMJL1CGE7');
+        }
+      </script><meta property="og:title" content="DRAFT: AI On Tap" />
+<meta property="og:description" content="AI on Tap" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/2024-05-25-ai-on-tap/" />
+<meta property="og:image" content="http://localhost:1313/images/drafts/barrels.jpg" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-05-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-05-25T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/images/drafts/barrels.jpg" />
+<meta name="twitter:title" content="DRAFT: AI On Tap"/>
+<meta name="twitter:description" content="AI on Tap"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "DRAFT: AI On Tap",
+      "item": "http://localhost:1313/post/2024-05-25-ai-on-tap/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "DRAFT: AI On Tap",
+  "name": "DRAFT: AI On Tap",
+  "description": "AI on Tap",
+  "keywords": [
+    
+  ],
+  "articleBody": "Introduction AI-on-tap is revolutionizing how enterprises design and deploy applications. The need for modern systems architecture to provide insights and automations has accelerated the need to split monolithic applications into loosely coupled, reusable services. Traditional software architecture is failing to accommodate the complexity that data-dependence and the pivot toward probabilistic systems have introduced.\nLuckily, an industry-wide trend (started in the early 2000s) toward Service-Oriented Architecture (SOA) provides the basis for dealing with these challenges. At its core, SOA is an architectural design pattern that emphasizes the use of independent services which combine to perform complex tasks1.\nAI-on-tap utilizes this architecture to provide AI-driven insights to services and applications. The advantage of developing individual services is especially apparent when an application involves unreliable data, non-deterministic logic, and complex dependencies.\nAI-On-Tap Example In a nutshell, AI-on-tap promotes building single-purpose services that are focused on generating specific insights asynchronously via standardized protocols. The concept thus encompasses both, the domain (or business purpose) and the implementation. User-facing applications and other services can “tap” into a range of insights similar to how a patron might sample from a beer menu.\nAn example of an AI-on-Tap architecture. Multiple applications can ’tap’ into the insights provided by dedicated AI services. This ensures a common ‘source of truth’ for all insights-based decisions making.\nHow would this look like in practice? Imagine, for example, a retailer who designs and builds their own internal applications. This organization has a need for a range of insights, such as demand forecasting, price optimization, and product selection.\nTraditionally, these insights would happen “under the hood” of a supply chain management system, a price optimization software, and an inventory management application. It would be nigh impossible to extract these insights for other purposes or base them on a common forecasting approach. The opportunity to achieve optimal decision making across the organization is greatly diminished by the barriers between systems.\nCompare this to the AI-on-tap approach. Here, all three applications utilize a common demand forecasting engine, negating the need to develop and maintain one for each application. This pattern also ensures that forecasts reconcile across the organization. From price optimization to supply chain everything would be based on the same forecasts.\nThis approaches utilized the resources of an organization optimally. Teams can rally around a business purpose and develop IP unique to the organization. Vertical ownership is rewarding to teams and attracts talent, unlike integration and maintenance of commercial software packages.\nThe AI-On-Tap Playbook The AI-on-Tap paradigm is probably the most applicable within enterprises that build applications that share the need for certain insights. For example, forecasts are often relevant for a number of use cases and have high re-usability. Additionally, having these forecasts come from one source ensures that decisions by all departments are made based on a common source of truth.\nThe following sections highlight the most important characteristics of the the AI-on-Tap paradigm.\nDesign Principles Domain Focus: Each service solves a specific business challenge. Clarify the business problem first, work toward a common language between stakeholders, designers, and developers. What are the relevant concepts and the units of work2? Avoid overloading a service with too many responsibilities, but also keep the total number of services to a minimum. Promote vertical ownership and build internal expertise to gain a competitive advantage.\nLoose Coupling: Services operate independently. Avoid service chains where one service relies on multiple other services. Make it the responsibility of the user-facing application to reach out to multiple services and provide the right user feedback if responses are missing or delayed.\nComposability: Services communicate through standardized protocols, leveraging web services, e.g. REST, or event-driven, asynchronous methods, such as pub/sub. Sending all relevant data as payload simplifies the design, but can exceed the available bandwidth for some machine learning applications.\nReusability: Design services that strike the right balance between immediate utility and future re-usability. Focus on solving the immediate challenge.\nScalability: Well-designed services are inherently horizontally scalable. Leverage Kubernetes, load balancing, etc.\nOn Demand: Services that provide insights on demand keeps the architecture simple, testable, and easier to reason about. Helps keep the architecture flexible and shortens the feedback loop. While calculations are more efficient to do in batch, in practice, these system slow developers down when entire pipelines have to be re-run even after minor changes. The on demand approach can be used for slow computations with pre-warming of caches.\nTechnical Implementation Object Relational Mapping (ORM): ORM facilitates abstraction and object-oriented approaches that are independent from the database of choice.\nContainerization: text.\nCI/CD: Continuous Integration and Continuous Delivery.\nscale with kubernetes and pods and load balancing …\nConclusion The AI-on-Tap approach extends software-oriented-architecture to accommodate domain-based considerations arising from unreliable data, non-deterministic algorithms, and the need for an extendible design pattern that promotes AI-guided decision making.\nWhat is SOA (Service-Oriented Architecture)? ↩︎\nUnit of work ↩︎\n",
+  "wordCount" : "804",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/images/drafts/barrels.jpg","datePublished": "2024-05-25T00:00:00Z",
+  "dateModified": "2024-05-25T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jan Scholz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/post/2024-05-25-ai-on-tap/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tales of Industry",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/images/faviconT.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Tales of Industry (Alt + H)">Tales of Industry</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/post/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      DRAFT: AI On Tap
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h1>
+    <div class="post-description">
+      AI on Tap
+    </div>
+    <div class="post-meta"><span title='2024-05-25 00:00:00 +0000 UTC'>May 25, 2024</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Jan Scholz
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/drafts/barrels.jpg" alt="A Picture">
+        <p>Three gentlemen conducting a taste test of their freshly-deployed AI-on-Tap architecture. (courtsey of <a href="https://www.sciencehistory.org/stories/distillations-pod/intoxication-civilization-beers-ancient-past/">Science History Institute</a>)</p>
+</figure>
+  <div class="post-content"><h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<p>AI-on-tap is revolutionizing how enterprises design and deploy applications. The need for modern systems architecture to provide insights and automations has accelerated the need to split monolithic applications into loosely coupled, reusable services. Traditional software architecture is failing to accommodate the complexity that data-dependence and the pivot toward probabilistic systems have introduced.</p>
+<p>Luckily, an industry-wide trend (started in the early 2000s) toward Service-Oriented Architecture (SOA) provides the basis for dealing with these challenges. At its core, SOA is an architectural design pattern that emphasizes the use of independent services which combine to perform complex tasks<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<p>AI-on-tap utilizes this architecture to provide AI-driven insights to services and applications. The advantage of developing individual services is especially apparent when an application involves unreliable data, non-deterministic logic, and complex dependencies.</p>
+<h1 id="ai-on-tap-example">AI-On-Tap Example<a hidden class="anchor" aria-hidden="true" href="#ai-on-tap-example">#</a></h1>
+<p>In a nutshell, AI-on-tap promotes building single-purpose services that are focused on generating specific insights asynchronously via standardized protocols. The concept thus encompasses both, the domain (or business purpose) and the implementation. User-facing applications and other services can &ldquo;tap&rdquo; into a range of insights similar to how a patron might sample from a beer menu.</p>
+<figure>
+    <img loading="lazy" src="/images/drafts/soa_architecture.png"
+         alt="An example of an AI-on-Tap architecture. Multiple applications can &rsquo;tap&rsquo; into the insights provided by dedicated AI services. This ensures a common &lsquo;source of truth&rsquo; for all insights-based decisions making."/> <figcaption>
+            <p>An example of an AI-on-Tap architecture. Multiple applications can &rsquo;tap&rsquo; into the insights provided by dedicated AI services. This ensures a common &lsquo;source of truth&rsquo; for all insights-based decisions making.</p>
+        </figcaption>
+</figure>
+
+<p>How would this look like in practice? Imagine, for example, a retailer who designs and builds their own internal applications. This organization has a need for a range of insights, such as demand forecasting, price optimization, and product selection.</p>
+<p>Traditionally, these insights would happen &ldquo;under the hood&rdquo; of a supply chain management system, a price optimization software, and an inventory management application. It would be nigh impossible to extract these insights for other purposes or base them on a common forecasting approach. The opportunity to achieve optimal decision making across the organization is greatly diminished by the barriers between systems.</p>
+<p>Compare this to the AI-on-tap approach. Here, all three applications utilize a common demand forecasting engine, negating the need to develop and maintain one for each application. This pattern also ensures that forecasts reconcile across the organization. From price optimization to supply chain everything would be based on the same forecasts.</p>
+<p>This approaches utilized the resources of an organization optimally. Teams can rally around a business purpose and develop IP unique to the organization. Vertical ownership is rewarding to teams and attracts talent, unlike integration and maintenance of commercial software packages.</p>
+<!-- A common forecasting engine also allows a dedicated team build up expertise and continuously enhance it.  -->
+<h1 id="the-ai-on-tap-playbook">The AI-On-Tap Playbook<a hidden class="anchor" aria-hidden="true" href="#the-ai-on-tap-playbook">#</a></h1>
+<p>The AI-on-Tap paradigm is probably the most applicable within enterprises that build applications that share the need for certain insights. For example, forecasts are often relevant for a number of use cases and have high re-usability. Additionally, having these forecasts come from one source ensures that decisions by all departments are made based on a common source of truth.</p>
+<p>The following sections highlight the most important characteristics of the the AI-on-Tap paradigm.</p>
+<h2 id="design-principles">Design Principles<a hidden class="anchor" aria-hidden="true" href="#design-principles">#</a></h2>
+<ul>
+<li>
+<p><strong>Domain Focus:</strong> Each service solves a specific business challenge. Clarify the business problem first, work toward a common language between stakeholders, designers, and developers. What are the relevant concepts and the units of work<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>? Avoid overloading a service with too many responsibilities, but also keep the total number of services to a minimum. Promote vertical ownership and build internal expertise to gain a competitive advantage.</p>
+</li>
+<li>
+<p><strong>Loose Coupling:</strong> Services operate independently. Avoid service chains where one service relies on  multiple other services. Make it the responsibility of the user-facing application to reach out to multiple services and provide the right user feedback if responses are missing or delayed.</p>
+</li>
+<li>
+<p><strong>Composability:</strong> Services communicate through standardized protocols, leveraging web services, e.g. REST, or event-driven, asynchronous methods, such as pub/sub. Sending all relevant data as payload simplifies the design, but can exceed the available bandwidth for some machine learning applications.</p>
+</li>
+<li>
+<p><strong>Reusability:</strong> Design services that strike the right balance between immediate utility and future re-usability. Focus on solving the immediate challenge.</p>
+</li>
+<li>
+<p><strong>Scalability</strong>: Well-designed services are inherently horizontally scalable. Leverage Kubernetes, load balancing, etc.</p>
+</li>
+<li>
+<p><strong>On Demand</strong>: Services that provide insights on demand keeps the architecture simple, testable, and easier to reason about. Helps keep the architecture flexible and shortens the feedback loop. While calculations are more efficient to do in batch, in practice, these system slow developers down when entire pipelines have to be re-run even after minor changes. The on demand approach can be used for slow computations with pre-warming of caches.</p>
+</li>
+</ul>
+<h2 id="technical-implementation">Technical Implementation<a hidden class="anchor" aria-hidden="true" href="#technical-implementation">#</a></h2>
+<ul>
+<li>
+<p><strong>Object Relational Mapping (ORM):</strong> ORM facilitates abstraction and object-oriented approaches that are independent from the database of choice.</p>
+</li>
+<li>
+<p><strong>Containerization:</strong> text.</p>
+</li>
+<li>
+<p><strong>CI/CD:</strong> Continuous Integration and Continuous Delivery.</p>
+</li>
+</ul>
+<p>scale with kubernetes and pods and load balancing &hellip;</p>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>The AI-on-Tap approach extends software-oriented-architecture to accommodate domain-based considerations arising from unreliable data, non-deterministic algorithms, and the need for an extendible design pattern that promotes AI-guided decision making.</p>
+<!--
+AI/ML-specific considerations where AI-on-Tap goes above and beyond SoA etc.
+
+cache data and models, allow to proceed without data updatesm, degrade gracefully with user input
+avoid re-running entire pipeline, operate at the unit of work, e.g. train one model to get one forecaston-demand
+
+concurrency
+
+
+
+explicityly account for uncertainty, update believes
+
+contain complexity in dedicated services
+common mistake in data pipelines is that inputation is a factor that needs to be evaluated just like models, it thus spills uncertainty into later stages of the pipeline if feature generationa nd modeling are tightly coupled
+
+
+
+
+* Service Composability: Complex services can be composed from simpler services, enabling modularity.
+* Service Discoverability: Services are designed to be easily discovered and invoked by potential consumers.
+* Service Abstraction: Services are defined with clear interfaces and implementation details are hidden from the consumers.
+rk. SOA enables different services to communicate with each other, often through standardized protocols, to form a cohesive and flexible system.
+
+* wrap and strangle: while you are implementing AI-on-tap, there might be a need to wrap commercial applications and systems to integrate them into the ecosystem. Use RPA and expose an API.
+-->
+<!--
+Description
+Service Consumers:
+
+Applications or clients that consume services. These could be web applications, mobile apps, or other systems.
+Service Providers:
+
+Services that provide functionality, such as user authentication, data retrieval, and business logic. Each service is independent and communicates over a network.
+Service Registry:
+
+A centralized directory where service providers register their services. Service consumers query this registry to discover available services.
+Service Bus:
+
+An intermediary that facilitates communication between service consumers and service providers. It handles message routing, transformation, and protocol mediation.
+Database/Storage:
+
+Backend storage where data is stored and accessed by the services.
+
+
+
+Similarly, the ability to translate between text, images, and other media has broad applicability. 
+
+Finally, intelligent search and retrieval can often be leveraged in multiple ways.
+
+It doesn't necessarily conflict with other approaches to designing AI-based systems, such as batch processing with scheduled pipelines and edge computing. 
+-->
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://aws.amazon.com/what-is/service-oriented-architecture/">What is SOA (Service-Oriented Architecture)?
+</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://en.wikipedia.org/wiki/Unit_of_work">Unit of work</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data-part2/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>DRAFT: A Better Way to Think About Data (Part II)</span>
+  </a>
+  <a class="next" href="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data-part1/">
+    <span class="title">Next »</span>
+    <br>
+    <span>DRAFT: A Better Way to Think About Data (Part I)</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Tales of Industry</a></span>
+    <span>by Jan Scholz.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

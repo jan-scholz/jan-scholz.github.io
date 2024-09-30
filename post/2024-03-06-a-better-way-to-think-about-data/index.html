@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>DRAFT: A Better Way to Think About Data (Part I) | Tales of Industry</title>
+<meta name="keywords" content="">
+<meta name="description" content="There seem to be two worlds &ndash; the transition between which &ndash; can be jarring.
+I always found the paradigm shift between imperative and declarative languages jarring.
+It feels as if you have to clear your brain of any knowledge and intuition you have developed to master declarative languages such as Prolog and SQL.
+As a someone who grew up learning Basic, Pascal, C, and Python &ndash; the transition to SQL can feel like having to navigate the world by looking at a mirror.">
+<meta name="author" content="Jan Scholz">
+<link rel="canonical" href="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3224db8f74a1aa9da88b8b7bbd37defcddaf7b18d0803082a8b8878acc39e07a.css" integrity="sha256-MiTbj3Shqp2oi4t7vTfe/N2vexjQgDCCqLiHisw54Ho=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/faviconT.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6NMJL1CGE7"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-6NMJL1CGE7', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="DRAFT: A Better Way to Think About Data (Part I)" />
+<meta property="og:description" content="There seem to be two worlds &ndash; the transition between which &ndash; can be jarring.
+I always found the paradigm shift between imperative and declarative languages jarring.
+It feels as if you have to clear your brain of any knowledge and intuition you have developed to master declarative languages such as Prolog and SQL.
+As a someone who grew up learning Basic, Pascal, C, and Python &ndash; the transition to SQL can feel like having to navigate the world by looking at a mirror." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data/" />
+<meta property="og:image" content="http://localhost:1313/images/drafts/default2.jpg" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-04-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-04-01T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/images/drafts/default2.jpg" />
+<meta name="twitter:title" content="DRAFT: A Better Way to Think About Data (Part I)"/>
+<meta name="twitter:description" content="There seem to be two worlds &ndash; the transition between which &ndash; can be jarring.
+I always found the paradigm shift between imperative and declarative languages jarring.
+It feels as if you have to clear your brain of any knowledge and intuition you have developed to master declarative languages such as Prolog and SQL.
+As a someone who grew up learning Basic, Pascal, C, and Python &ndash; the transition to SQL can feel like having to navigate the world by looking at a mirror."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "DRAFT: A Better Way to Think About Data (Part I)",
+      "item": "http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "DRAFT: A Better Way to Think About Data (Part I)",
+  "name": "DRAFT: A Better Way to Think About Data (Part I)",
+  "description": "There seem to be two worlds \u0026ndash; the transition between which \u0026ndash; can be jarring.\nI always found the paradigm shift between imperative and declarative languages jarring.\nIt feels as if you have to clear your brain of any knowledge and intuition you have developed to master declarative languages such as Prolog and SQL.\nAs a someone who grew up learning Basic, Pascal, C, and Python \u0026ndash; the transition to SQL can feel like having to navigate the world by looking at a mirror.",
+  "keywords": [
+    
+  ],
+  "articleBody": "There seem to be two worlds – the transition between which – can be jarring.\nI always found the paradigm shift between imperative and declarative languages jarring.\nIt feels as if you have to clear your brain of any knowledge and intuition you have developed to master declarative languages such as Prolog and SQL.\nAs a someone who grew up learning Basic, Pascal, C, and Python – the transition to SQL can feel like having to navigate the world by looking at a mirror. Things look familiar, but you awkwardly bump into things if you don’t pay attention.\nUpside down goggles invertoscopes1\nPeople, Pets, and Relational Databases There is no place where these two worlds collide more regularily and forcefully than in data science. It’s hard to avoid having to interact with relational databases when developing machine learning applications in an enterprise setting. Relational data bases are where most of the worlds enterprise data is stored. Think of it as giant Excel tables. Each row contains a transaction or a record of a person or some kind of entity.\nSSN FirstName LastName 000-1111 Donald Chamberlin 000-2222 Raymond Boyce The above table illustrates the idea. There is usually a column with a unique identifier. This could be a real one, such as a SSN or a automatically generated one. The unique identifier is referred to as the “primary key” and can be used to establish a relationships between tables. For example the people in the above table might own pets.\nPetID Species Name OwnerSSN 00-115 dog Bello 000-1111 00-908 cat Felix 000-1111 00-256 dog Luna 000-2222 Keeping each person’s pet in a different table allows us to associate multiple pets with one person. This avoids having to generate duplicate entries per person or adding a column per potential pet, e.g. “Pet1”, “Pet2”, and so on. Here the pets are linked via the owner’s SSN to a unique row of the people table.\nThis approach also enforces the unique identity of a person and a pet in this case. It’s easy to mess up database queries and create duplicate records as we’ll see later.\nAnd these are the basics of relational data bases!\nQueries Now that data has been stored in our relational database we want to query it. In other words we want to ask it questions. For example:\nHow many people are there? Who are the people whose first name it “Raymond”? A slightly more complicated question might involve both tables, for example:\nWho is the owner of the pet with ID “00-115”? What is the largest number of pets that any one person has? Answering these questions requires retrieval, joining, filtering, and sorting of the data. Luckily, most programming languages allow us to avoid having to specify the details of these operations.\nIn SQL (pronounced “Sequel”), you define the desired output state and the database engine figures out the most efficient way to get there.\n-- How many people? SELECT COUNT(SSN) FROM people -- List all people whose first name is Raymond SELECT * FROM people WHERE FirstName = 'Raymond' -- What is the name of pet with PetID 1? SELECT People.FirstName, People.LastName FROM People JOIN Pets ON People.SSN = Pets.OwnerSSN WHERE Pets.PetID = 1; -- Who owns the most pets? SELECT People.SSN, People.FirstName, People.LastName, COUNT(Pets.PetID) AS NumberOfPets FROM People LEFT JOIN Pets ON People.SSN = Pets.OwnerSSN GROUP BY People.SSN ORDER BY NumberOfPets DESC; We can see the SQL code getting progressively more substantive with the complexity of the question. We go from counting, to filtering, to joining \u0026 filtering, to joining \u0026 grouping \u0026 counting \u0026 sorting.\nIt’s surprising that an apparently simple question, such as “Who owns the most pets”, requires quite some acrobatics to answer.\nThe situation gets worse when queries depend on the results of other queries. For example, it might be necessary to filter a table first before joining it to another.\nHere is an example, for the connoisseurs amongst the readers. The question is:\nWho are the owners who own a pet of the most popular species 1 2 3 4 5 6 7 8 9 10 SELECT People.SSN, People.FirstName, People.LastName FROM People JOIN Pets ON People.SSN = Pets.OwnerSSN WHERE Pets.Species = ( SELECT Species FROM Pets GROUP BY Species ORDER BY COUNT(*) DESC LIMIT 1 ); Even for the uninitiated the second nested query that starts with SELECT species jumps out (lines 5-9). It’s easy to imagine that the code becomes more and more incomprehensible once we’re several levels deep into nested queries.\n[Because we have to first understand the subqueries before we can make sense of the enclosing “parent queries”.]\nIt’s also apparent that the query contains a lot of reduandant information. Why do we need to specify the people table (FROM people) if we are clearly interacting with entitites from that table (SELECT people.SSN). Why does finding the maximum require a GROUP-ORDER-COUNT-LIMIT cascade?\nBeyond SQL Programming languages that allow refactoring code into functions, document and test it independently, and apply object-oriented approaches have a clear advantage.\nOf course, it’s possible to document SQL code and use stored procedures, views, parameterization, and Common Table Expressions (CTE) to make SQL code more readable and easier to maintain. However, these techniques often lack the power of most popular imperative and object-oriented programming languages, such as C++, Java, and Python.\nHowever, simple things that are not in the domain of the database engine, such as configuration files, unit tests, and visualizations immediately require adoption of other programming paradigms.\nSo this raises the question as to the rational of using a domain-specific language, such as SQL, for a project that aims to establish best practices of “clean code”, “test-driven development”, “configuration as code”, “continuous integration”, and many other modern paradigms.\nRead about how to overcome the SQL malaise using object relational mapping (ORM) in Part II of this series.\n“The world is upside down”: The Innsbruck Goggle Experiments of Theodor Erismann (1883–1961) and Ivo Kohler (1915–1985) ↩︎\n",
+  "wordCount" : "991",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/images/drafts/default2.jpg","datePublished": "2024-04-01T00:00:00Z",
+  "dateModified": "2024-04-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jan Scholz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tales of Industry",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/images/faviconT.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Tales of Industry (Alt + H)">Tales of Industry</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/post/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      DRAFT: A Better Way to Think About Data (Part I)
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h1>
+    <div class="post-meta"><span title='2024-04-01 00:00:00 +0000 UTC'>April 1, 2024</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Jan Scholz
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/drafts/default2.jpg" alt="A Picture">
+        <p>Caption</p>
+</figure>
+  <div class="post-content"><p>There seem to be two worlds &ndash; the transition between which &ndash; can be jarring.</p>
+<p>I always found the paradigm shift between imperative and declarative languages jarring.</p>
+<p>It feels as if you have to clear your brain of any knowledge and intuition you have developed to master declarative languages such as Prolog and SQL.</p>
+<p>As a someone who grew up learning Basic, Pascal, C, and Python &ndash; the transition to SQL can feel like having to navigate the world by looking at a mirror. Things look familiar, but you awkwardly bump into things if you don&rsquo;t pay attention.</p>
+<p>Upside down goggles invertoscopes<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h1 id="people-pets-and-relational-databases">People, Pets, and Relational Databases<a hidden class="anchor" aria-hidden="true" href="#people-pets-and-relational-databases">#</a></h1>
+<p>There is no place where these two worlds collide more regularily and forcefully than in data science.
+It&rsquo;s hard to avoid having to interact with relational databases when developing machine learning applications in an enterprise setting.
+Relational data bases are where most of the worlds enterprise data is stored. Think of it as giant Excel tables. Each row contains a transaction or a record of a person or some kind of entity.</p>
+<table>
+<thead>
+<tr>
+<th>SSN</th>
+<th>FirstName</th>
+<th>LastName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>000-1111</td>
+<td>Donald</td>
+<td>Chamberlin</td>
+</tr>
+<tr>
+<td>000-2222</td>
+<td>Raymond</td>
+<td>Boyce</td>
+</tr>
+</tbody>
+</table>
+<p>The above table illustrates the idea. There is usually a column with a unique identifier. This could be a real one, such as a SSN or a automatically generated one. The unique identifier is referred to as the &ldquo;primary key&rdquo; and can be used to establish a relationships between tables. For example the people in the above table might own pets.</p>
+<table>
+<thead>
+<tr>
+<th>PetID</th>
+<th>Species</th>
+<th>Name</th>
+<th>OwnerSSN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00-115</td>
+<td>dog</td>
+<td>Bello</td>
+<td>000-1111</td>
+</tr>
+<tr>
+<td>00-908</td>
+<td>cat</td>
+<td>Felix</td>
+<td>000-1111</td>
+</tr>
+<tr>
+<td>00-256</td>
+<td>dog</td>
+<td>Luna</td>
+<td>000-2222</td>
+</tr>
+</tbody>
+</table>
+<p>Keeping each person&rsquo;s pet in a different table allows us to associate multiple pets with one person. This avoids having to generate duplicate entries per person or adding a column per potential pet, e.g. &ldquo;Pet1&rdquo;, &ldquo;Pet2&rdquo;, and so on. Here the pets are linked via the owner&rsquo;s SSN to a unique row of the people table.</p>
+<p>This approach also enforces the unique identity of a person and a pet in this case. It&rsquo;s easy to mess up database queries and create duplicate records as we&rsquo;ll see later.</p>
+<p>And these are the basics of relational data bases!</p>
+<h1 id="queries">Queries<a hidden class="anchor" aria-hidden="true" href="#queries">#</a></h1>
+<p>Now that data has been stored in our relational database we want to query it. In other words we want to ask it questions. For example:</p>
+<ul>
+<li>How many people are there?</li>
+<li>Who are the people whose first name it &ldquo;Raymond&rdquo;?</li>
+</ul>
+<p>A slightly more complicated question might involve both tables, for example:</p>
+<ul>
+<li>Who is the owner of the pet with ID &ldquo;00-115&rdquo;?</li>
+<li>What is the largest number of pets that any one person has?</li>
+</ul>
+<p>Answering these questions requires retrieval, joining, filtering, and sorting of the data. Luckily, most programming languages allow us to avoid having to specify the details of these operations.</p>
+<p>In SQL (pronounced &ldquo;Sequel&rdquo;), you define the desired output state and the database engine figures out the most efficient way to get there.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- How many people?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">SSN</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">people</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- List all people whose first name is Raymond
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">people</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">FirstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Raymond&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- What is the name of pet with PetID 1?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">FirstName</span><span class="p">,</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">LastName</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">People</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">Pets</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">SSN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pets</span><span class="p">.</span><span class="n">OwnerSSN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">Pets</span><span class="p">.</span><span class="n">PetID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- Who owns the most pets?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">SSN</span><span class="p">,</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">FirstName</span><span class="p">,</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">LastName</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">Pets</span><span class="p">.</span><span class="n">PetID</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">NumberOfPets</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">People</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Pets</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">SSN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pets</span><span class="p">.</span><span class="n">OwnerSSN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">SSN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">NumberOfPets</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>We can see the SQL code getting progressively more substantive with the complexity of the question.
+We go from counting, to filtering, to joining &amp; filtering, to joining &amp; grouping &amp; counting &amp; sorting.</p>
+<p>It&rsquo;s surprising that an apparently simple question, such as &ldquo;Who owns the most pets&rdquo;, requires quite some acrobatics to answer.</p>
+<p>The situation gets worse when queries depend on the results of other queries. For example, it might be necessary to filter a table first before joining it to another.</p>
+<p>Here is an example, for the connoisseurs amongst the readers. The question is:</p>
+<ul>
+<li>Who are the owners who own a pet of the most popular species</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">SSN</span><span class="p">,</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">FirstName</span><span class="p">,</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">LastName</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">People</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">Pets</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">People</span><span class="p">.</span><span class="n">SSN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pets</span><span class="p">.</span><span class="n">OwnerSSN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">Pets</span><span class="p">.</span><span class="n">Species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">Species</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">Pets</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Species</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Even for the uninitiated the second nested query that starts with <code>SELECT species</code> jumps out (lines 5-9). It&rsquo;s easy to imagine that the code becomes more and more incomprehensible once we&rsquo;re several levels deep into nested queries.</p>
+<p>[Because we have to first understand the subqueries before we can make sense of the enclosing &ldquo;parent queries&rdquo;.]</p>
+<p>It&rsquo;s also apparent that the query contains a lot of reduandant information. Why do we need to specify the people table (<code>FROM people</code>) if we are clearly interacting with entitites from that table (<code>SELECT people.SSN</code>). Why does finding the maximum require a <code>GROUP-ORDER-COUNT-LIMIT</code> cascade?</p>
+<h1 id="beyond-sql">Beyond SQL<a hidden class="anchor" aria-hidden="true" href="#beyond-sql">#</a></h1>
+<p>Programming languages that allow refactoring code into functions, document and test it independently, and apply object-oriented approaches have a clear advantage.</p>
+<p>Of course, it&rsquo;s possible to document SQL code and use stored procedures, views, parameterization, and Common Table Expressions (CTE) to make SQL code more readable and easier to maintain. However, these techniques often lack the power of most popular imperative and object-oriented programming languages, such as C++, Java, and Python.</p>
+<p>However, simple things that are not in the domain of the database engine, such as configuration files, unit tests, and visualizations immediately require adoption of other programming paradigms.</p>
+<p>So this raises the question as to the rational of using a domain-specific language, such as SQL, for a project that aims to establish best practices of &ldquo;clean code&rdquo;, &ldquo;test-driven development&rdquo;, &ldquo;configuration as code&rdquo;, &ldquo;continuous integration&rdquo;, and many other modern paradigms.</p>
+<p>Read about how to overcome the SQL malaise using object relational mapping (ORM) in <a href="http://localhost:1313/post/2022-05-08-ai-product-development-part1/">Part II</a> of this series.</p>
+<!-- Refactoring parameters into an external, easy-to-maintain configuration file takes a few lines of Python. Similarly, unit testing, introspection, and visualization. -->
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://www.sciencedirect.com/science/article/abs/pii/S0010945217301314">&ldquo;The world is upside down&rdquo;: The Innsbruck Goggle Experiments of Theodor Erismann (1883–1961) and Ivo Kohler (1915–1985)</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data-part2/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>DRAFT: A Better Way to Think About Data (Part II)</span>
+  </a>
+  <a class="next" href="http://localhost:1313/post/2024-02-10-three-kinds-of-diversity/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Three Kinds of Diversity</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Tales of Industry</a></span>
+    <span>by Jan Scholz.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

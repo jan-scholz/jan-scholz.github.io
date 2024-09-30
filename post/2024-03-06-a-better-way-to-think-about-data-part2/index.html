@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>DRAFT: A Better Way to Think About Data (Part II) | Tales of Industry</title>
+<meta name="keywords" content="">
+<meta name="description" content="Overcome the SQL malaise using object relational mapping (ORM)">
+<meta name="author" content="Jan Scholz">
+<link rel="canonical" href="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data-part2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f689a0f4dbe4498657f258203900979e0690d357488ff8a6a3b36a38f0c5124f.css" integrity="sha256-9omg9NvkSYZX8lggOQCXngaQ01dIj/imo7NqOPDFEk8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/faviconT.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data-part2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NMJL1CGE7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-6NMJL1CGE7');
+        }
+      </script><meta property="og:title" content="DRAFT: A Better Way to Think About Data (Part II)" />
+<meta property="og:description" content="Overcome the SQL malaise using object relational mapping (ORM)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data-part2/" />
+<meta property="og:image" content="http://localhost:1313/images/drafts/default1.jpg" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-06-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-01T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/images/drafts/default1.jpg" />
+<meta name="twitter:title" content="DRAFT: A Better Way to Think About Data (Part II)"/>
+<meta name="twitter:description" content="Overcome the SQL malaise using object relational mapping (ORM)"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "DRAFT: A Better Way to Think About Data (Part II)",
+      "item": "http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data-part2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "DRAFT: A Better Way to Think About Data (Part II)",
+  "name": "DRAFT: A Better Way to Think About Data (Part II)",
+  "description": "Overcome the SQL malaise using object relational mapping (ORM)",
+  "keywords": [
+    
+  ],
+  "articleBody": "In Part 1 of this series we went over the basics of relational databases. SQL is a declarative, domain-specific language that is widely used in many enterprises to query data. However, we found that SQL code lacks the expressiveness of modern programming languages. This raises the question if SQL is still a good choice for a project that aims to establish best practices of “clean code”, “test-driven development”, “configuration as code”, “continuous integration”, and many other modern paradigms.\nChances are that you learned programming with a imperative or object-oriented language first, such as C++, Java, or Python. In that case you might find the transition to a declarative language like SQL perplexing. The overlap between these languages and SQL is just enough to trick you into believing that you can pick it up as you go. However, there is a paradigmatic difference that can sometimes catch you off-guard.\nObjects Simply put, objects store both data and methods in a single structure that can be instantiated many times. A trivial example is a date object. An instance of this type of object contains the year, month, day. This data distinguishes it from other instances that might contain different values for these attributes. Here we create a new instance of a date object and return the day value.\nfrom datetime import date today = date(2024, 1, 31) today.day \u003e\u003e 31 Date objects come with a range of methods that might allow the manipulation and conversion of this data. For example, here we call the previously-defined date object’s ctime() method, which prints its data in a specific format.\ntoday.ctime() \u003e\u003e\u003e 'Wed Jan 31 00:00:00 2024' The power of the object-oriented approach becomes apparent when objects get combined in various forms. Here we create a timedelta object and add it to the previous today object, which returns a new date a week after today. Similarly, the ability to compare objects directly without having to extract their data first can simplify the logic and make the code easier to read.\nfrom datetime import timedelta week = timedelta(days=7) # the date a week after today today + week \u003e\u003e\u003e datetime.date(2024, 2, 7) # today comes before next week today \u003c today + week \u003e\u003e\u003e True These are trivial examples, but they already illustrate how powerful an object-oriented approach can be. OOP abstracts away the details of data storage and the implementation details of the business logic.\nORM for poor people Going back to our original example of this series. How would we approach this with OOP?\nWe’ll use the @dataclass decorator to save us from writing the constructor boiler plate.\nfrom dataclasses import dataclass @dataclass class Person(): SSN: int FirstName: str LastName: str Let’s try it out and create a Person instance.\nPerson(\"123456789\", \"Donald\", \"Chamberlin\") \u003e\u003e\u003e Person(SSN='123456789', FirstName='Donald', LastName='Chamberlin') Similarly, we can create a class for pets.\n@dataclass class Pet(): PetID: int species: str Name: str OwnerSSN: str We can then instantiate many objects with lists of tuples or dictionaries.\npeople_data = [ (123456789, 'Donald', 'Chamberlin'), (456789012, 'Raymond', 'Boyce'), (987654321, 'Alice', 'Smith'), (789012345, 'Bob', 'Jones') ] pets_data = [ (1, 'Dog', 'Buddy', 123456789), (2, 'Bird', 'Tweetie', 456789012), (3, 'Dog', 'Max', 789012345), (4, 'Fish', 'Nemo', 789012345) ] people = [Person(*p) for p in people_data] pets = [Pet(*p) for p in pets_data] Let’s see if we can ask the same question from Part I.\n# 1. How many people? len(people) # 2. List all people whose first name is Raymond [p for p in people if p.FirstName == \"Raymond\"] # 3. What is the name of the owner of PetID 1? owner_of_pet1 = [p.OwnerSSN for p in pets if p.PetID == 1] [(p.FirstName, p.LastName) for p in people if p.SSN in owner_of_pet1] # 4. Who owns the most pets? from collections import Counter pet_count = Counter([p.OwnerSSN for p in pets]).most_common() [p for ssn, npets in pet_count for p in people if p.SSN == ssn] SQL is declarative and specifies the end state:\nReturn the count of the SSN column. Return all columns, but only for rows where FirstName is “Raymond”. Return columns FirstName and LastName for all rows that have a matching SSN in the ‘pets’ database and a petID of ‘1’. Return columns SSN, FirstName, LastName, and NumberOfPets. The NumberOfPets column is the count of PetID per SSN (GROUP BY). Each person gets associated with zero or more pets from the ‘pets’ database via the common SSN The SQL code describes the end-state or the conditions that need to be true for the returned data. Curiously, the exact steps and the order of operations that are necessary to compute the results are not necessary.\nFor example, the third case (3.) does not require specifying if the ‘people’ and ‘pets’ database are joined first and then filtered to the row that contains a PetID of ‘1’ or if the ‘pets’ database is first filtered and then joined.\nIn contrast, the Python implementation is very imperative, specifying in detail how the result is calculated. For example, (3.) we first iterate over each pet to retrieve the SSN of the pet with PetID=1. That result is then saved to a new variable owner_of_pet1 and used as a conditional when iterating over each person. FirstName and LastName are stored when a person’s SSN matches the saved OwnerSSN. Here the order of operations is defined and there is no joining of tables, just filter operations of two lists.\nSpeed Comparison!!! The need for speed! FirstName is an attribute of people instead of hovering in mid-air we iterate explicitly through a list\n",
+  "wordCount" : "919",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/images/drafts/default1.jpg","datePublished": "2024-06-01T00:00:00Z",
+  "dateModified": "2024-06-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jan Scholz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data-part2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tales of Industry",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/images/faviconT.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Tales of Industry (Alt + H)">Tales of Industry</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/post/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      DRAFT: A Better Way to Think About Data (Part II)
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h1>
+    <div class="post-description">
+      Overcome the SQL malaise using object relational mapping (ORM)
+    </div>
+    <div class="post-meta"><span title='2024-06-01 00:00:00 +0000 UTC'>June 1, 2024</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Jan Scholz
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/drafts/default1.jpg" alt="A Picture">
+        <p>Caption</p>
+</figure>
+  <div class="post-content"><p>In Part 1 of this series we went over the basics of relational databases. SQL is a declarative, domain-specific language that is widely used in many enterprises to query data. However, we found that SQL code lacks the expressiveness of modern programming languages. This raises the question if SQL is still a good choice for a project that aims to establish best practices of &ldquo;clean code&rdquo;, &ldquo;test-driven development&rdquo;, &ldquo;configuration as code&rdquo;, &ldquo;continuous integration&rdquo;, and many other modern paradigms.</p>
+<p>Chances are that you learned programming with a imperative or object-oriented language first, such as C++, Java, or Python. In that case you might find the transition to a declarative language like SQL perplexing. The overlap between these languages and SQL is just enough to trick you into believing that you can pick it up as you go. However, there is a paradigmatic difference that can sometimes catch you off-guard.</p>
+<h1 id="objects">Objects<a hidden class="anchor" aria-hidden="true" href="#objects">#</a></h1>
+<p>Simply put, objects store both data and methods in a single structure that can be instantiated many times. A trivial example is a date object. An instance of this type of object contains the year, month, day. This data distinguishes it from other instances that might contain different values for these attributes. Here we create a new instance of a date object and return the <code>day</code> value.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">today</span><span class="o">.</span><span class="n">day</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;</span> <span class="mi">31</span>
+</span></span></code></pre></div><p>Date objects come with a range of methods that might allow the manipulation and conversion of this data. For example, here we call the previously-defined date object&rsquo;s <code>ctime()</code> method, which prints its data in a specific format.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">today</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;Wed Jan 31 00:00:00 2024&#39;</span>
+</span></span></code></pre></div><p>The power of the object-oriented approach becomes apparent when objects get combined in various forms. Here we create a <code>timedelta</code> object and add it to the previous <code>today</code> object, which returns a new date a week after <code>today</code>. Similarly, the ability to compare objects directly without having to extract their data first can simplify the logic and make the code easier to read.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">week</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># the date a week after today</span>
+</span></span><span class="line"><span class="cl"><span class="n">today</span> <span class="o">+</span> <span class="n">week</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># today comes before next week</span>
+</span></span><span class="line"><span class="cl"><span class="n">today</span> <span class="o">&lt;</span> <span class="n">today</span> <span class="o">+</span> <span class="n">week</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span>
+</span></span></code></pre></div><p>These are trivial examples, but they already illustrate how powerful an object-oriented approach can be. OOP abstracts away the details of data storage and the implementation details of the business logic.</p>
+<h1 id="orm-for-poor-people">ORM for poor people<a hidden class="anchor" aria-hidden="true" href="#orm-for-poor-people">#</a></h1>
+<p>Going back to our original <a href="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data-part1/">example</a> of this series. How would we approach this with OOP?</p>
+<p>We&rsquo;ll use the <code>@dataclass</code> decorator to save us from writing the constructor boiler plate.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Person</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SSN</span><span class="p">:</span> <span class="nb">int</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FirstName</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LastName</span><span class="p">:</span> <span class="nb">str</span>
+</span></span></code></pre></div><p>Let&rsquo;s try it out and create a <code>Person</code> instance.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">Person</span><span class="p">(</span><span class="s2">&#34;123456789&#34;</span><span class="p">,</span> <span class="s2">&#34;Donald&#34;</span><span class="p">,</span> <span class="s2">&#34;Chamberlin&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">Person</span><span class="p">(</span><span class="n">SSN</span><span class="o">=</span><span class="s1">&#39;123456789&#39;</span><span class="p">,</span> <span class="n">FirstName</span><span class="o">=</span><span class="s1">&#39;Donald&#39;</span><span class="p">,</span> <span class="n">LastName</span><span class="o">=</span><span class="s1">&#39;Chamberlin&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>Similarly, we can create a class for pets.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nd">@dataclass</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Pet</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PetID</span><span class="p">:</span> <span class="nb">int</span>
+</span></span><span class="line"><span class="cl">    <span class="n">species</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Name</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">OwnerSSN</span><span class="p">:</span> <span class="nb">str</span>
+</span></span></code></pre></div><p>We can then instantiate many objects with lists of tuples or dictionaries.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">people_data</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="mi">123456789</span><span class="p">,</span> <span class="s1">&#39;Donald&#39;</span><span class="p">,</span> <span class="s1">&#39;Chamberlin&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="mi">456789012</span><span class="p">,</span> <span class="s1">&#39;Raymond&#39;</span><span class="p">,</span> <span class="s1">&#39;Boyce&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="mi">987654321</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Smith&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="mi">789012345</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Jones&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pets_data</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Dog&#39;</span><span class="p">,</span> <span class="s1">&#39;Buddy&#39;</span><span class="p">,</span> <span class="mi">123456789</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Bird&#39;</span><span class="p">,</span> <span class="s1">&#39;Tweetie&#39;</span><span class="p">,</span> <span class="mi">456789012</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Dog&#39;</span><span class="p">,</span> <span class="s1">&#39;Max&#39;</span><span class="p">,</span> <span class="mi">789012345</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Fish&#39;</span><span class="p">,</span> <span class="s1">&#39;Nemo&#39;</span><span class="p">,</span> <span class="mi">789012345</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="n">Person</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">people_data</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">pets</span> <span class="o">=</span> <span class="p">[</span><span class="n">Pet</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pets_data</span><span class="p">]</span>
+</span></span></code></pre></div><p>Let&rsquo;s see if we can ask the same question from <a href="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data-part1/">Part I</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 1. How many people?</span>
+</span></span><span class="line"><span class="cl"><span class="nb">len</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. List all people whose first name is Raymond</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">people</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">FirstName</span> <span class="o">==</span> <span class="s2">&#34;Raymond&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. What is the name of the owner of PetID 1?</span>
+</span></span><span class="line"><span class="cl"><span class="n">owner_of_pet1</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">OwnerSSN</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pets</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">PetID</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">[(</span><span class="n">p</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">LastName</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">people</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">SSN</span> <span class="ow">in</span> <span class="n">owner_of_pet1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 4. Who owns the most pets?</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pet_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">OwnerSSN</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pets</span><span class="p">])</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">ssn</span><span class="p">,</span> <span class="n">npets</span> <span class="ow">in</span> <span class="n">pet_count</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">people</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">SSN</span> <span class="o">==</span> <span class="n">ssn</span><span class="p">]</span>
+</span></span></code></pre></div><p>SQL is declarative and specifies the end state:</p>
+<ol>
+<li>Return the count of the <code>SSN</code> column.</li>
+<li>Return all columns, but only for rows where <code>FirstName</code> is &ldquo;Raymond&rdquo;.</li>
+<li>Return columns <code>FirstName</code> and <code>LastName</code> for all rows that have a matching <code>SSN</code> in the &lsquo;pets&rsquo; database and a <code>petID</code> of &lsquo;1&rsquo;.</li>
+<li>Return columns <code>SSN</code>, <code>FirstName</code>, <code>LastName</code>, and <code>NumberOfPets</code>. The <code>NumberOfPets</code> column is the count of <code>PetID</code> per <code>SSN</code> (<code>GROUP BY</code>). Each person gets associated with zero or more pets from the &lsquo;pets&rsquo; database via the common <code>SSN</code></li>
+</ol>
+<p>The SQL code describes the end-state or the conditions that need to be true for the returned data. Curiously, the exact steps and the order of operations that are necessary to compute the results are not necessary.</p>
+<p>For example, the third case (3.) does not require specifying if the &lsquo;people&rsquo; and &lsquo;pets&rsquo; database are joined first and then filtered to the row that contains a <code>PetID</code> of &lsquo;1&rsquo; or if the &lsquo;pets&rsquo; database is first filtered and then joined.</p>
+<p>In contrast, the Python implementation is very imperative, specifying in detail <em>how</em> the result is calculated. For example, (3.) we first iterate over each pet to retrieve the <code>SSN</code> of the pet with <code>PetID=1</code>. That result is then saved to a new variable <code>owner_of_pet1</code> and used as a conditional when iterating over each person. <code>FirstName</code> and <code>LastName</code> are stored when a person&rsquo;s <code>SSN</code> matches the saved <code>OwnerSSN</code>. Here the order of operations is defined and there is no joining of tables, just filter operations of two lists.</p>
+<h1 id="speed-comparison-the-need-for-speed">Speed Comparison!!! The need for speed!<a hidden class="anchor" aria-hidden="true" href="#speed-comparison-the-need-for-speed">#</a></h1>
+<p>FirstName is an attribute of people instead of hovering in mid-air
+we iterate explicitly through a list</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/post/2024-03-06-a-better-way-to-think-about-data-part3/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>DRAFT: A Better Way to Think About Data (Part III)</span>
+  </a>
+  <a class="next" href="http://localhost:1313/post/2024-05-25-ai-on-tap/">
+    <span class="title">Next »</span>
+    <br>
+    <span>DRAFT: AI On Tap</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Tales of Industry</a></span>
+    <span>by Jan Scholz.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
