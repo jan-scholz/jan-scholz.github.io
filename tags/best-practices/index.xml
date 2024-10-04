@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.talesofindustry.org/tags/best-practices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MLTO Talk: What I learned about AI Product Development</title>
+      <link>https://www.talesofindustry.org/post/2024-09-30-mlto-talk-ai-product-development/</link>
+      <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.talesofindustry.org/post/2024-09-30-mlto-talk-ai-product-development/</guid>
+      <description>My talk at the Machine Learning Toronto (MLTO) Meetup on 30 Sep 2024.</description>
+    </item>
     <item>
       <title>Data Science Anti-Patterns: Proliferating Data Artifacts</title>
       <link>https://www.talesofindustry.org/post/2021-11-16-data-science-anti-patterns/</link>
