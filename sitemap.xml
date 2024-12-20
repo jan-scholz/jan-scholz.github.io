@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.talesofindustry.org/post/</loc>
+    <lastmod>2024-12-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.talesofindustry.org/</loc>
+    <lastmod>2024-12-20T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.talesofindustry.org/tags/best-practices/</loc>
     <lastmod>2024-09-30T00:00:00+00:00</lastmod>
   </url><url>
@@ -11,16 +17,10 @@
     <loc>https://www.talesofindustry.org/post/2024-09-30-mlto-talk-ai-product-development/</loc>
     <lastmod>2024-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.talesofindustry.org/post/</loc>
-    <lastmod>2024-09-30T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.talesofindustry.org/tags/product-development/</loc>
     <lastmod>2024-09-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.talesofindustry.org/tags/</loc>
-    <lastmod>2024-09-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.talesofindustry.org/</loc>
     <lastmod>2024-09-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.talesofindustry.org/categories/talk/</loc>

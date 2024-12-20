@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Tales of Industry</title>
     <link>https://www.talesofindustry.org/post/</link>
@@ -9,7 +9,7 @@
       <url>https://www.talesofindustry.org/images/talesofindustry_cover.png</url>
       <link>https://www.talesofindustry.org/images/talesofindustry_cover.png</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.140.0</generator>
     <language>en</language>
     <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.talesofindustry.org/post/index.xml" rel="self" type="application/rss+xml" />

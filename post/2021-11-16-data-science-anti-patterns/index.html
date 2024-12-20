@@ -10,7 +10,7 @@
 <meta name="description" content="Use pipelines to fend off the curse of proliferating data artifacts.">
 <meta name="author" content="Jan Scholz">
 <link rel="canonical" href="https://www.talesofindustry.org/post/2021-11-16-data-science-anti-patterns/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.f689a0f4dbe4498657f258203900979e0690d357488ff8a6a3b36a38f0c5124f.css" integrity="sha256-9omg9NvkSYZX8lggOQCXngaQ01dIj/imo7NqOPDFEk8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1aeee3cdd8e8244230c0338dcd060cb596acbe9a6063a7e8f4cf3c241433e26e.css" integrity="sha256-Gu7jzdjoJEIwwDONzQYMtZasvppgY6fo9M88JBQz4m4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://www.talesofindustry.org/images/faviconT.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://www.talesofindustry.org/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.talesofindustry.org/favicon-32x32.png">
@@ -69,18 +69,23 @@
           gtag('js', new Date());
           gtag('config', 'G-6NMJL1CGE7');
         }
-      </script><meta property="og:title" content="Data Science Anti-Patterns: Proliferating Data Artifacts" />
-<meta property="og:description" content="Use pipelines to fend off the curse of proliferating data artifacts." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.talesofindustry.org/post/2021-11-16-data-science-anti-patterns/" />
-<meta property="og:image" content="https://www.talesofindustry.org/images/bunnies.jpg" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-11-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-11-16T00:00:00+00:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://www.talesofindustry.org/images/bunnies.jpg" />
-<meta name="twitter:title" content="Data Science Anti-Patterns: Proliferating Data Artifacts"/>
-<meta name="twitter:description" content="Use pipelines to fend off the curse of proliferating data artifacts."/>
+      </script><meta property="og:url" content="https://www.talesofindustry.org/post/2021-11-16-data-science-anti-patterns/">
+  <meta property="og:site_name" content="Tales of Industry">
+  <meta property="og:title" content="Data Science Anti-Patterns: Proliferating Data Artifacts">
+  <meta property="og:description" content="Use pipelines to fend off the curse of proliferating data artifacts.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2021-11-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-11-16T00:00:00+00:00">
+    <meta property="article:tag" content="Data">
+    <meta property="article:tag" content="Pipelines">
+    <meta property="article:tag" content="Best Practices">
+    <meta property="og:image" content="https://www.talesofindustry.org/images/bunnies.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.talesofindustry.org/images/bunnies.jpg">
+<meta name="twitter:title" content="Data Science Anti-Patterns: Proliferating Data Artifacts">
+<meta name="twitter:description" content="Use pipelines to fend off the curse of proliferating data artifacts.">
 
 
 <script type="application/ld+json">
@@ -175,8 +180,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -229,8 +232,7 @@
   <div class="post-content"><h2 id="data-artifacts">Data Artifacts<a hidden class="anchor" aria-hidden="true" href="#data-artifacts">#</a></h2>
 <p>An anti-pattern is a common response to a recurring problem that is usually ineffective and risks being highly counterproductive <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. These anti-patterns can be identified in management approaches, software design, programming, and probably whenever people come together to achieve anything.</p>
 <p>Data Science has its own set of anti-patterns that data scientist and their project managers should be aware of. “Proliferating Data Artifacts” refers to the behaviour of generating datasets which represent various stages of processing. The data scientists often have to wrangling the data into the right shape for analysis. This might include basic things like joining, filtering, mapping and aggregating data as well as any number of complex feature engineering techniques. There is a strong incentive to save the processed data after each processing step to avoid unnecessary re-processing when changes to the code affect only later steps.</p>
-<p><img loading="lazy" src="/images/finder.png#center" alt="An screenshot of Apple Finder with many versions of the same document."  />
-</p>
+<p><img alt="An screenshot of Apple Finder with many versions of the same document." loading="lazy" src="/images/finder.png#center"></p>
 <p>The choice to save intermediate data artifacts can, however, become very costly when multiple versions of the same data exist. We all know this from trying to save word documents as <code>_v1.doc</code>, <code>_v2.doc</code>, etc. A colleague might email back some changes, but renames the document to <code>_v2_John.doc</code> destroying the whole idea of a well-defined genealogy of documents. God forbid anyone ever tries to save a document as <code>_final.doc</code>. Future versions with an ever-growing <code>_final_final_...</code> suffix are all but inevitable.</p>
 <p>Unlike text documents, datasets can easily take up gigabytes of space. Multiplied with the number of distinct processing steps and their variations this can grow rapidly to a level where the dreaded &lsquo;out-of-space&rsquo; warning hits the poor data scientist. According to Murphy&rsquo;s law this will always happen just before a critical deadline. In any case, the data scientist often finds it hard to decide which dataset to delete, as he/she might be unsure which one was the latest or if it is still needed. As a consequence a disproportionate amount of time is spent on managing intermediate data artifacts and storage space.</p>
 <blockquote>
@@ -238,8 +240,7 @@
 </blockquote>
 <h2 id="pipelines-to-the-rescue">Pipelines to the Rescue<a hidden class="anchor" aria-hidden="true" href="#pipelines-to-the-rescue">#</a></h2>
 <p>But as with every anti-pattern — there is a solution! Pipelines. Pipelines manage intermediate datasets under-the-hood. A pipeline is basically a directed acyclic graph that describes the step-wise processing of the data.</p>
-<p><img loading="lazy" src="/images/pipe.png#center" alt="A graph illustrating a data pipeline."  />
-</p>
+<p><img alt="A graph illustrating a data pipeline." loading="lazy" src="/images/pipe.png#center"></p>
 <p>It is easy to see that any data artifact could be recreated by applying all the processing steps (arrows) that lead to it to the preceding data. All that is needed is the input data and a well-defined pipeline.</p>
 <p>The pipeline approach has several advantages:</p>
 <ul>
