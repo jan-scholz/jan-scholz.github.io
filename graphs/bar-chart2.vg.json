@@ -1,0 +1,54 @@
+{
+  "config": {
+    "view": {"continuousWidth": 300, "continuousHeight": 300},
+    "axis": {
+      "labelAngle": 0,
+      "labelColor": "#1E1E1E",
+      "labelFontSize": 18,
+      "titleColor": "#1E1E1E",
+      "titleFontSize": 20,
+      "titleFontStyle": "bold"
+    },
+    "background": "#DADADB",
+    "mark": {"fill": "#6C6C6C"},
+    "title": {"fontSize": 20}
+  },
+  "data": {"name": "data-eb455dcf2173027647b02a944d4c4904"},
+  "mark": {"type": "bar"},
+  "encoding": {
+    "tooltip": [
+      {"field": "heads", "title": "# Heads out of 10:", "type": "ordinal"},
+      {
+        "field": "probability",
+        "format": "0.1%",
+        "title": "Probability:",
+        "type": "quantitative"
+      }
+    ],
+    "x": {"field": "heads", "title": "# Heads", "type": "nominal"},
+    "y": {
+      "field": "probability",
+      "title": "Probability",
+      "type": "quantitative"
+    }
+  },
+  "height": 300,
+  "title": "Probability of k heads per 10 coin flips",
+  "width": 500,
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json",
+  "datasets": {
+    "data-eb455dcf2173027647b02a944d4c4904": [
+      {"heads": 0, "probability": 0.0009765625},
+      {"heads": 1, "probability": 0.009765625},
+      {"heads": 2, "probability": 0.0439453125},
+      {"heads": 3, "probability": 0.1171875},
+      {"heads": 4, "probability": 0.205078125},
+      {"heads": 5, "probability": 0.24609375},
+      {"heads": 6, "probability": 0.205078125},
+      {"heads": 7, "probability": 0.1171875},
+      {"heads": 8, "probability": 0.0439453125},
+      {"heads": 9, "probability": 0.009765625},
+      {"heads": 10, "probability": 0.0009765625}
+    ]
+  }
+}

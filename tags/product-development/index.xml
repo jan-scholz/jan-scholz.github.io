@@ -1,38 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Product Development on Tales of Industry</title>
+    <title>Product Development&#34; on Tales of Industry</title>
     <link>https://www.talesofindustry.org/tags/product-development/</link>
-    <description>Recent content in Product Development on Tales of Industry</description>
+    <description>Recent content in Product Development&#34; on Tales of Industry</description>
     <image>
       <title>Tales of Industry</title>
       <url>https://www.talesofindustry.org/images/talesofindustry_cover.png</url>
       <link>https://www.talesofindustry.org/images/talesofindustry_cover.png</link>
     </image>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.147.8</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.talesofindustry.org/tags/product-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AI Product Development (Part III)</title>
-      <link>https://www.talesofindustry.org/post/2022-07-30-ai-product-development-part3/</link>
-      <pubDate>Sat, 30 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.talesofindustry.org/post/2022-07-30-ai-product-development-part3/</guid>
-      <description>How to avoid common AI pitfalls.</description>
-    </item>
-    <item>
-      <title>AI Product Development (Part II)</title>
-      <link>https://www.talesofindustry.org/post/2022-06-01-ai-product-development-part2/</link>
-      <pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.talesofindustry.org/post/2022-06-01-ai-product-development-part2/</guid>
-      <description>Build a product with the right people and process.</description>
-    </item>
-    <item>
-      <title>AI Product Development (Part I)</title>
-      <link>https://www.talesofindustry.org/post/2022-05-08-ai-product-development-part1/</link>
-      <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.talesofindustry.org/post/2022-05-08-ai-product-development-part1/</guid>
-      <description>Build a product, not a model.</description>
+      <title>MLTO Talk: What I learned about AI Product Development</title>
+      <link>https://www.talesofindustry.org/post/2024-09-30-mlto-talk-ai-product-development/</link>
+      <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.talesofindustry.org/post/2024-09-30-mlto-talk-ai-product-development/</guid>
+      <description>My talk at the Machine Learning Toronto (MLTO) Meetup on 30 Sep 2024.</description>
     </item>
   </channel>
 </rss>

@@ -3,10 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.talesofindustry.org/post/</loc>
-    <lastmod>2025-01-20T09:56:23-05:00</lastmod>
+    <lastmod>2025-01-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.talesofindustry.org/</loc>
-    <lastmod>2025-01-20T09:56:23-05:00</lastmod>
+    <lastmod>2025-01-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.talesofindustry.org/tags/best-practices/</loc>
     <lastmod>2024-09-30T00:00:00+00:00</lastmod>
@@ -94,6 +94,8 @@
   </url><url>
     <loc>https://www.talesofindustry.org/post/2021-08-03-three-rules-of-success/</loc>
     <lastmod>2021-08-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.talesofindustry.org/post/foo/</loc>
   </url><url>
     <loc>https://www.talesofindustry.org/archives/</loc>
   </url><url>
