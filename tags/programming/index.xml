@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Hands on Keyboard on Tales of Industry</title>
-    <link>https://www.talesofindustry.org/categories/hands-on-keyboard/</link>
-    <description>Recent content in Hands on Keyboard on Tales of Industry</description>
+    <title>Programming on Tales of Industry</title>
+    <link>https://www.talesofindustry.org/tags/programming/</link>
+    <description>Recent content in Programming on Tales of Industry</description>
     <image>
       <title>Tales of Industry</title>
       <url>https://www.talesofindustry.org/images/talesofindustry_cover.png</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.147.8</generator>
     <language>en</language>
     <lastBuildDate>Mon, 16 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://www.talesofindustry.org/categories/hands-on-keyboard/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.talesofindustry.org/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DRAFT: Building Software Is No Longer a Nightmare</title>
       <link>https://www.talesofindustry.org/post/2025-06-16-building-software-is-no-longer-a-nightmare/</link>
@@ -31,14 +31,6 @@
 &lt;!-- 7. Typing --&gt;
 &lt;!-- 8. Refactoring --&gt;
 &lt;p&gt;Your experience might differ, maybe you&amp;rsquo;re a git-whiz who is cranking out command-line-foo like there&amp;rsquo;s no tomorrow. Or maybe you honed the perfect setup to scaffold and automate tasks like packaging or testing over the years. Lucky you! But the majority of developers are grinding every day through an ungodly mess of confusing git commands, dependency issues, and contradictory testing practices. And I won&amp;rsquo;t even go into the hell that is frontend development for the sake of our collective sanity &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How To Create This Blog</title>
-      <link>https://www.talesofindustry.org/post/2022-03-05-how-to-create-this-blog/</link>
-      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.talesofindustry.org/post/2022-03-05-how-to-create-this-blog/</guid>
-      <description>&lt;h1 id=&#34;getting-started-with-hugo&#34;&gt;Getting Started with Hugo&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; is a static site generator (SSG). Simply put, an SSG prepares everything needed to display a website. In contrast, dynamically assembled websites obtain their assets only after they get accessed. An SSG thus minimizes the computational demand on the server, which allows providers, such as GitHub Pages and others&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, to host your static sites for free. More importantly, SSGs emanate a philosophy of simplicity-by-design stemming from a number of limitations. Being constraint forces content creators to focus on the content itself and minimizes the distractions of layout and design. SSGs are thus especially suited for blogs, landing pages, documentation and portfolio sites.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

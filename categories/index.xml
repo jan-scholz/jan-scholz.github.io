@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.147.8</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.talesofindustry.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hands on Keyboard</title>
+      <link>https://www.talesofindustry.org/categories/hands-on-keyboard/</link>
+      <pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.talesofindustry.org/categories/hands-on-keyboard/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Talk</title>
       <link>https://www.talesofindustry.org/categories/talk/</link>
@@ -25,13 +32,6 @@
       <link>https://www.talesofindustry.org/categories/tales-of-industry/</link>
       <pubDate>Sat, 10 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://www.talesofindustry.org/categories/tales-of-industry/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hands on Keyboard</title>
-      <link>https://www.talesofindustry.org/categories/hands-on-keyboard/</link>
-      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.talesofindustry.org/categories/hands-on-keyboard/</guid>
       <description></description>
     </item>
   </channel>
