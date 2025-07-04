@@ -115,12 +115,5 @@
       <guid>https://www.talesofindustry.org/post/2021-08-03-three-rules-of-success/</guid>
       <description>Data science projects are people projects.</description>
     </item>
-    <item>
-      <title></title>
-      <link>https://www.talesofindustry.org/post/foo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.talesofindustry.org/post/foo/</guid>
-      <description>&lt;p&gt;If you were unlucky, you might have gotten introduced to statistics with lots of complicated-looking formulas, tedious graphing exercises, and contrived significance tests.&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>
