@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>How to Build a Production-Ready Application in Two Days | Tales of Industry</title>
+<meta name="keywords" content="llm, programming, best practices">
+<meta name="description" content="
+How do you build a production-ready app in only two days? 
+Do it four times.
+Yes, that&rsquo;s technically eight days! But hear me out. In my previous post I argued that Building Software Is No Longer a Nightmare, because AI coding assistants can take care of all the annoying peripheral tasks like packaging, testing, documentation, deployment, etc.
+Here I want to propose that AI-assisted coding makes it easier than ever to return to the ultimate form of software engineering: &ldquo;Throwaway Prototyping&rdquo;. This concept was pioneered by Fred Brooks in his classic book &ldquo;The Mythical Man-Month&rdquo;1, where he coined the phrase, &ldquo;Plan to throw one away; you will, anyhow.&rdquo; Brooks refers specifically to the first iteration of a system &ndash; the prototype. I will expand this definition to the practice of discarding code and architecture multiple times till the problem and its solution are sufficiently understood.">
+<meta name="author" content="Jan Scholz">
+<link rel="canonical" href="https://www.talesofindustry.org/post/2025-07-03-how-to-build-a-production-ready-application-in-two-days/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.81e3b2e0e69a6f252c473c6df5e7a26513048b089b3d3b9ee32ffffa7d7f8321.css" integrity="sha256-geOy4OaabyUsRzxt9eeiZRMEiwibPTue4y//&#43;n1/gyE=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://www.talesofindustry.org/images/faviconT.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.talesofindustry.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.talesofindustry.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.talesofindustry.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.talesofindustry.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://www.talesofindustry.org/post/2025-07-03-how-to-build-a-production-ready-application-in-two-days/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NMJL1CGE7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-6NMJL1CGE7');
+        }
+      </script><meta property="og:url" content="https://www.talesofindustry.org/post/2025-07-03-how-to-build-a-production-ready-application-in-two-days/">
+  <meta property="og:site_name" content="Tales of Industry">
+  <meta property="og:title" content="How to Build a Production-Ready Application in Two Days">
+  <meta property="og:description" content=" How do you build a production-ready app in only two days? Do it four times.
+Yes, that’s technically eight days! But hear me out. In my previous post I argued that Building Software Is No Longer a Nightmare, because AI coding assistants can take care of all the annoying peripheral tasks like packaging, testing, documentation, deployment, etc.
+Here I want to propose that AI-assisted coding makes it easier than ever to return to the ultimate form of software engineering: “Throwaway Prototyping”. This concept was pioneered by Fred Brooks in his classic book “The Mythical Man-Month”1, where he coined the phrase, “Plan to throw one away; you will, anyhow.” Brooks refers specifically to the first iteration of a system – the prototype. I will expand this definition to the practice of discarding code and architecture multiple times till the problem and its solution are sufficiently understood.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-07-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-07-03T00:00:00+00:00">
+    <meta property="article:tag" content="Llm">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Best Practices">
+    <meta property="og:image" content="https://www.talesofindustry.org/images/goddard.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.talesofindustry.org/images/goddard.jpg">
+<meta name="twitter:title" content="How to Build a Production-Ready Application in Two Days">
+<meta name="twitter:description" content="
+How do you build a production-ready app in only two days? 
+Do it four times.
+Yes, that&rsquo;s technically eight days! But hear me out. In my previous post I argued that Building Software Is No Longer a Nightmare, because AI coding assistants can take care of all the annoying peripheral tasks like packaging, testing, documentation, deployment, etc.
+Here I want to propose that AI-assisted coding makes it easier than ever to return to the ultimate form of software engineering: &ldquo;Throwaway Prototyping&rdquo;. This concept was pioneered by Fred Brooks in his classic book &ldquo;The Mythical Man-Month&rdquo;1, where he coined the phrase, &ldquo;Plan to throw one away; you will, anyhow.&rdquo; Brooks refers specifically to the first iteration of a system &ndash; the prototype. I will expand this definition to the practice of discarding code and architecture multiple times till the problem and its solution are sufficiently understood.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://www.talesofindustry.org/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "How to Build a Production-Ready Application in Two Days",
+      "item": "https://www.talesofindustry.org/post/2025-07-03-how-to-build-a-production-ready-application-in-two-days/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Build a Production-Ready Application in Two Days",
+  "name": "How to Build a Production-Ready Application in Two Days",
+  "description": " How do you build a production-ready app in only two days? Do it four times.\nYes, that\u0026rsquo;s technically eight days! But hear me out. In my previous post I argued that Building Software Is No Longer a Nightmare, because AI coding assistants can take care of all the annoying peripheral tasks like packaging, testing, documentation, deployment, etc.\nHere I want to propose that AI-assisted coding makes it easier than ever to return to the ultimate form of software engineering: \u0026ldquo;Throwaway Prototyping\u0026rdquo;. This concept was pioneered by Fred Brooks in his classic book \u0026ldquo;The Mythical Man-Month\u0026rdquo;1, where he coined the phrase, \u0026ldquo;Plan to throw one away; you will, anyhow.\u0026rdquo; Brooks refers specifically to the first iteration of a system \u0026ndash; the prototype. I will expand this definition to the practice of discarding code and architecture multiple times till the problem and its solution are sufficiently understood.\n",
+  "keywords": [
+    "llm", "programming", "best practices"
+  ],
+  "articleBody": " How do you build a production-ready app in only two days? Do it four times.\nYes, that’s technically eight days! But hear me out. In my previous post I argued that Building Software Is No Longer a Nightmare, because AI coding assistants can take care of all the annoying peripheral tasks like packaging, testing, documentation, deployment, etc.\nHere I want to propose that AI-assisted coding makes it easier than ever to return to the ultimate form of software engineering: “Throwaway Prototyping”. This concept was pioneered by Fred Brooks in his classic book “The Mythical Man-Month”1, where he coined the phrase, “Plan to throw one away; you will, anyhow.” Brooks refers specifically to the first iteration of a system – the prototype. I will expand this definition to the practice of discarding code and architecture multiple times till the problem and its solution are sufficiently understood.\nDiscarding code, refactoring, and revising architecture is often taken to be implicitly part of Agile methodology and Extreme Programming. However, I’ve seen it rarely practiced at enterprise due to the assumed high cost of throwing away working code, and the perceived lack-of-time to rebuild from scratch. Fortunately, all of these objections have become moot thanks to AI if one is willing to bear the token expense, that is.\nAI-assisted Throwaway Prototyping is one of the best ways to allow a developer to achieve what used to require a small team of dedicated experts. This requires the developer to actively attempt to go beyond their limitations, i.e. leave their comfort zone.\nUsing AI to develop within your comfort zone will merely accelerate your code output, developing into unfamiliar territory will accelerate your product delivery.\nI’ve found that a typical project using the Throwaway Prototyping approach tends to have four distinct phases each lasting 1-3 days. Each phase advances the problem understanding and solution approach. This is crucial: Throwaway Prototyping is meant to advance your understanding of the problem, unlike Vibe Coding which absolves the “developer” from this duty entirely.\nI’ll describe the four phases of Throwaway Prototyping by using an example scenario. Let’s say you are an experienced Python developer with little JS experience. You are tasked with building a real-time audio communication app.\nPhase 1: Comfort Zone + Personal Bias You start in your comfort zone using the tools you are familiar with. As a Python developer you are familiar with FastAPI backend development. You focus on building the backend of the application, taking care of implementing the right routes. The way you understand the problem, you try to solve it with websockets and real-time streaming. Your bias tells you that you should solve this problem using object-oriented programming.\nAfter two days, you realize that your beautifully designed architecture and clean code doesn’t really work. The audio processing is unreliable, possibly due to lost packets. With a heavy heart you decide to throw away the first prototype.\nPhase 2: Comfort Zone + Overcoming Personal Bias The first prototype taught you that the real-time streaming approach is overly complex and not really necessary to make the application work.\nYou start anew, careful to overcome your biases. You focus on the core issue and re-design the backend communication from scratch. A much simpler approach of synchronous data exchange using the POST method is more robust while not substantially increasing latencies.\nNow your focus shifts to the frontend. With little JavaScript experience, you realize you are in over your head. While the backend is rock-solid and responds reliably when tested in isolation, the frontend is brittle and sluggish. You throw away the entire frontend code base.\nPhase 3: Stretch Zone + AI Bias Your second prototype taught you that the problem can be solved using synchronous communication and that you lack FE experience.\nYou leverage AI to revise the frontend architecture and rebuild it from scratch. Your solid backend architecture together with the well-defined routes serve as design specifications. These can be can be used to prompt the AI to select the right frameworks and implementation approach for the frontend. However, the AI has its own biases and the code grows organically as you try to nudge it toward your envisioned user experience.\nYou’re impressed! The AI got much closer to building a responsive, feature-rich application than you ever could have. But the frontend codebase has evolved into a mess. The AI scattershot changes across the entire code base whenever you asked it to address issues or add new features. You are unable to keep up with the AI and start to worry about the rapidly accumulating technical debt.\nYou don’t know who you should be more disgusted with, the AI or yourself. How could you have let things devolve so quickly in the pursuit of rapid development? You throw away the third prototype.\nPhase 4: Stretch Zone + Overcoming AI Bias You now have a clearer picture of what the frontend architecture needs to accomplish. Working together with the AI coding assistant on the third prototype taught you a lot about frontend engineering. Your prompts are now more informed and you are able to direct the AI on choices like signals vs observer patterns, template literals vs web components, etc.\nA mature backend is now joined with a clean and functional frontend. AI assistance allowed you to repeatedly throw away code and start from scratch. This way you were able to incorporate new learnings at each iteration free from the constraints of pre-existing code.\nConclusion There is no doubt that AI-assisted coding is already transforming the industry. A tsunami of AI-generated slop will be one outcome of this development. I’m hopeful that we can also use AI to grow as engineers while building better products. My version of Iterative Throwaway Prototyping illustrates how this human-AI collaboration could look like:\nIterative Throwaway Prototyping 1. Comfort zone +\nBias 2. Comfort Zone +\nOvercome Bias 3. Stretch Zone +\nAI Bias 4. Stretch Zone +\nOvercome AI Bias Use what you know Solve problem your way Use what you know Solve problem based on what you learned previously Use AI to extend out of comfort zone Accept AI bias Use AI to extend out of comfort zone Direct AI to overcome its (default) bias © 2024 talesofindustry.org Internet Archive - The Mythical Man-Month by Frederick P. Brooks Jr. ↩︎\n",
+  "wordCount" : "1049",
+  "inLanguage": "en",
+  "image":"https://www.talesofindustry.org/images/goddard.jpg","datePublished": "2025-07-03T00:00:00Z",
+  "dateModified": "2025-07-03T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jan Scholz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.talesofindustry.org/post/2025-07-03-how-to-build-a-production-ready-application-in-two-days/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tales of Industry",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.talesofindustry.org/images/faviconT.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.talesofindustry.org/" accesskey="h" title="Tales of Industry (Alt + H)">Tales of Industry</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.talesofindustry.org/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.talesofindustry.org/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.talesofindustry.org/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.talesofindustry.org/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.talesofindustry.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.talesofindustry.org/">Home</a>&nbsp;»&nbsp;<a href="https://www.talesofindustry.org/post/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      How to Build a Production-Ready Application in Two Days
+    </h1>
+    <div class="post-meta"><span title='2025-07-03 00:00:00 +0000 UTC'>July 3, 2025</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Jan Scholz
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="https://www.talesofindustry.org/images/goddard.jpg" alt="A Picture">
+        <figcaption>Nobody said, prototypes have to look good! Robert Goddard with the first liquid-fueled rocket (1926, <a href="https://commons.wikimedia.org/wiki/File:Goddardrocket.jpg">public domain</a>).</figcaption>
+</figure>
+  <div class="post-content"><blockquote>
+<p><em>How do you build a production-ready app in only two days?</em> </br>
+<em>Do it four times.</em></p></blockquote>
+<p>Yes, that&rsquo;s technically eight days! But hear me out. In my previous post I argued that <a href="https://www.talesofindustry.org/post/2025-06-16-building-software-is-no-longer-a-nightmare/">Building Software Is No Longer a Nightmare</a>, because AI coding assistants can take care of all the annoying peripheral tasks like packaging, testing, documentation, deployment, etc.</p>
+<p>Here I want to propose that AI-assisted coding makes it easier than ever to return to the ultimate form of software engineering: &ldquo;Throwaway Prototyping&rdquo;. This concept was pioneered by Fred Brooks in his classic book &ldquo;The Mythical Man-Month&rdquo;<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, where he coined the phrase, &ldquo;Plan to throw one away; you will, anyhow.&rdquo; Brooks refers specifically to the first iteration of a system &ndash; the prototype. I will expand this definition to the practice of discarding code and architecture <em>multiple</em> times till the problem and its solution are sufficiently understood.</p>
+<p>Discarding code, refactoring, and revising architecture is often taken to be implicitly part of Agile methodology and Extreme Programming. However, I&rsquo;ve seen it rarely practiced at enterprise due to the assumed high cost of throwing away working code, and the perceived lack-of-time to rebuild from scratch. Fortunately, all of these objections have become moot thanks to AI if one is willing to bear the token expense, that is.</p>
+<p>AI-assisted Throwaway Prototyping is one of the best ways to allow a developer to achieve what used to require a small team of dedicated experts. This requires the developer to actively attempt to go beyond their limitations, i.e. leave their comfort zone.</p>
+<blockquote>
+<p><em>Using AI to develop within your comfort zone will merely accelerate your <strong>code output</strong>, developing into unfamiliar territory will accelerate your <strong>product delivery</strong>.</em></p></blockquote>
+<p>I&rsquo;ve found that a typical project using the Throwaway Prototyping approach tends to have four distinct phases each lasting 1-3 days. Each phase advances the problem understanding and solution approach. This is crucial: Throwaway Prototyping is meant to advance your understanding of the problem, unlike Vibe Coding which absolves the &ldquo;developer&rdquo; from this duty entirely.</p>
+<p>I&rsquo;ll describe the four phases of Throwaway Prototyping by using an example scenario. Let&rsquo;s say you are an experienced Python developer with little JS experience. You are tasked with building a real-time audio communication app.</p>
+<h1 id="phase-1-comfort-zone--personal-bias">Phase 1: Comfort Zone + Personal Bias<a hidden class="anchor" aria-hidden="true" href="#phase-1-comfort-zone--personal-bias">#</a></h1>
+<p>You start in your comfort zone using the tools you are familiar with. As a Python developer you are familiar with FastAPI backend development. You focus on building the backend of the application, taking care of implementing the right routes. The way you understand the problem, you try to solve it with websockets and real-time streaming. Your bias tells you that you should solve this problem using object-oriented programming.</p>
+<p>After two days, you realize that your beautifully designed architecture and clean code doesn&rsquo;t really work. The audio processing is unreliable, possibly due to lost packets. With a heavy heart you decide to throw away the first prototype.</p>
+<h1 id="phase-2-comfort-zone--overcoming-personal-bias">Phase 2: Comfort Zone + Overcoming Personal Bias<a hidden class="anchor" aria-hidden="true" href="#phase-2-comfort-zone--overcoming-personal-bias">#</a></h1>
+<p>The first prototype taught you that the real-time streaming approach is overly complex and not really necessary to make the application work.</p>
+<p>You start anew, careful to overcome your biases. You focus on the core issue and re-design the backend communication from scratch. A much simpler approach of synchronous data exchange using the POST method is more robust while not substantially increasing latencies.</p>
+<p>Now your focus shifts to the frontend. With little JavaScript experience, you realize you are in over your head. While the backend is rock-solid and responds reliably when tested in isolation, the frontend is brittle and sluggish. You throw away the entire frontend code base.</p>
+<h1 id="phase-3-stretch-zone--ai-bias">Phase 3: Stretch Zone + AI Bias<a hidden class="anchor" aria-hidden="true" href="#phase-3-stretch-zone--ai-bias">#</a></h1>
+<p>Your second prototype taught you that the problem can be solved using synchronous communication and that you lack FE experience.</p>
+<p>You leverage AI to revise the frontend architecture and rebuild it from scratch. Your solid backend architecture together with the well-defined routes serve as design specifications. These can be can be used to prompt the AI to select the right frameworks and implementation approach for the frontend. However, the AI has its own biases and the code grows organically as you try to nudge it toward your envisioned user experience.</p>
+<p>You’re impressed! The AI got much closer to building a responsive, feature-rich application than you ever could have. But the frontend codebase has evolved into a mess. The AI scattershot changes across the entire code base whenever you asked it to address issues or add new features. You are unable to keep up with the AI and start to worry about the rapidly accumulating technical debt.</p>
+<p>You don&rsquo;t know who you should be more disgusted with, the AI or yourself. How could you have let things devolve so quickly in the pursuit of rapid development? You throw away the third prototype.</p>
+<h1 id="phase-4-stretch-zone--overcoming-ai-bias">Phase 4: Stretch Zone + Overcoming AI Bias<a hidden class="anchor" aria-hidden="true" href="#phase-4-stretch-zone--overcoming-ai-bias">#</a></h1>
+<p>You now have a clearer picture of what the frontend architecture needs to accomplish. Working together with the AI coding assistant on the third prototype taught you a lot about frontend engineering. Your prompts are now more informed and you are able to direct the AI on choices like signals vs observer patterns, template literals vs web components, etc.</p>
+<p>A mature backend is now joined with a clean and functional frontend. AI assistance allowed you to repeatedly throw away code and start from scratch. This way you were able to incorporate new learnings at each iteration free from the constraints of pre-existing code.</p>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>There is no doubt that AI-assisted coding is already transforming the industry. A tsunami of AI-generated slop will be one outcome of this development. I&rsquo;m hopeful that we can also use AI to grow as engineers while building better products. My version of Iterative Throwaway Prototyping illustrates how this human-AI collaboration could look like:</p>
+<h2 id="iterative-throwaway-prototyping">Iterative Throwaway Prototyping<a hidden class="anchor" aria-hidden="true" href="#iterative-throwaway-prototyping">#</a></h2>
+<table style="font-size:70%; border: 1px solid #DDDDDD;">
+  <thead>
+    <tr style="background-color:var(--tertiary)">
+      <th style="width: 200px;">1. Comfort zone +<br>Bias</th>
+      <th style="width: 200px;">2. Comfort Zone +<br>Overcome Bias</th>
+      <th style="width: 200px;">3. Stretch Zone +<br>AI Bias</th>
+      <th style="width: 200px;">4. Stretch Zone +<br>Overcome AI Bias</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="even" style="vertical-align:top">
+      <td>
+        <ul>
+          <li>Use what you know</li>
+          <li>Solve problem your way</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Use what you know</li>
+          <li>Solve problem based on what you learned previously</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Use AI to extend out of comfort zone</li>
+          <li>Accept AI bias</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Use AI to extend out of comfort zone</li>
+          <li>Direct AI to overcome its (default) bias</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" style="text-align: right">
+        &copy; 2024 <a href="https://talesofindustry.org/post/2025-07-03-how-to-build-a-production-ready-application-in-two-days/">talesofindustry.org</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://archive.org/details/MythicalManMonth">Internet Archive - The Mythical Man-Month by Frederick P. Brooks Jr.</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.talesofindustry.org/tags/llm/">Llm</a></li>
+      <li><a href="https://www.talesofindustry.org/tags/programming/">Programming</a></li>
+      <li><a href="https://www.talesofindustry.org/tags/best-practices/">Best Practices</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://www.talesofindustry.org/post/2025-06-16-building-software-is-no-longer-a-nightmare/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Building Software Is No Longer a Nightmare</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://www.talesofindustry.org/">Tales of Industry</a></span>
+    <span>by Jan Scholz.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

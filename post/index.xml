@@ -9,10 +9,21 @@
       <url>https://www.talesofindustry.org/images/talesofindustry_cover.png</url>
       <link>https://www.talesofindustry.org/images/talesofindustry_cover.png</link>
     </image>
-    <generator>Hugo -- 0.147.8</generator>
+    <generator>Hugo -- 0.147.9</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 16 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.talesofindustry.org/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Build a Production-Ready Application in Two Days</title>
+      <link>https://www.talesofindustry.org/post/2025-07-03-how-to-build-a-production-ready-application-in-two-days/</link>
+      <pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.talesofindustry.org/post/2025-07-03-how-to-build-a-production-ready-application-in-two-days/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;How do you build a production-ready app in only two days?&lt;/em&gt; &lt;/br&gt;
+&lt;em&gt;Do it four times.&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Yes, that&amp;rsquo;s technically eight days! But hear me out. In my previous post I argued that &lt;a href=&#34;https://www.talesofindustry.org/post/2025-06-16-building-software-is-no-longer-a-nightmare/&#34;&gt;Building Software Is No Longer a Nightmare&lt;/a&gt;, because AI coding assistants can take care of all the annoying peripheral tasks like packaging, testing, documentation, deployment, etc.&lt;/p&gt;
+&lt;p&gt;Here I want to propose that AI-assisted coding makes it easier than ever to return to the ultimate form of software engineering: &amp;ldquo;Throwaway Prototyping&amp;rdquo;. This concept was pioneered by Fred Brooks in his classic book &amp;ldquo;The Mythical Man-Month&amp;rdquo;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, where he coined the phrase, &amp;ldquo;Plan to throw one away; you will, anyhow.&amp;rdquo; Brooks refers specifically to the first iteration of a system &amp;ndash; the prototype. I will expand this definition to the practice of discarding code and architecture &lt;em&gt;multiple&lt;/em&gt; times till the problem and its solution are sufficiently understood.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Building Software Is No Longer a Nightmare</title>
       <link>https://www.talesofindustry.org/post/2025-06-16-building-software-is-no-longer-a-nightmare/</link>
