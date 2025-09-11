@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>LLMs Are Done. What Are Agents? | Tales of Industry</title>
+<meta name="keywords" content="llm, reinforcement learning, agents">
+<meta name="description" content="Signs that the LLM paradigm has run its course.">
+<meta name="author" content="Jan Scholz">
+<link rel="canonical" href="https://www.talesofindustry.org/post/2025-09-11-llms-are-done/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.04be2d6277e5698bef146c4484b6d6a8351419510cae51d4b14c030863b14235.css" integrity="sha256-BL4tYnflaYvvFGxEhLbWqDUUGVEMrlHUsUwDCGOxQjU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://www.talesofindustry.org/images/faviconT.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.talesofindustry.org/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.talesofindustry.org/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.talesofindustry.org/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.talesofindustry.org/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://www.talesofindustry.org/post/2025-09-11-llms-are-done/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NMJL1CGE7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-6NMJL1CGE7');
+        }
+      </script><meta property="og:url" content="https://www.talesofindustry.org/post/2025-09-11-llms-are-done/">
+  <meta property="og:site_name" content="Tales of Industry">
+  <meta property="og:title" content="LLMs Are Done. What Are Agents?">
+  <meta property="og:description" content="Signs that the LLM paradigm has run its course.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-09-11T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-11T00:00:00+00:00">
+    <meta property="article:tag" content="Llm">
+    <meta property="article:tag" content="Reinforcement Learning">
+    <meta property="article:tag" content="Agents">
+    <meta property="og:image" content="https://www.talesofindustry.org/images/frankenstein.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.talesofindustry.org/images/frankenstein.jpg">
+<meta name="twitter:title" content="LLMs Are Done. What Are Agents?">
+<meta name="twitter:description" content="Signs that the LLM paradigm has run its course.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://www.talesofindustry.org/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "LLMs Are Done. What Are Agents?",
+      "item": "https://www.talesofindustry.org/post/2025-09-11-llms-are-done/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "LLMs Are Done. What Are Agents?",
+  "name": "LLMs Are Done. What Are Agents?",
+  "description": "Signs that the LLM paradigm has run its course.",
+  "keywords": [
+    "llm", "reinforcement learning", "agents"
+  ],
+  "articleBody": "The lacklustre reception of the recent GPT-5 release1 (Aug 2025) was a reminder of the slowing progress we can expect from future LLMs. The current LLM design has fundamental limits when it comes to achieving artificial general intelligence (AGI).\nBesides not being able to learn easily after their very long and expensive training runs have completed, current LLMs seem unable to count2 or do even simple arithmetic3. They fail at algorithmic reasoning tasks4 and give wrong responses with confidence (i.e. hallucinate). And they just can’t seem to follow the rules of chess5!\nTherefore, most chatbot providers have now pivoted to agent-like systems that enrich the LLM’s context with past conversations, chain-of-thought, and tools. These tools are specifically designed to patch weaknesses of LLMs, such as math and code execution.\nThis sounds an awful lot like what I call the “Frankenstein stage of technology development”. There is little left to squeeze out of the core idea and the only progress consists of bolting on more stuff. Kind of like when mobile phones just started to get more cameras after the initial rapid improvements in terms of screen size, processing power and miniaturization had reached their limits6.\nAgents. A Blast from the Past. The idea of an “agent” was developed over 50 years ago to describe learning behaviour that involved repeated interaction with the environment and feedback or rewards. Both, psychology and early AI (or cybernetics) research adopted the concept and refined it7.\nRichard S. Sutton formalized the concept of an autonomous agent in his 1983 PhD dissertation8: An agent interacts with an environment in discrete time steps $t$. The agent’s entire knowledge and perception of the environment (at time $t$) is captured in state $S_t$. Based on this state, the agent selects an action $a_t$. The agent then receives a state update $S_{t+1}$ and a reward $r_{t+1}$, which is key for reinforcement learning (RL).\nThe basic agent-environment interaction loop.\nModern LLM-based chatbots (or so called “agentic” AI) draw on some but not all of the characteristics of this classic RL agent. They interact with the environment (i.e. the user) in discrete steps and their actions consist of generating tokens. Chatbots also update their state, e.g. by saving the user’s response to their conversational history. Additionally, they “act” by using tools and their “environment” can be their own output during chain-of-thought.\nHowever, chatbots deviate from Sutton’s classic RL agent definition due to the lack of continuous online learning. Chatbots are mostly “fixed” at inference time. Reinforcement learning from human feedback (RLHF) is used during LLM pre-training, but not during the chat session.\nThe thumbs up/down that users can provide and other session metrics are probably anonymized and aggregated before being used for offline model fine-tuning. The closest chatbots come to learning within session is the way they change their behaviour based on the chat history and some user preferences (e.g. system prompt). But anyone who has tried to correct a chatbot knows the limits of the teaching-via-context approach. Without weight adjustments chatbots tend to eventually revert back to their original behaviour.\nConclusion LLM progress has slowed even while the effort to improve the paradigm has increased tremendously. Currently billions of dollars are being invested in squeezing out marginal gains that don’t fundamentally make LLMs more intelligent9. This fact alone should give anyone pause who was hoping that LLMs could become AGI.\nOf course, it’s possible that there will be another game-changer like the transformer architecture10, but this is increasingly unlikely given that thousands of publications each year haven’t delivered any major breakthrough.\nThe autoregressive transformer architecture11 does not seem to be suitable for true intelligence, which is the ability to “achieve goals in a wide range of (novel) environments”12. For now, LLMs mostly retrieve and interpolate between the language examples they were trained on. So by definition, they cannot generalize and give responses that are outside or in conflict with the training data.\nWhile the LLM-chatbot loop sounds similar to the classic RL agent–environment interaction paradigm, it still differs fundamentally. Chatbots don’t learn online and even if they did it’s not clear if the classic RL agent approach would be feasible given the large number of states such a system could be in. I’m skeptical that LLMs themselves will be the key to AGI, despite the advances of LLM-based agents over “naked” LLMs.\nLinks ChatGPT users hate GPT-5’s “overworked secretary” energy, miss their GPT-4o buddy ↩︎\n“Strawberry” ↩︎\nIs OpenAI’s o1 a good calculator? ↩︎\nLimitations of Language Models in Arithmetic and Symbolic Induction ↩︎\nGPT-5 and GPT-5 Thinking as Other LLMs in Chess: Illegal Move After 4th Turn ↩︎\nAnother example of the Frankenstein stage of development was the auto-ML craze, when the data science industry became fixated on training every available model under the sun with every possible feature combination (2016). This brute-force approach might have worked well to win Kaggle competitions, but it also signalled that traditional machine-learning techniques had run out of fresh ideas. Lacking innovation, the industry leaned on doing more rather than doing better. Ironically, the companies building these auto-ML systems still profited, since the trend drove demand for more compute, storage, and infrastructure. (🤔 Hmmm. These are some interesting parallels to the current chatbot industry.) ↩︎\nThe conceptual foundations of the agent-environment model were emerging well before modern reinforcement learning. In cybernetics (Norbert Wiener, 1948) and optimal control theory (Bellman, Kalman, Pontryagin), researchers explored how systems could adapt their behaviour to achieve goals in dynamic environments through feedback loops. In animal learning theory, psychologists and neuropsychologists framed behaviour as a process of stimulus-response interactions shaped by reinforcement (Thorndike, Skinner, Hebb). They theorized that intelligent behaviour arises from continuous interaction between an agent and its environment, where actions influence future observations and rewards. ↩︎\nSutton, R. S. (1983). Temporal credit assignment in reinforcement learning. Doctoral dissertation, University of Massachusetts Amherst. ↩︎\nFor example: Quantization, KV-cache optimization, Mixture-of-Experts, speculative decoding, distillation. ↩︎\nVaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., \u0026 Polosukhin, I. (2017). Attention is all you need. arXiv. ↩︎\nTo be more precise: autoregressive deep learning multi-head self-attention transformer architecture with tokenized input/output. ↩︎\nFrançois Chollet’s “On the Measure of Intelligence” (2019): “Intelligence measures an agent’s ability to achieve goals in a wide range of environments — including ones it has never encountered before.” ↩︎\n",
+  "wordCount" : "1045",
+  "inLanguage": "en",
+  "image":"https://www.talesofindustry.org/images/frankenstein.jpg","datePublished": "2025-09-11T00:00:00Z",
+  "dateModified": "2025-09-11T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jan Scholz"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.talesofindustry.org/post/2025-09-11-llms-are-done/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tales of Industry",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.talesofindustry.org/images/faviconT.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.talesofindustry.org/" accesskey="h" title="Tales of Industry (Alt + H)">Tales of Industry</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.talesofindustry.org/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.talesofindustry.org/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.talesofindustry.org/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.talesofindustry.org/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.talesofindustry.org/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.talesofindustry.org/">Home</a>&nbsp;»&nbsp;<a href="https://www.talesofindustry.org/post/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      LLMs Are Done. What Are Agents?
+    </h1>
+    <div class="post-description">
+      Signs that the LLM paradigm has run its course.
+    </div>
+    <div class="post-meta"><span title='2025-09-11 00:00:00 +0000 UTC'>September 11, 2025</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Jan Scholz
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="https://www.talesofindustry.org/images/frankenstein.jpg" alt="A Picture">
+        <figcaption>&ldquo;I&rsquo;ve added tool use and chain-of-thought to make you more intelligent.&rdquo; (House of Frankenstein, 1944)</figcaption>
+</figure>
+  <div class="post-content"><p>The lacklustre reception of the recent GPT-5 release<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (Aug 2025) was a reminder of the slowing progress we can expect from future LLMs. The current LLM design has fundamental limits when it comes to achieving artificial general intelligence (AGI).</p>
+<p>Besides not being able to learn easily after their very long and expensive training runs have completed, current LLMs seem unable to count<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> or do even simple arithmetic<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. They fail at algorithmic reasoning tasks<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> and give wrong responses with confidence (i.e. hallucinate). And they just can’t seem to follow the rules of chess<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>!</p>
+<p>Therefore, most chatbot providers have now pivoted to agent-like systems that enrich the LLM&rsquo;s context with past conversations, chain-of-thought, and tools. These tools are specifically designed to patch weaknesses of LLMs, such as math and code execution.</p>
+<p>This sounds an awful lot like what I call the &ldquo;Frankenstein stage of technology development&rdquo;. There is little left to squeeze out of the core idea and the only progress consists of bolting on more stuff. Kind of like when mobile phones just started to get more cameras after the initial rapid improvements in terms of screen size, processing power and miniaturization had reached their limits<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>.</p>
+<h2 id="agents-a-blast-from-the-past">Agents. A Blast from the Past.<a hidden class="anchor" aria-hidden="true" href="#agents-a-blast-from-the-past">#</a></h2>
+<p>The idea of an &ldquo;agent&rdquo; was developed over 50 years ago to describe learning behaviour that involved repeated interaction with the environment and feedback or rewards. Both, psychology and early AI (or cybernetics) research adopted the concept and refined it<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>.</p>
+<p>Richard S. Sutton formalized the concept of an autonomous agent in his 1983 PhD dissertation<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>: An agent interacts with an environment in discrete time steps $t$. The agent&rsquo;s entire knowledge and perception of the environment (at time $t$) is captured in state $S_t$. Based on this state, the agent selects an action $a_t$. The agent then receives a state update $S_{t+1}$ and a reward $r_{t+1}$, which is key for reinforcement learning (RL).</p>
+<figure class="align-center ">
+    <img loading="lazy" src="/images/rf-agent-basic-loop.svg#center"
+         alt="The basic agent-environment interaction loop."/> <figcaption>
+            <p>The basic agent-environment interaction loop.</p>
+        </figcaption>
+</figure>
+
+<p>Modern LLM-based chatbots (or so called &ldquo;agentic&rdquo; AI) draw on some but not all of the characteristics of this classic RL agent. They interact with the environment (i.e. the user) in discrete steps and their actions consist of generating tokens. Chatbots also update their state, e.g. by saving the user&rsquo;s response to their conversational history. Additionally, they &ldquo;act&rdquo; by using tools and their &ldquo;environment&rdquo; can be their own output during chain-of-thought.</p>
+<p>However, chatbots deviate from Sutton&rsquo;s classic RL agent definition due to the lack of continuous online learning. Chatbots are mostly &ldquo;fixed&rdquo; at inference time. Reinforcement learning from human feedback (RLHF) is used during LLM pre-training, but not during the chat session.</p>
+<p>The thumbs up/down that users can provide and other session metrics are probably anonymized and aggregated before being used for offline model fine-tuning. The closest chatbots come to learning  within session is the way they change their behaviour based on the chat history and some user preferences (e.g. system prompt). But anyone who has tried to correct a chatbot knows the limits of the teaching-via-context approach. Without weight adjustments chatbots tend to eventually revert back to their original behaviour.</p>
+<!-- In general, chatbots constitute a more pragmatic realization of the RL agent paradigm with looser reward definitions, offline-training policies, and more complex actions/environments. -->
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>LLM progress has slowed even while the effort to improve the paradigm has increased tremendously. Currently billions of dollars are being invested in squeezing out marginal gains that don’t fundamentally make LLMs more intelligent<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>. This fact alone should give anyone pause who was hoping that LLMs could become AGI.</p>
+<p>Of course, it&rsquo;s possible that there will be another game-changer like the transformer architecture<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup>, but this is increasingly unlikely given that thousands of publications each year haven&rsquo;t delivered any major breakthrough.</p>
+<p>The autoregressive transformer architecture<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup> does not seem to be suitable for true intelligence, which is the ability to &ldquo;achieve goals in a wide range of (novel) environments&rdquo;<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup>. For now, LLMs mostly retrieve and interpolate between the language examples they were trained on. So by definition, they cannot generalize and give responses that are outside or in conflict with the training data.</p>
+<p>While the LLM-chatbot loop sounds similar to the classic RL agent–environment interaction paradigm, it still differs fundamentally. Chatbots don&rsquo;t learn online and even if they did it&rsquo;s not clear if the classic RL agent approach would be feasible given the large number of states such a system could be in. I&rsquo;m skeptical that LLMs themselves will be the key to AGI, despite the advances of LLM-based <em>agents</em> over &ldquo;naked&rdquo; LLMs.</p>
+<h2 id="links">Links<a hidden class="anchor" aria-hidden="true" href="#links">#</a></h2>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://arstechnica.com/ai/2025/08/chatgpt-users-outraged-as-gpt-5-replaces-the-models-they-love/">ChatGPT users hate GPT-5’s &ldquo;overworked secretary&rdquo; energy, miss their GPT-4o buddy</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>&ldquo;Strawberry&rdquo;&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://x.com/yuntiandeng/status/1836114401213989366">Is OpenAI&rsquo;s o1 a good calculator?</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://aclanthology.org/2023.acl-long.516.pdf?utm_source=chatgpt.com">Limitations of Language Models in Arithmetic and Symbolic Induction</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://blog.mathieuacher.com/GPT5-IllegalChessBench/">GPT-5 and GPT-5 Thinking as Other LLMs in Chess: Illegal Move After 4th Turn</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Another example of the <em>Frankenstein</em> stage of development was the auto-ML craze, when the data science industry became fixated on training every available model under the sun with every possible feature combination (2016). This brute-force approach might have worked well to win Kaggle competitions, but it also signalled that traditional machine-learning techniques had run out of fresh ideas. Lacking innovation, the industry leaned on doing <em>more</em> rather than doing <em>better</em>. Ironically, the companies building these auto-ML systems still profited, since the trend drove demand for more compute, storage, and infrastructure. (🤔 Hmmm. These are some interesting parallels to the current chatbot industry.)&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>The conceptual foundations of the agent-environment model were emerging well before modern reinforcement learning. In cybernetics (Norbert Wiener, 1948) and optimal control theory (Bellman, Kalman, Pontryagin), researchers explored how systems could adapt their behaviour to achieve goals in dynamic environments through feedback loops. In animal learning theory, psychologists and neuropsychologists framed behaviour as a process of stimulus-response interactions shaped by reinforcement (Thorndike, Skinner, Hebb). They theorized that intelligent behaviour arises from continuous interaction between an agent and its environment, where actions influence future observations and rewards.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>Sutton, R. S. (1983). Temporal credit assignment in reinforcement learning. Doctoral dissertation, University of Massachusetts Amherst.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>For example: Quantization, KV-cache optimization, Mixture-of-Experts, speculative decoding, distillation.&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., &amp; Polosukhin, I. (2017). Attention is all you need. <a href="https://arxiv.org/abs/1706.03762">arXiv</a>.&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p>To be more precise: autoregressive deep learning multi-head self-attention transformer architecture with tokenized input/output.&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12">
+<p>François Chollet&rsquo;s &ldquo;On the Measure of Intelligence&rdquo; (2019): &ldquo;Intelligence measures an agent’s ability to achieve goals in a wide range of environments — including ones it has never encountered before.&rdquo;&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.talesofindustry.org/tags/llm/">Llm</a></li>
+      <li><a href="https://www.talesofindustry.org/tags/reinforcement-learning/">Reinforcement Learning</a></li>
+      <li><a href="https://www.talesofindustry.org/tags/agents/">Agents</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://www.talesofindustry.org/post/2025-07-03-how-to-build-a-production-ready-application-in-two-days/">
+    <span class="title">Next »</span>
+    <br>
+    <span>How to Build a Production-Ready Application in Two Days</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://www.talesofindustry.org/">Tales of Industry</a></span>
+    <span>by Jan Scholz.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -2,31 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.talesofindustry.org/tags/best-practices/</loc>
-    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
+    <loc>https://www.talesofindustry.org/tags/agents/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.talesofindustry.org/categories/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.talesofindustry.org/tags/llm/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.talesofindustry.org/post/2025-09-11-llms-are-done/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.talesofindustry.org/post/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.talesofindustry.org/tags/reinforcement-learning/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.talesofindustry.org/tags/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.talesofindustry.org/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.talesofindustry.org/categories/thought-piece/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.talesofindustry.org/tags/best-practices/</loc>
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.talesofindustry.org/post/2025-07-03-how-to-build-a-production-ready-application-in-two-days/</loc>
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.talesofindustry.org/tags/llm/</loc>
-    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.talesofindustry.org/post/</loc>
-    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.talesofindustry.org/tags/programming/</loc>
-    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.talesofindustry.org/tags/</loc>
-    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.talesofindustry.org/</loc>
-    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.talesofindustry.org/categories/thought-piece/</loc>
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.talesofindustry.org/post/2025-06-16-building-software-is-no-longer-a-nightmare/</loc>
