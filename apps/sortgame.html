@@ -24,22 +24,11 @@
             margin: 0;
             padding-top: 1vh;
             box-sizing: border-box;
-            background: 
-                repeating-linear-gradient(
-                    135deg,
-                    rgba(255, 255, 255, 0.03),
-                    rgba(255, 255, 255, 0.03) 1px,
-                    transparent 1px,
-                    transparent 15px,
-                    rgba(255, 255, 255, 0.05) 15px,
-                    rgba(255, 255, 255, 0.05) 17px,
-                    transparent 17px,
-                    transparent 30px,
-                    rgba(255, 255, 255, 0.03) 30px,
-                    rgba(255, 255, 255, 0.03) 31px,
-                    transparent 31px,
-                    transparent 80px
-                ),
+            background:
+                /* Tiled, offset symbols */
+                url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3e%3ctext x='50' y='58' font-size='50' text-anchor='middle' fill='rgba(255,255,255,0.04)'%3e♥%3c/text%3e%3c/svg%3e") 100px 100px / 200px 200px,
+                url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3e%3ctext x='50' y='58' font-size='50' text-anchor='middle' fill='rgba(255,255,255,0.04)'%3e♥%3c/text%3e%3c/svg%3e") 0 0 / 200px 200px,
+                /* Base gradient */
                 linear-gradient(135deg, #4f46e5, #818cf8);
             color: var(--text-color);
             -webkit-font-smoothing: antialiased;
@@ -207,26 +196,26 @@
             const difficultyRadios = document.querySelectorAll('input[name="difficulty"]');
 
             const PREFIXES = [
-                { name: 'yotta', factor: '10²⁴', placeValue: 'Septillion' },
-                { name: 'zetta', factor: '10²¹', placeValue: 'Sextillion' },
-                { name: 'exa', factor: '10¹⁸', placeValue: 'Quintillion' },
-                { name: 'peta', factor: '10¹⁵', placeValue: 'Quadrillion' },
-                { name: 'tera', factor: '10¹²', placeValue: 'Trillion' },
-                { name: 'giga', factor: '10⁹', placeValue: 'Billion' },
-                { name: 'mega', factor: '10⁶', placeValue: 'Million' },
-                { name: 'kilo', factor: '10³', placeValue: 'Thousand' },
-                { name: 'hecto', factor: '10²', placeValue: 'Hundred' },
-                { name: 'deca', factor: '10¹', placeValue: 'Ten' },
-                { name: 'deci', factor: '10⁻¹', placeValue: 'Tenth' },
-                { name: 'centi', factor: '10⁻²', placeValue: 'Hundredth' },
-                { name: 'milli', factor: '10⁻³', placeValue: 'Thousandth' },
-                { name: 'micro', factor: '10⁻⁶', placeValue: 'Millionth' },
-                { name: 'nano', factor: '10⁻⁹', placeValue: 'Billionth' },
-                { name: 'pico', factor: '10⁻¹²', placeValue: 'Trillionth' },
-                { name: 'femto', factor: '10⁻¹⁵', placeValue: 'Quadrillionth' },
-                { name: 'atto', factor: '10⁻¹⁸', placeValue: 'Quintillionth' },
-                { name: 'zepto', factor: '10⁻²¹', placeValue: 'Sextillionth' },
-                { name: 'yocto', factor: '10⁻²⁴', placeValue: 'Septillionth' }
+                { name: 'yotta', factor: '10²⁴', placeValue: 'Septillion', symbol: 'Y' },
+                { name: 'zetta', factor: '10²¹', placeValue: 'Sextillion', symbol: 'Z' },
+                { name: 'exa', factor: '10¹⁸', placeValue: 'Quintillion', symbol: 'E' },
+                { name: 'peta', factor: '10¹⁵', placeValue: 'Quadrillion', symbol: 'P' },
+                { name: 'tera', factor: '10¹²', placeValue: 'Trillion', symbol: 'T' },
+                { name: 'giga', factor: '10⁹', placeValue: 'Billion', symbol: 'G' },
+                { name: 'mega', factor: '10⁶', placeValue: 'Million', symbol: 'M' },
+                { name: 'kilo', factor: '10³', placeValue: 'Thousand', symbol: 'k' },
+                { name: 'hecto', factor: '10²', placeValue: 'Hundred', symbol: 'h' },
+                { name: 'deca', factor: '10¹', placeValue: 'Ten', symbol: 'da' },
+                { name: 'deci', factor: '10⁻¹', placeValue: 'Tenth', symbol: 'd' },
+                { name: 'centi', factor: '10⁻²', placeValue: 'Hundredth', symbol: 'c' },
+                { name: 'milli', factor: '10⁻³', placeValue: 'Thousandth', symbol: 'm' },
+                { name: 'micro', factor: '10⁻⁶', placeValue: 'Millionth', symbol: 'µ' },
+                { name: 'nano', factor: '10⁻⁹', placeValue: 'Billionth', symbol: 'n' },
+                { name: 'pico', factor: '10⁻¹²', placeValue: 'Trillionth', symbol: 'p' },
+                { name: 'femto', factor: '10⁻¹⁵', placeValue: 'Quadrillionth', symbol: 'f' },
+                { name: 'atto', factor: '10⁻¹⁸', placeValue: 'Quintillionth', symbol: 'a' },
+                { name: 'zepto', factor: '10⁻²¹', placeValue: 'Sextillionth', symbol: 'z' },
+                { name: 'yocto', factor: '10⁻²⁴', placeValue: 'Septillionth', symbol: 'y' }
             ];
 
             let state = {
@@ -245,7 +234,7 @@
 
                 let displayText = prefix.name;
                 if (difficulty === 'hard') {
-                    const displayOptions = ['name', 'factor', 'placeValue'];
+                    const displayOptions = ['name', 'factor', 'placeValue', 'symbol'];
                     const randomChoice = displayOptions[Math.floor(Math.random() * displayOptions.length)];
                     displayText = prefix[randomChoice];
                 }
