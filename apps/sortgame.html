@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort the Prefix</title>
+    <style>
+        :root {
+            --card-bg: #ffffff;
+            --card-success-bg: #4ade80;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --shadow-hover-color: rgba(0, 0, 0, 0.2);
+            --text-color: #1f2937;
+            --gap: 8px;
+            --transition-speed: 200ms;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 1vh;
+            box-sizing: border-box;
+            background: 
+                repeating-linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.03),
+                    rgba(255, 255, 255, 0.03) 1px,
+                    transparent 1px,
+                    transparent 15px,
+                    rgba(255, 255, 255, 0.05) 15px,
+                    rgba(255, 255, 255, 0.05) 17px,
+                    transparent 17px,
+                    transparent 30px,
+                    rgba(255, 255, 255, 0.03) 30px,
+                    rgba(255, 255, 255, 0.03) 31px,
+                    transparent 31px,
+                    transparent 80px
+                ),
+                linear-gradient(135deg, #4f46e5, #818cf8);
+            color: var(--text-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 0 2px 4px var(--shadow-color);
+            margin-bottom: 1rem; /* Adjusted margin */
+        }
+
+        .difficulty-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .difficulty-selector label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .difficulty-selector input {
+            cursor: pointer;
+            accent-color: #818cf8;
+        }
+
+        .sortable-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 320px;
+            position: relative;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 0.5rem;
+            margin-bottom: var(--gap);
+            box-shadow: 0 4px 6px -1px var(--shadow-color);
+            cursor: grab;
+            transition: all var(--transition-speed) ease;
+            user-select: none;
+            position: relative;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px -3px var(--shadow-hover-color);
+            transform: translateY(-2px);
+        }
+        
+        .card.solved {
+            background-color: var(--card-success-bg);
+            color: white;
+            cursor: default;
+        }
+
+        .card.dragging {
+            opacity: 0;
+            height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border: none;
+            overflow: hidden;
+            transition: all 150ms ease;
+        }
+        
+        .card.drag-over-down {
+            transform: translateY(var(--gap));
+        }
+
+        .card.drag-over-up {
+            transform: translateY(calc(-1 * var(--gap)));
+        }
+
+        .grip-icon {
+            margin-right: 1rem;
+            color: #9ca3af;
+            pointer-events: none;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .factor {
+            font-weight: bold;
+            min-width: 50px;
+            display: inline-block;
+        }
+
+        .prefix-name {
+            font-weight: 500;
+        }
+        
+        .success-message {
+            text-align: center;
+            color: white;
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 300ms ease, transform 300ms ease;
+        }
+
+        .success-message.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .play-again-btn {
+            background-color: #6366f1;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .play-again-btn:hover {
+            background-color: #4f46e5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Sort the Prefix</h1>
+
+    <div class="difficulty-selector">
+        <label><input type="radio" name="difficulty" value="easy"> Easy</label>
+        <label><input type="radio" name="difficulty" value="medium" checked> Medium</label>
+        <label><input type="radio" name="difficulty" value="hard"> Hard</label>
+    </div>
+
+    <ul class="sortable-list" id="sortable-list"></ul>
+
+    <div class="success-message" id="success-message">
+        <h2>Congratulations!</h2>
+        <p>You've sorted all the prefixes correctly.</p>
+        <button class="play-again-btn" id="play-again-btn">Play Again</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sortableList = document.getElementById('sortable-list');
+            const successMessage = document.getElementById('success-message');
+            const playAgainBtn = document.getElementById('play-again-btn');
+            const difficultyRadios = document.querySelectorAll('input[name="difficulty"]');
+
+            const PREFIXES = [
+                { name: 'yotta', factor: '10²⁴', placeValue: 'Septillion' },
+                { name: 'zetta', factor: '10²¹', placeValue: 'Sextillion' },
+                { name: 'exa', factor: '10¹⁸', placeValue: 'Quintillion' },
+                { name: 'peta', factor: '10¹⁵', placeValue: 'Quadrillion' },
+                { name: 'tera', factor: '10¹²', placeValue: 'Trillion' },
+                { name: 'giga', factor: '10⁹', placeValue: 'Billion' },
+                { name: 'mega', factor: '10⁶', placeValue: 'Million' },
+                { name: 'kilo', factor: '10³', placeValue: 'Thousand' },
+                { name: 'hecto', factor: '10²', placeValue: 'Hundred' },
+                { name: 'deca', factor: '10¹', placeValue: 'Ten' },
+                { name: 'deci', factor: '10⁻¹', placeValue: 'Tenth' },
+                { name: 'centi', factor: '10⁻²', placeValue: 'Hundredth' },
+                { name: 'milli', factor: '10⁻³', placeValue: 'Thousandth' },
+                { name: 'micro', factor: '10⁻⁶', placeValue: 'Millionth' },
+                { name: 'nano', factor: '10⁻⁹', placeValue: 'Billionth' },
+                { name: 'pico', factor: '10⁻¹²', placeValue: 'Trillionth' },
+                { name: 'femto', factor: '10⁻¹⁵', placeValue: 'Quadrillionth' },
+                { name: 'atto', factor: '10⁻¹⁸', placeValue: 'Quintillionth' },
+                { name: 'zepto', factor: '10⁻²¹', placeValue: 'Sextillionth' },
+                { name: 'yocto', factor: '10⁻²⁴', placeValue: 'Septillionth' }
+            ];
+
+            let state = {
+                cards: [],
+                draggedEl: null,
+                isSolved: false,
+                difficulty: 'medium',
+            };
+
+            function createCard(prefix, index, difficulty) {
+                const card = document.createElement('li');
+                card.className = 'card';
+                card.setAttribute('draggable', 'true');
+                card.dataset.index = index;
+                card.dataset.name = prefix.name;
+
+                let displayText = prefix.name;
+                if (difficulty === 'hard') {
+                    const displayOptions = ['name', 'factor', 'placeValue'];
+                    const randomChoice = displayOptions[Math.floor(Math.random() * displayOptions.length)];
+                    displayText = prefix[randomChoice];
+                }
+
+                card.innerHTML = `
+                    <svg class="grip-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                    <div class="content">
+                        <span class="factor"></span>
+                        <span class="prefix-name">${displayText}</span>
+                    </div>
+                `;
+                return card;
+            }
+
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            function renderCards(difficulty) {
+                sortableList.innerHTML = '';
+                state.cards.forEach((prefix, index) => {
+                    const card = createCard(prefix, index, difficulty);
+                    sortableList.appendChild(card);
+                });
+                addEventListeners();
+            }
+
+            function checkSolution() {
+                const currentOrder = Array.from(sortableList.children).map(card => card.dataset.name);
+                const correctOrder = state.cards.map(p => p.name).sort((a, b) => {
+                    const indexA = PREFIXES.findIndex(p => p.name === a);
+                    const indexB = PREFIXES.findIndex(p => p.name === b);
+                    return indexA - indexB;
+                });
+
+                const isCorrect = currentOrder.every((name, index) => name === correctOrder[index]);
+                
+                if (isCorrect) {
+                    state.isSolved = true;
+                    triggerSuccessAnimation();
+                }
+            }
+
+            function triggerSuccessAnimation() {
+                const cards = Array.from(sortableList.children);
+                cards.forEach(card => card.setAttribute('draggable', 'false'));
+
+                cards.reverse().forEach((card, index) => {
+                    setTimeout(() => {
+                        const prefixData = PREFIXES.find(p => p.name === card.dataset.name);
+                        card.classList.add('solved');
+                        card.querySelector('.factor').textContent = prefixData.factor;
+                        card.style.transform = 'scale(1.05)';
+                        setTimeout(() => card.style.transform = 'scale(1)', 200);
+                    }, index * 80);
+                });
+                
+                setTimeout(() => {
+                    successMessage.classList.add('visible');
+                }, cards.length * 80 + 300);
+            }
+
+            function getDragAfterElement(y) {
+                const draggableElements = [...sortableList.querySelectorAll('.card:not(.dragging)')];
+                return draggableElements.reduce((closest, child) => {
+                    const box = child.getBoundingClientRect();
+                    const offset = y - box.top - box.height / 2;
+                    if (offset < 0 && offset > closest.offset) {
+                        return { offset: offset, element: child };
+                    } else {
+                        return closest;
+                    }
+                }, { offset: Number.NEGATIVE_INFINITY }).element;
+            }
+            
+            function resetDragStyles() {
+                [...sortableList.children].forEach(child => {
+                    child.classList.remove('drag-over-up', 'drag-over-down');
+                });
+            }
+
+            function addEventListeners() {
+                const cards = sortableList.querySelectorAll('.card');
+                cards.forEach(card => {
+                    card.addEventListener('dragstart', handleDragStart);
+                    card.addEventListener('dragend', handleDragEnd);
+                });
+                sortableList.addEventListener('dragover', handleDragOver);
+                sortableList.addEventListener('drop', handleDrop);
+            }
+            
+            function handleDragStart(e) {
+                if (state.isSolved) return;
+                state.draggedEl = e.target;
+                e.dataTransfer.effectAllowed = 'move';
+                setTimeout(() => {
+                    e.target.classList.add('dragging');
+                }, 0);
+            }
+
+            function handleDrop(e) {
+                e.preventDefault();
+                if (state.isSolved) return;
+                const afterElement = getDragAfterElement(e.clientY);
+                if (afterElement == null) {
+                    sortableList.appendChild(state.draggedEl);
+                } else {
+                    sortableList.insertBefore(state.draggedEl, afterElement);
+                }
+            }
+
+            function handleDragEnd(e) {
+                if (state.isSolved) return;
+                e.target.classList.remove('dragging');
+                resetDragStyles();
+                checkSolution();
+            }
+
+            function handleDragOver(e) {
+                e.preventDefault();
+                if (state.isSolved) return;
+                const afterElement = getDragAfterElement(e.clientY);
+                resetDragStyles();
+                const children = [...sortableList.children];
+                const draggedIndex = children.indexOf(state.draggedEl);
+                const afterIndex = afterElement ? children.indexOf(afterElement) : children.length;
+                children.forEach((child, index) => {
+                    if (child === state.draggedEl) return;
+                    if (draggedIndex < afterIndex && index > draggedIndex && index < afterIndex) {
+                        child.classList.add('drag-over-up');
+                    } else if (draggedIndex > afterIndex && index < draggedIndex && index >= afterIndex) {
+                        child.classList.add('drag-over-down');
+                    }
+                });
+            }
+
+            function resetGame() {
+                state.isSolved = false;
+                successMessage.classList.remove('visible');
+                
+                const difficulty = document.querySelector('input[name="difficulty"]:checked').value;
+                state.difficulty = difficulty;
+
+                let prefixesForGame = [];
+                if (difficulty === 'easy') {
+                    prefixesForGame = PREFIXES.slice(4, 16); // tera to pico
+                } else {
+                    prefixesForGame = [...PREFIXES];
+                }
+                
+                state.cards = shuffle(prefixesForGame);
+                renderCards(difficulty);
+            }
+
+            playAgainBtn.addEventListener('click', resetGame);
+            difficultyRadios.forEach(radio => radio.addEventListener('change', resetGame));
+
+            resetGame();
+        });
+    </script>
+</body>
+</html>
