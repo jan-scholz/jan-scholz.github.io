@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Aristotle",
+    "year": "300s BCE",
+    "notes": "Believed in spontaneous generation — the idea that life could come from nonliving things. He saw flies appear on rotting meat and fish or frogs in muddy water and thought they came from the meat or mud itself."
+  },
+  {
+    "name": "Francesco Redi",
+    "year": "1668",
+    "notes": "Did not believe in spontaneous generation. Experiment: Put meat in jars — some open, some covered with gauze, some sealed. Result: Maggots only appeared on meat that flies could reach, showing that only flies make flies."
+  },
+  {
+    "name": "John Needham",
+    "year": "1745",
+    "notes": "Believed in spontaneous generation for microorganisms. Experiment: Boiled beef broth, then covered it. Microbes still grew. Conclusion (wrong): Thought heating killed everything, so life must have come from the broth itself."
+  },
+  {
+    "name": "Lazzaro Spallanzani",
+    "year": "1765",
+    "notes": "Did not believe in spontaneous generation. Repeated Needham’s experiment but boiled the broth longer and sealed the containers tightly. Result: No microorganisms grew, showing that life comes from existing life, not from broth."
+  },
+  {
+    "name": "Rudolf Virchow",
+    "year": "1855",
+    "notes": "Stated 'All cells come from pre-existing cells.' Supported the idea that only life can make more life."
+  },
+  {
+    "name": "Louis Pasteur",
+    "year": "1861",
+    "notes": "Did not believe in spontaneous generation. Experiment: Used swan-neck (S-shaped) flasks with broth. Air could enter, but dust and microbes were trapped in the curve. Result: No microbial growth unless the flask was tipped, proving that microorganisms come from the environment, not from nonliving matter."
+  }
+]
