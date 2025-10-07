@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spontaneous Generation Matching Game</title>
+    <style>
+        :root {
+            --card-collapsed-height: 200px;
+        }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: sans-serif;
+            background-color: #fdf0f0; /* Calming pink */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Changed from center */
+            min-height: 100vh;
+            margin: 0;
+            padding: 5px; /* Added gap */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 100 100'%3E%3Ctext x='25' y='25' font-size='20' fill='%23fde0e0'%3E♥%3C/text%3E%3Ctext x='75' y='75' font-size='20' fill='%23fde0e0'%3E♥%3C/text%3E%3C/svg%3E");
+        }
+        #game-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+            align-items: start;
+        }
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: var(--card-collapsed-height);
+            min-height: var(--card-collapsed-height);
+            overflow: hidden;
+        }
+        .card.expanded {
+            height: auto;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card.correct {
+            background-color: #d4edda; /* Light green */
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px; /* Add gap between title and controls */
+        }
+        .card-title {
+            font-weight: bold;
+            display: flex;
+            align-items: baseline;
+            min-width: 0; /* Allow title to shrink */
+        }
+        .name {
+            font-size: 1.2em;
+            white-space: nowrap;
+            flex-shrink: 0; /* Prevent name from shrinking */
+        }
+        .year {
+            font-size: 0.9em;
+            color: #666;
+            margin-left: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .cycle-controls {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; /* Prevent controls from shrinking */
+        }
+        .cycle-name {
+            cursor: pointer;
+            font-size: 1.5em;
+            user-select: none;
+            padding: 0 5px;
+        }
+        .card-content {
+            flex-grow: 1;
+            overflow: hidden;
+            position: relative;
+        }
+        .card.expanded .card-content {
+            overflow: visible;
+        }
+        .card-content::after {
+            content: '...';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: white;
+            padding-left: 5px;
+        }
+        .card.expanded .card-content::after {
+            content: '';
+        }
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .popup-content {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .popup-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container"></div>
+
+<div id="win-popup" class="popup-overlay hidden">
+    <div class="popup">
+        <div class="popup-content">🎉 Congratulations! 🎉</div>
+        <button id="play-again-button" class="popup-button">Play Again</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var gameContainer = document.getElementById('game-container');
+        var winPopup = document.getElementById('win-popup');
+        var playAgainButton = document.getElementById('play-again-button');
+        var data = [];
+        var names = [];
+        var nameToYearMap = {};
+
+        fetch('notes.json')
+            .then(function(response) { return response.json(); })
+            .then(function(json_data) {
+                data = json_data;
+                data.forEach(function(item) {
+                    names.push(item.name);
+                    nameToYearMap[item.name] = item.year;
+                });
+                initializeApp();
+            });
+
+        playAgainButton.addEventListener('click', resetGame);
+
+        function initializeApp() {
+            gameContainer.innerHTML = ''; // Clear the board
+            data.sort(function() { return 0.5 - Math.random(); });
+            var shuffledNames = names.slice().sort(function() { return 0.5 - Math.random(); });
+            data.forEach(function(item, index) {
+                createCard(item, shuffledNames[index]);
+            });
+        }
+
+        function resetGame() {
+            winPopup.classList.add('hidden');
+            initializeApp();
+        }
+
+        function createCard(item, assignedName) {
+            var card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.correctName = item.name;
+            card.dataset.assignedName = assignedName;
+
+            var cardHeader = document.createElement('div');
+            cardHeader.className = 'card-header';
+
+            var cardTitle = document.createElement('div');
+            cardTitle.className = 'card-title';
+
+            var nameSpan = document.createElement('span');
+            nameSpan.className = 'name';
+            nameSpan.textContent = assignedName;
+
+            var yearSpan = document.createElement('span');
+            yearSpan.className = 'year';
+            yearSpan.textContent = '(' + nameToYearMap[assignedName] + ')';
+
+            cardTitle.appendChild(nameSpan);
+            cardTitle.appendChild(yearSpan);
+
+            var cycleControls = document.createElement('div');
+            cycleControls.className = 'cycle-controls';
+
+            var cycleLeft = document.createElement('div');
+            cycleLeft.className = 'cycle-name';
+            cycleLeft.textContent = '◀';
+            cycleLeft.addEventListener('click', function(e) {
+                e.stopPropagation();
+                cycleName(card, cardTitle, -1);
+            });
+
+            var cycleRight = document.createElement('div');
+            cycleRight.className = 'cycle-name';
+            cycleRight.textContent = '▶';
+            cycleRight.addEventListener('click', function(e) {
+                e.stopPropagation();
+                cycleName(card, cardTitle, 1);
+            });
+
+            var cardContent = document.createElement('div');
+            cardContent.className = 'card-content';
+            cardContent.textContent = item.notes;
+
+            card.addEventListener('click', function() {
+                card.classList.toggle('expanded');
+            });
+
+            cycleControls.appendChild(cycleLeft);
+            cycleControls.appendChild(cycleRight);
+            cardHeader.appendChild(cardTitle);
+            cardHeader.appendChild(cycleControls);
+            card.appendChild(cardHeader);
+            card.appendChild(cardContent);
+            gameContainer.appendChild(card);
+        }
+
+        function cycleName(card, titleElement, direction) {
+            var currentName = card.dataset.assignedName;
+            var currentIndex = names.indexOf(currentName);
+            var nextIndex = (currentIndex + direction + names.length) % names.length;
+            var newName = names[nextIndex];
+            
+            card.dataset.assignedName = newName;
+            titleElement.querySelector('.name').textContent = newName;
+            titleElement.querySelector('.year').textContent = '(' + nameToYearMap[newName] + ')';
+
+            checkWinCondition();
+        }
+
+        function checkWinCondition() {
+            var cards = document.querySelectorAll('.card');
+            var allCorrect = true;
+            cards.forEach(function(card) {
+                if (card.dataset.assignedName !== card.dataset.correctName) {
+                    allCorrect = false;
+                }
+            });
+
+            if (allCorrect) {
+                cards.forEach(function(card) {
+                    card.classList.add('correct');
+                });
+                winPopup.classList.remove('hidden');
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
