@@ -70,7 +70,7 @@ Your experience might differ, maybe you&rsquo;re a git-whiz who is cranking out 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NMJL1CGE7"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -582,12 +582,12 @@ In your repo, create a <code>.github/workflows/publish.yml</code> file with the 
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Publish Python Package</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;v*.*.*&#39;</span><span class="w">   </span><span class="c"># Trigger on version tags like v1.2.3</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">jobs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">publish</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -689,7 +689,7 @@ Create a new tag for the version you want to publish (matching <code>vX.Y.Z</cod
     </main>
     
 <footer class="footer">
-    <span>&copy; 2025 <a href="https://www.talesofindustry.org/">Tales of Industry</a></span>
+    <span>&copy; 2026 <a href="https://www.talesofindustry.org/">Tales of Industry</a></span>
     <span>by Jan Scholz.</span>
     <span>
         Powered by

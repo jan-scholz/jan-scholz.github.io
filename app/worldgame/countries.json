@@ -1,0 +1,2342 @@
+{
+  "004": {
+    "name": "Afghanistan",
+    "capital": "Kabul",
+    "population": 41128771,
+    "highest_point": {
+      "name": "Noshaq",
+      "elevation_m": 7492
+    },
+    "neighbour_count": 6,
+    "area_km2": 652230,
+    "iso_a2": "af"
+  },
+  "008": {
+    "name": "Albania",
+    "capital": "Tirana",
+    "population": 2854000,
+    "highest_point": {
+      "name": "Korab",
+      "elevation_m": 2764
+    },
+    "neighbour_count": 4,
+    "area_km2": 28748,
+    "iso_a2": "al"
+  },
+  "012": {
+    "name": "Algeria",
+    "capital": "Algiers",
+    "population": 44903000,
+    "highest_point": {
+      "name": "Mount Tahat",
+      "elevation_m": 3003
+    },
+    "neighbour_count": 6,
+    "area_km2": 2381741,
+    "iso_a2": "dz"
+  },
+  "020": {
+    "name": "Andorra",
+    "capital": "Andorra la Vella",
+    "population": 77543,
+    "highest_point": {
+      "name": "Coma Pedrosa",
+      "elevation_m": 2942
+    },
+    "neighbour_count": 2,
+    "area_km2": 468,
+    "iso_a2": "ad"
+  },
+  "024": {
+    "name": "Angola",
+    "capital": "Luanda",
+    "population": 35588987,
+    "highest_point": {
+      "name": "Moco",
+      "elevation_m": 2620
+    },
+    "neighbour_count": 4,
+    "area_km2": 1246700,
+    "iso_a2": "ao"
+  },
+  "028": {
+    "name": "Antigua and Barbuda",
+    "capital": "Saint John's",
+    "population": 93763,
+    "highest_point": {
+      "name": "Boggy Peak",
+      "elevation_m": 402
+    },
+    "neighbour_count": 0,
+    "area_km2": 442,
+    "iso_a2": "ag"
+  },
+  "031": {
+    "name": "Azerbaijan",
+    "capital": "Baku",
+    "population": 10139177,
+    "highest_point": {
+      "name": "Mount Bazarduzu",
+      "elevation_m": 4466
+    },
+    "neighbour_count": 5,
+    "area_km2": 86600,
+    "iso_a2": "az"
+  },
+  "032": {
+    "name": "Argentina",
+    "capital": "Buenos Aires",
+    "population": 45808747,
+    "highest_point": {
+      "name": "Aconcagua",
+      "elevation_m": 6961
+    },
+    "neighbour_count": 5,
+    "area_km2": 2780400,
+    "iso_a2": "ar"
+  },
+  "036": {
+    "name": "Australia",
+    "capital": "Canberra",
+    "population": 26461166,
+    "highest_point": {
+      "name": "Mount Kosciuszko",
+      "elevation_m": 2228
+    },
+    "neighbour_count": 0,
+    "area_km2": 7692024,
+    "iso_a2": "au"
+  },
+  "040": {
+    "name": "Austria",
+    "capital": "Vienna",
+    "population": 9104772,
+    "highest_point": {
+      "name": "Grossglockner",
+      "elevation_m": 3798
+    },
+    "neighbour_count": 8,
+    "area_km2": 83871,
+    "iso_a2": "at"
+  },
+  "044": {
+    "name": "Bahamas",
+    "capital": "Nassau",
+    "population": 393248,
+    "highest_point": {
+      "name": "Mount Alvernia",
+      "elevation_m": 63
+    },
+    "neighbour_count": 0,
+    "area_km2": 13943,
+    "iso_a2": "bs"
+  },
+  "048": {
+    "name": "Bahrain",
+    "capital": "Manama",
+    "population": 1463265,
+    "highest_point": {
+      "name": "Jabal ad Dukhan",
+      "elevation_m": 135
+    },
+    "neighbour_count": 0,
+    "area_km2": 778,
+    "iso_a2": "bh"
+  },
+  "050": {
+    "name": "Bangladesh",
+    "capital": "Dhaka",
+    "population": 169356251,
+    "highest_point": {
+      "name": "Keokradong",
+      "elevation_m": 1230
+    },
+    "neighbour_count": 2,
+    "area_km2": 147570,
+    "iso_a2": "bd"
+  },
+  "051": {
+    "name": "Armenia",
+    "capital": "Yerevan",
+    "population": 2971966,
+    "highest_point": {
+      "name": "Mount Aragats",
+      "elevation_m": 4090
+    },
+    "neighbour_count": 4,
+    "area_km2": 29743,
+    "iso_a2": "am"
+  },
+  "052": {
+    "name": "Barbados",
+    "capital": "Bridgetown",
+    "population": 281635,
+    "highest_point": {
+      "name": "Mount Hillaby",
+      "elevation_m": 340
+    },
+    "neighbour_count": 0,
+    "area_km2": 430,
+    "iso_a2": "bb"
+  },
+  "056": {
+    "name": "Belgium",
+    "capital": "Brussels",
+    "population": 11590000,
+    "highest_point": {
+      "name": "Signal de Botrange",
+      "elevation_m": 694
+    },
+    "neighbour_count": 4,
+    "area_km2": 30528,
+    "iso_a2": "be"
+  },
+  "064": {
+    "name": "Bhutan",
+    "capital": "Thimphu",
+    "population": 771608,
+    "highest_point": {
+      "name": "Gangkhar Puensum",
+      "elevation_m": 7570
+    },
+    "neighbour_count": 2,
+    "area_km2": 38394,
+    "iso_a2": "bt"
+  },
+  "068": {
+    "name": "Bolivia",
+    "capital": "Sucre",
+    "population": 12079472,
+    "highest_point": {
+      "name": "Nevado Sajama",
+      "elevation_m": 6542
+    },
+    "neighbour_count": 5,
+    "area_km2": 1098581,
+    "iso_a2": "bo"
+  },
+  "070": {
+    "name": "Bosnia and Herzegovina",
+    "capital": "Sarajevo",
+    "population": 3210847,
+    "highest_point": {
+      "name": "Maglic",
+      "elevation_m": 2386
+    },
+    "neighbour_count": 3,
+    "area_km2": 51197,
+    "iso_a2": "ba"
+  },
+  "072": {
+    "name": "Botswana",
+    "capital": "Gaborone",
+    "population": 2630296,
+    "highest_point": {
+      "name": "Tsodilo Hills",
+      "elevation_m": 1489
+    },
+    "neighbour_count": 4,
+    "area_km2": 581730,
+    "iso_a2": "bw"
+  },
+  "076": {
+    "name": "Brazil",
+    "capital": "Brasilia",
+    "population": 215313498,
+    "highest_point": {
+      "name": "Pico da Neblina",
+      "elevation_m": 2994
+    },
+    "neighbour_count": 10,
+    "area_km2": 8515767,
+    "iso_a2": "br"
+  },
+  "084": {
+    "name": "Belize",
+    "capital": "Belmopan",
+    "population": 400031,
+    "highest_point": {
+      "name": "Doyle's Delight",
+      "elevation_m": 1124
+    },
+    "neighbour_count": 2,
+    "area_km2": 22966,
+    "iso_a2": "bz"
+  },
+  "090": {
+    "name": "Solomon Islands",
+    "capital": "Honiara",
+    "population": 720000,
+    "highest_point": {
+      "name": "Mount Makarakomburu",
+      "elevation_m": 2447
+    },
+    "neighbour_count": 0,
+    "area_km2": 28896,
+    "iso_a2": "sb"
+  },
+  "096": {
+    "name": "Brunei",
+    "capital": "Bandar Seri Begawan",
+    "population": 449002,
+    "highest_point": {
+      "name": "Bukit Pagon",
+      "elevation_m": 1850
+    },
+    "neighbour_count": 1,
+    "area_km2": 5765,
+    "iso_a2": "bn"
+  },
+  "100": {
+    "name": "Bulgaria",
+    "capital": "Sofia",
+    "population": 6447710,
+    "highest_point": {
+      "name": "Musala",
+      "elevation_m": 2925
+    },
+    "neighbour_count": 5,
+    "area_km2": 110879,
+    "iso_a2": "bg"
+  },
+  "104": {
+    "name": "Myanmar",
+    "capital": "Naypyidaw",
+    "population": 54410000,
+    "highest_point": {
+      "name": "Hkakabo Razi",
+      "elevation_m": 5881
+    },
+    "neighbour_count": 5,
+    "area_km2": 676578,
+    "iso_a2": "mm"
+  },
+  "108": {
+    "name": "Burundi",
+    "capital": "Gitega",
+    "population": 12574571,
+    "highest_point": {
+      "name": "Heha",
+      "elevation_m": 2670
+    },
+    "neighbour_count": 3,
+    "area_km2": 27834,
+    "iso_a2": "bi"
+  },
+  "112": {
+    "name": "Belarus",
+    "capital": "Minsk",
+    "population": 9441000,
+    "highest_point": {
+      "name": "Dzyarzhynskaya Hara",
+      "elevation_m": 346
+    },
+    "neighbour_count": 5,
+    "area_km2": 207600,
+    "iso_a2": "by"
+  },
+  "116": {
+    "name": "Cambodia",
+    "capital": "Phnom Penh",
+    "population": 16713015,
+    "highest_point": {
+      "name": "Phnum Aoral",
+      "elevation_m": 1813
+    },
+    "neighbour_count": 3,
+    "area_km2": 181035,
+    "iso_a2": "kh"
+  },
+  "120": {
+    "name": "Cameroon",
+    "capital": "Yaounde",
+    "population": 27914536,
+    "highest_point": {
+      "name": "Mount Cameroon",
+      "elevation_m": 4040
+    },
+    "neighbour_count": 6,
+    "area_km2": 475442,
+    "iso_a2": "cm"
+  },
+  "124": {
+    "name": "Canada",
+    "capital": "Ottawa",
+    "population": 38250000,
+    "highest_point": {
+      "name": "Mount Logan",
+      "elevation_m": 5959
+    },
+    "neighbour_count": 1,
+    "area_km2": 9984670,
+    "iso_a2": "ca"
+  },
+  "132": {
+    "name": "Cabo Verde",
+    "capital": "Praia",
+    "population": 598682,
+    "highest_point": {
+      "name": "Pico do Fogo",
+      "elevation_m": 2829
+    },
+    "neighbour_count": 0,
+    "area_km2": 4033,
+    "iso_a2": "cv"
+  },
+  "140": {
+    "name": "Central African Republic",
+    "capital": "Bangui",
+    "population": 4829767,
+    "highest_point": {
+      "name": "Mont Ngaoui",
+      "elevation_m": 1420
+    },
+    "neighbour_count": 6,
+    "area_km2": 622984,
+    "iso_a2": "cf"
+  },
+  "144": {
+    "name": "Sri Lanka",
+    "capital": "Sri Jayawardenepura Kotte",
+    "population": 22156000,
+    "highest_point": {
+      "name": "Pidurutalagala",
+      "elevation_m": 2524
+    },
+    "neighbour_count": 0,
+    "area_km2": 65610,
+    "iso_a2": "lk"
+  },
+  "148": {
+    "name": "Chad",
+    "capital": "N'Djamena",
+    "population": 17413580,
+    "highest_point": {
+      "name": "Emi Koussi",
+      "elevation_m": 3415
+    },
+    "neighbour_count": 6,
+    "area_km2": 1284000,
+    "iso_a2": "td"
+  },
+  "152": {
+    "name": "Chile",
+    "capital": "Santiago",
+    "population": 19458310,
+    "highest_point": {
+      "name": "Nevado Ojos del Salado",
+      "elevation_m": 6893
+    },
+    "neighbour_count": 3,
+    "area_km2": 756102,
+    "iso_a2": "cl"
+  },
+  "156": {
+    "name": "China",
+    "capital": "Beijing",
+    "population": 1412600000,
+    "highest_point": {
+      "name": "Mount Everest",
+      "elevation_m": 8849
+    },
+    "neighbour_count": 14,
+    "area_km2": 9596961,
+    "iso_a2": "cn"
+  },
+  "158": {
+    "name": "Taiwan",
+    "capital": "Taipei",
+    "population": 23571227,
+    "highest_point": {
+      "name": "Yu Shan",
+      "elevation_m": 3952
+    },
+    "neighbour_count": 0,
+    "area_km2": 36193,
+    "iso_a2": "tw"
+  },
+  "170": {
+    "name": "Colombia",
+    "capital": "Bogota",
+    "population": 51874024,
+    "highest_point": {
+      "name": "Pico Cristobal Colon",
+      "elevation_m": 5775
+    },
+    "neighbour_count": 5,
+    "area_km2": 1141748,
+    "iso_a2": "co"
+  },
+  "174": {
+    "name": "Comoros",
+    "capital": "Moroni",
+    "population": 836774,
+    "highest_point": {
+      "name": "Karthala",
+      "elevation_m": 2361
+    },
+    "neighbour_count": 0,
+    "area_km2": 1862,
+    "iso_a2": "km"
+  },
+  "178": {
+    "name": "Congo",
+    "capital": "Brazzaville",
+    "population": 5835806,
+    "highest_point": {
+      "name": "Mont Nabeba",
+      "elevation_m": 1020
+    },
+    "neighbour_count": 5,
+    "area_km2": 342000,
+    "iso_a2": "cg"
+  },
+  "180": {
+    "name": "Democratic Republic of the Congo",
+    "capital": "Kinshasa",
+    "population": 99010212,
+    "highest_point": {
+      "name": "Margherita Peak",
+      "elevation_m": 5109
+    },
+    "neighbour_count": 9,
+    "area_km2": 2344858,
+    "iso_a2": "cd"
+  },
+  "188": {
+    "name": "Costa Rica",
+    "capital": "San Jose",
+    "population": 5153957,
+    "highest_point": {
+      "name": "Cerro Chirripo",
+      "elevation_m": 3821
+    },
+    "neighbour_count": 2,
+    "area_km2": 51100,
+    "iso_a2": "cr"
+  },
+  "191": {
+    "name": "Croatia",
+    "capital": "Zagreb",
+    "population": 3871833,
+    "highest_point": {
+      "name": "Dinara",
+      "elevation_m": 1831
+    },
+    "neighbour_count": 5,
+    "area_km2": 56594,
+    "iso_a2": "hr"
+  },
+  "192": {
+    "name": "Cuba",
+    "capital": "Havana",
+    "population": 11089511,
+    "highest_point": {
+      "name": "Pico Turquino",
+      "elevation_m": 1974
+    },
+    "neighbour_count": 0,
+    "area_km2": 109884,
+    "iso_a2": "cu"
+  },
+  "196": {
+    "name": "Cyprus",
+    "capital": "Nicosia",
+    "population": 1251488,
+    "highest_point": {
+      "name": "Mount Olympus",
+      "elevation_m": 1952
+    },
+    "neighbour_count": 0,
+    "area_km2": 9251,
+    "iso_a2": "cy"
+  },
+  "203": {
+    "name": "Czechia",
+    "capital": "Prague",
+    "population": 10900555,
+    "highest_point": {
+      "name": "Snezka",
+      "elevation_m": 1603
+    },
+    "neighbour_count": 4,
+    "area_km2": 78867,
+    "iso_a2": "cz"
+  },
+  "204": {
+    "name": "Benin",
+    "capital": "Porto-Novo",
+    "population": 12996895,
+    "highest_point": {
+      "name": "Mont Sokbaro",
+      "elevation_m": 658
+    },
+    "neighbour_count": 4,
+    "area_km2": 112622,
+    "iso_a2": "bj"
+  },
+  "208": {
+    "name": "Denmark",
+    "capital": "Copenhagen",
+    "population": 5932654,
+    "highest_point": {
+      "name": "Mollehoj",
+      "elevation_m": 171
+    },
+    "neighbour_count": 1,
+    "area_km2": 43094,
+    "iso_a2": "dk"
+  },
+  "212": {
+    "name": "Dominica",
+    "capital": "Roseau",
+    "population": 72167,
+    "highest_point": {
+      "name": "Morne Diablotins",
+      "elevation_m": 1447
+    },
+    "neighbour_count": 0,
+    "area_km2": 751,
+    "iso_a2": "dm"
+  },
+  "214": {
+    "name": "Dominican Republic",
+    "capital": "Santo Domingo",
+    "population": 10760028,
+    "highest_point": {
+      "name": "Pico Duarte",
+      "elevation_m": 3098
+    },
+    "neighbour_count": 1,
+    "area_km2": 48671,
+    "iso_a2": "do"
+  },
+  "218": {
+    "name": "Ecuador",
+    "capital": "Quito",
+    "population": 18001000,
+    "highest_point": {
+      "name": "Chimborazo",
+      "elevation_m": 6263
+    },
+    "neighbour_count": 2,
+    "area_km2": 283561,
+    "iso_a2": "ec"
+  },
+  "222": {
+    "name": "El Salvador",
+    "capital": "San Salvador",
+    "population": 6336392,
+    "highest_point": {
+      "name": "Cerro El Pital",
+      "elevation_m": 2730
+    },
+    "neighbour_count": 2,
+    "area_km2": 21041,
+    "iso_a2": "sv"
+  },
+  "226": {
+    "name": "Equatorial Guinea",
+    "capital": "Malabo",
+    "population": 1468777,
+    "highest_point": {
+      "name": "Pico Basile",
+      "elevation_m": 3011
+    },
+    "neighbour_count": 2,
+    "area_km2": 28051,
+    "iso_a2": "gq"
+  },
+  "231": {
+    "name": "Ethiopia",
+    "capital": "Addis Ababa",
+    "population": 123379924,
+    "highest_point": {
+      "name": "Ras Dejen",
+      "elevation_m": 4550
+    },
+    "neighbour_count": 6,
+    "area_km2": 1104300,
+    "iso_a2": "et"
+  },
+  "232": {
+    "name": "Eritrea",
+    "capital": "Asmara",
+    "population": 3748901,
+    "highest_point": {
+      "name": "Soira",
+      "elevation_m": 3018
+    },
+    "neighbour_count": 3,
+    "area_km2": 117600,
+    "iso_a2": "er"
+  },
+  "233": {
+    "name": "Estonia",
+    "capital": "Tallinn",
+    "population": 1331796,
+    "highest_point": {
+      "name": "Suur Munamagi",
+      "elevation_m": 318
+    },
+    "neighbour_count": 2,
+    "area_km2": 45228,
+    "iso_a2": "ee"
+  },
+  "242": {
+    "name": "Fiji",
+    "capital": "Suva",
+    "population": 929766,
+    "highest_point": {
+      "name": "Tomanivi",
+      "elevation_m": 1324
+    },
+    "neighbour_count": 0,
+    "area_km2": 18274,
+    "iso_a2": "fj"
+  },
+  "246": {
+    "name": "Finland",
+    "capital": "Helsinki",
+    "population": 5563970,
+    "highest_point": {
+      "name": "Halti",
+      "elevation_m": 1324
+    },
+    "neighbour_count": 3,
+    "area_km2": 338424,
+    "iso_a2": "fi"
+  },
+  "250": {
+    "name": "France",
+    "capital": "Paris",
+    "population": 68042591,
+    "highest_point": {
+      "name": "Mont Blanc",
+      "elevation_m": 4808
+    },
+    "neighbour_count": 8,
+    "area_km2": 640679,
+    "iso_a2": "fr"
+  },
+  "262": {
+    "name": "Djibouti",
+    "capital": "Djibouti",
+    "population": 988000,
+    "highest_point": {
+      "name": "Moussa Ali",
+      "elevation_m": 2028
+    },
+    "neighbour_count": 3,
+    "area_km2": 23200,
+    "iso_a2": "dj"
+  },
+  "266": {
+    "name": "Gabon",
+    "capital": "Libreville",
+    "population": 2225734,
+    "highest_point": {
+      "name": "Mont Iboundji",
+      "elevation_m": 1575
+    },
+    "neighbour_count": 3,
+    "area_km2": 267668,
+    "iso_a2": "ga"
+  },
+  "268": {
+    "name": "Georgia",
+    "capital": "Tbilisi",
+    "population": 3728573,
+    "highest_point": {
+      "name": "Mount Shkhara",
+      "elevation_m": 5193
+    },
+    "neighbour_count": 4,
+    "area_km2": 69700,
+    "iso_a2": "ge"
+  },
+  "270": {
+    "name": "Gambia",
+    "capital": "Banjul",
+    "population": 2417471,
+    "highest_point": {
+      "name": "Red Rock",
+      "elevation_m": 53
+    },
+    "neighbour_count": 1,
+    "area_km2": 11295,
+    "iso_a2": "gm"
+  },
+  "276": {
+    "name": "Germany",
+    "capital": "Berlin",
+    "population": 83200000,
+    "highest_point": {
+      "name": "Zugspitze",
+      "elevation_m": 2962
+    },
+    "neighbour_count": 9,
+    "area_km2": 357022,
+    "iso_a2": "de"
+  },
+  "288": {
+    "name": "Ghana",
+    "capital": "Accra",
+    "population": 32395450,
+    "highest_point": {
+      "name": "Mount Afadjato",
+      "elevation_m": 885
+    },
+    "neighbour_count": 3,
+    "area_km2": 238533,
+    "iso_a2": "gh"
+  },
+  "296": {
+    "name": "Kiribati",
+    "capital": "South Tarawa",
+    "population": 119449,
+    "highest_point": {
+      "name": "Banaba Island high point",
+      "elevation_m": 81
+    },
+    "neighbour_count": 0,
+    "area_km2": 811,
+    "iso_a2": "ki"
+  },
+  "300": {
+    "name": "Greece",
+    "capital": "Athens",
+    "population": 10678632,
+    "highest_point": {
+      "name": "Mount Olympus",
+      "elevation_m": 2917
+    },
+    "neighbour_count": 4,
+    "area_km2": 131957,
+    "iso_a2": "gr"
+  },
+  "308": {
+    "name": "Grenada",
+    "capital": "Saint George's",
+    "population": 112519,
+    "highest_point": {
+      "name": "Mount Saint Catherine",
+      "elevation_m": 840
+    },
+    "neighbour_count": 0,
+    "area_km2": 344,
+    "iso_a2": "gd"
+  },
+  "320": {
+    "name": "Guatemala",
+    "capital": "Guatemala City",
+    "population": 17357886,
+    "highest_point": {
+      "name": "Volcan Tajumulco",
+      "elevation_m": 4220
+    },
+    "neighbour_count": 4,
+    "area_km2": 108889,
+    "iso_a2": "gt"
+  },
+  "324": {
+    "name": "Guinea",
+    "capital": "Conakry",
+    "population": 13531906,
+    "highest_point": {
+      "name": "Mont Nimba",
+      "elevation_m": 1752
+    },
+    "neighbour_count": 6,
+    "area_km2": 245857,
+    "iso_a2": "gn"
+  },
+  "328": {
+    "name": "Guyana",
+    "capital": "Georgetown",
+    "population": 786559,
+    "highest_point": {
+      "name": "Mount Roraima",
+      "elevation_m": 2810
+    },
+    "neighbour_count": 3,
+    "area_km2": 214969,
+    "iso_a2": "gy"
+  },
+  "332": {
+    "name": "Haiti",
+    "capital": "Port-au-Prince",
+    "population": 11447569,
+    "highest_point": {
+      "name": "Pic la Selle",
+      "elevation_m": 2680
+    },
+    "neighbour_count": 1,
+    "area_km2": 27750,
+    "iso_a2": "ht"
+  },
+  "336": {
+    "name": "Vatican City",
+    "capital": "Vatican City",
+    "population": 800,
+    "highest_point": {
+      "name": "Vatican Hill",
+      "elevation_m": 75
+    },
+    "neighbour_count": 1,
+    "area_km2": 0.44,
+    "iso_a2": "va"
+  },
+  "340": {
+    "name": "Honduras",
+    "capital": "Tegucigalpa",
+    "population": 10278345,
+    "highest_point": {
+      "name": "Cerro Las Minas",
+      "elevation_m": 2870
+    },
+    "neighbour_count": 3,
+    "area_km2": 112492,
+    "iso_a2": "hn"
+  },
+  "348": {
+    "name": "Hungary",
+    "capital": "Budapest",
+    "population": 9710000,
+    "highest_point": {
+      "name": "Kekes",
+      "elevation_m": 1014
+    },
+    "neighbour_count": 7,
+    "area_km2": 93028,
+    "iso_a2": "hu"
+  },
+  "352": {
+    "name": "Iceland",
+    "capital": "Reykjavik",
+    "population": 376248,
+    "highest_point": {
+      "name": "Hvannadalshnukur",
+      "elevation_m": 2110
+    },
+    "neighbour_count": 0,
+    "area_km2": 103000,
+    "iso_a2": "is"
+  },
+  "356": {
+    "name": "India",
+    "capital": "New Delhi",
+    "population": 1428627663,
+    "highest_point": {
+      "name": "Kangchenjunga",
+      "elevation_m": 8586
+    },
+    "neighbour_count": 6,
+    "area_km2": 3287263,
+    "iso_a2": "in"
+  },
+  "360": {
+    "name": "Indonesia",
+    "capital": "Jakarta",
+    "population": 277534122,
+    "highest_point": {
+      "name": "Puncak Jaya",
+      "elevation_m": 4884
+    },
+    "neighbour_count": 3,
+    "area_km2": 1904569,
+    "iso_a2": "id"
+  },
+  "364": {
+    "name": "Iran",
+    "capital": "Tehran",
+    "population": 87923432,
+    "highest_point": {
+      "name": "Mount Damavand",
+      "elevation_m": 5610
+    },
+    "neighbour_count": 7,
+    "area_km2": 1648195,
+    "iso_a2": "ir"
+  },
+  "368": {
+    "name": "Iraq",
+    "capital": "Baghdad",
+    "population": 42164965,
+    "highest_point": {
+      "name": "Cheekha Dar",
+      "elevation_m": 3611
+    },
+    "neighbour_count": 6,
+    "area_km2": 438317,
+    "iso_a2": "iq"
+  },
+  "372": {
+    "name": "Ireland",
+    "capital": "Dublin",
+    "population": 5056935,
+    "highest_point": {
+      "name": "Carrauntoohil",
+      "elevation_m": 1041
+    },
+    "neighbour_count": 1,
+    "area_km2": 70273,
+    "iso_a2": "ie"
+  },
+  "376": {
+    "name": "Israel",
+    "capital": "Jerusalem",
+    "population": 9174520,
+    "highest_point": {
+      "name": "Mount Hermon",
+      "elevation_m": 2814
+    },
+    "neighbour_count": 4,
+    "area_km2": 20770,
+    "iso_a2": "il"
+  },
+  "380": {
+    "name": "Italy",
+    "capital": "Rome",
+    "population": 59030133,
+    "highest_point": {
+      "name": "Mont Blanc",
+      "elevation_m": 4808
+    },
+    "neighbour_count": 6,
+    "area_km2": 301340,
+    "iso_a2": "it"
+  },
+  "384": {
+    "name": "Côte d'Ivoire",
+    "capital": "Yamoussoukro",
+    "population": 27478249,
+    "highest_point": {
+      "name": "Mont Nimba",
+      "elevation_m": 1752
+    },
+    "neighbour_count": 5,
+    "area_km2": 322463,
+    "iso_a2": "ci"
+  },
+  "388": {
+    "name": "Jamaica",
+    "capital": "Kingston",
+    "population": 2820000,
+    "highest_point": {
+      "name": "Blue Mountain Peak",
+      "elevation_m": 2256
+    },
+    "neighbour_count": 0,
+    "area_km2": 10991,
+    "iso_a2": "jm"
+  },
+  "392": {
+    "name": "Japan",
+    "capital": "Tokyo",
+    "population": 125681593,
+    "highest_point": {
+      "name": "Mount Fuji",
+      "elevation_m": 3776
+    },
+    "neighbour_count": 0,
+    "area_km2": 377975,
+    "iso_a2": "jp"
+  },
+  "398": {
+    "name": "Kazakhstan",
+    "capital": "Astana",
+    "population": 19000000,
+    "highest_point": {
+      "name": "Khan Tengri",
+      "elevation_m": 6995
+    },
+    "neighbour_count": 5,
+    "area_km2": 2724900,
+    "iso_a2": "kz"
+  },
+  "400": {
+    "name": "Jordan",
+    "capital": "Amman",
+    "population": 10203134,
+    "highest_point": {
+      "name": "Jabal Umm ad Dami",
+      "elevation_m": 1854
+    },
+    "neighbour_count": 5,
+    "area_km2": 89342,
+    "iso_a2": "jo"
+  },
+  "404": {
+    "name": "Kenya",
+    "capital": "Nairobi",
+    "population": 54027487,
+    "highest_point": {
+      "name": "Mount Kenya",
+      "elevation_m": 5199
+    },
+    "neighbour_count": 5,
+    "area_km2": 580367,
+    "iso_a2": "ke"
+  },
+  "408": {
+    "name": "North Korea",
+    "capital": "Pyongyang",
+    "population": 25971909,
+    "highest_point": {
+      "name": "Paektu Mountain",
+      "elevation_m": 2744
+    },
+    "neighbour_count": 3,
+    "area_km2": 120538,
+    "iso_a2": "kp"
+  },
+  "410": {
+    "name": "South Korea",
+    "capital": "Seoul",
+    "population": 51628117,
+    "highest_point": {
+      "name": "Hallasan",
+      "elevation_m": 1950
+    },
+    "neighbour_count": 1,
+    "area_km2": 100210,
+    "iso_a2": "kr"
+  },
+  "414": {
+    "name": "Kuwait",
+    "capital": "Kuwait City",
+    "population": 4250114,
+    "highest_point": {
+      "name": "unnamed hill west of Al Salmi",
+      "elevation_m": 306
+    },
+    "neighbour_count": 2,
+    "area_km2": 17818,
+    "iso_a2": "kw"
+  },
+  "417": {
+    "name": "Kyrgyzstan",
+    "capital": "Bishkek",
+    "population": 6630000,
+    "highest_point": {
+      "name": "Jengish Chokusu",
+      "elevation_m": 7439
+    },
+    "neighbour_count": 4,
+    "area_km2": 199951,
+    "iso_a2": "kg"
+  },
+  "418": {
+    "name": "Laos",
+    "capital": "Vientiane",
+    "population": 7379358,
+    "highest_point": {
+      "name": "Phou Bia",
+      "elevation_m": 2817
+    },
+    "neighbour_count": 5,
+    "area_km2": 236800,
+    "iso_a2": "la"
+  },
+  "422": {
+    "name": "Lebanon",
+    "capital": "Beirut",
+    "population": 5592631,
+    "highest_point": {
+      "name": "Qurnat as Sawda",
+      "elevation_m": 3088
+    },
+    "neighbour_count": 2,
+    "area_km2": 10452,
+    "iso_a2": "lb"
+  },
+  "426": {
+    "name": "Lesotho",
+    "capital": "Maseru",
+    "population": 2281454,
+    "highest_point": {
+      "name": "Thabana Ntlenyana",
+      "elevation_m": 3482
+    },
+    "neighbour_count": 1,
+    "area_km2": 30355,
+    "iso_a2": "ls"
+  },
+  "428": {
+    "name": "Latvia",
+    "capital": "Riga",
+    "population": 1830000,
+    "highest_point": {
+      "name": "Gaizinkalns",
+      "elevation_m": 312
+    },
+    "neighbour_count": 4,
+    "area_km2": 64559,
+    "iso_a2": "lv"
+  },
+  "430": {
+    "name": "Liberia",
+    "capital": "Monrovia",
+    "population": 5358483,
+    "highest_point": {
+      "name": "Mont Nimba",
+      "elevation_m": 1752
+    },
+    "neighbour_count": 3,
+    "area_km2": 111369,
+    "iso_a2": "lr"
+  },
+  "434": {
+    "name": "Libya",
+    "capital": "Tripoli",
+    "population": 6812341,
+    "highest_point": {
+      "name": "Bikku Bitti",
+      "elevation_m": 2267
+    },
+    "neighbour_count": 6,
+    "area_km2": 1759540,
+    "iso_a2": "ly"
+  },
+  "438": {
+    "name": "Liechtenstein",
+    "capital": "Vaduz",
+    "population": 38749,
+    "highest_point": {
+      "name": "Vorder-Grauspitz",
+      "elevation_m": 2599
+    },
+    "neighbour_count": 2,
+    "area_km2": 160,
+    "iso_a2": "li"
+  },
+  "440": {
+    "name": "Lithuania",
+    "capital": "Vilnius",
+    "population": 2795000,
+    "highest_point": {
+      "name": "Aukstojas Hill",
+      "elevation_m": 294
+    },
+    "neighbour_count": 4,
+    "area_km2": 65300,
+    "iso_a2": "lt"
+  },
+  "442": {
+    "name": "Luxembourg",
+    "capital": "Luxembourg City",
+    "population": 660809,
+    "highest_point": {
+      "name": "Kneiff",
+      "elevation_m": 560
+    },
+    "neighbour_count": 3,
+    "area_km2": 2586,
+    "iso_a2": "lu"
+  },
+  "450": {
+    "name": "Madagascar",
+    "capital": "Antananarivo",
+    "population": 28915653,
+    "highest_point": {
+      "name": "Maromokotro",
+      "elevation_m": 2876
+    },
+    "neighbour_count": 0,
+    "area_km2": 587041,
+    "iso_a2": "mg"
+  },
+  "454": {
+    "name": "Malawi",
+    "capital": "Lilongwe",
+    "population": 19889742,
+    "highest_point": {
+      "name": "Sapitwa",
+      "elevation_m": 3002
+    },
+    "neighbour_count": 3,
+    "area_km2": 118484,
+    "iso_a2": "mw"
+  },
+  "458": {
+    "name": "Malaysia",
+    "capital": "Kuala Lumpur",
+    "population": 32776194,
+    "highest_point": {
+      "name": "Mount Kinabalu",
+      "elevation_m": 4095
+    },
+    "neighbour_count": 3,
+    "area_km2": 330803,
+    "iso_a2": "my"
+  },
+  "462": {
+    "name": "Maldives",
+    "capital": "Male",
+    "population": 521021,
+    "highest_point": {
+      "name": "unnamed natural formation on Vilingili Island",
+      "elevation_m": 5
+    },
+    "neighbour_count": 0,
+    "area_km2": 298,
+    "iso_a2": "mv"
+  },
+  "466": {
+    "name": "Mali",
+    "capital": "Bamako",
+    "population": 22414503,
+    "highest_point": {
+      "name": "Hombori Tondo",
+      "elevation_m": 1155
+    },
+    "neighbour_count": 7,
+    "area_km2": 1240192,
+    "iso_a2": "ml"
+  },
+  "470": {
+    "name": "Malta",
+    "capital": "Valletta",
+    "population": 519562,
+    "highest_point": {
+      "name": "Ta' Dmejrek",
+      "elevation_m": 253
+    },
+    "neighbour_count": 0,
+    "area_km2": 316,
+    "iso_a2": "mt"
+  },
+  "478": {
+    "name": "Mauritania",
+    "capital": "Nouakchott",
+    "population": 4614974,
+    "highest_point": {
+      "name": "Kediet ej Jill",
+      "elevation_m": 915
+    },
+    "neighbour_count": 5,
+    "area_km2": 1030700,
+    "iso_a2": "mr"
+  },
+  "480": {
+    "name": "Mauritius",
+    "capital": "Port Louis",
+    "population": 1261208,
+    "highest_point": {
+      "name": "Piton de la Petite Riviere Noire",
+      "elevation_m": 828
+    },
+    "neighbour_count": 0,
+    "area_km2": 2040,
+    "iso_a2": "mu"
+  },
+  "484": {
+    "name": "Mexico",
+    "capital": "Mexico City",
+    "population": 127504125,
+    "highest_point": {
+      "name": "Pico de Orizaba",
+      "elevation_m": 5636
+    },
+    "neighbour_count": 3,
+    "area_km2": 1964375,
+    "iso_a2": "mx"
+  },
+  "492": {
+    "name": "Monaco",
+    "capital": "Monaco",
+    "population": 36469,
+    "highest_point": {
+      "name": "Mont Agel",
+      "elevation_m": 163
+    },
+    "neighbour_count": 1,
+    "area_km2": 2.02,
+    "iso_a2": "mc"
+  },
+  "496": {
+    "name": "Mongolia",
+    "capital": "Ulaanbaatar",
+    "population": 3347782,
+    "highest_point": {
+      "name": "Khuiten Peak",
+      "elevation_m": 4374
+    },
+    "neighbour_count": 2,
+    "area_km2": 1564116,
+    "iso_a2": "mn"
+  },
+  "498": {
+    "name": "Moldova",
+    "capital": "Chisinau",
+    "population": 2617820,
+    "highest_point": {
+      "name": "Dealul Balanesti",
+      "elevation_m": 430
+    },
+    "neighbour_count": 2,
+    "area_km2": 33846,
+    "iso_a2": "md"
+  },
+  "499": {
+    "name": "Montenegro",
+    "capital": "Podgorica",
+    "population": 621718,
+    "highest_point": {
+      "name": "Zla Kolata",
+      "elevation_m": 2534
+    },
+    "neighbour_count": 5,
+    "area_km2": 13812,
+    "iso_a2": "me"
+  },
+  "504": {
+    "name": "Morocco",
+    "capital": "Rabat",
+    "population": 37076584,
+    "highest_point": {
+      "name": "Jbel Toubkal",
+      "elevation_m": 4167
+    },
+    "neighbour_count": 2,
+    "area_km2": 446550,
+    "iso_a2": "ma"
+  },
+  "508": {
+    "name": "Mozambique",
+    "capital": "Maputo",
+    "population": 32790338,
+    "highest_point": {
+      "name": "Monte Binga",
+      "elevation_m": 2436
+    },
+    "neighbour_count": 6,
+    "area_km2": 801590,
+    "iso_a2": "mz"
+  },
+  "512": {
+    "name": "Oman",
+    "capital": "Muscat",
+    "population": 4576298,
+    "highest_point": {
+      "name": "Jabal Shams",
+      "elevation_m": 3009
+    },
+    "neighbour_count": 3,
+    "area_km2": 309500,
+    "iso_a2": "om"
+  },
+  "516": {
+    "name": "Namibia",
+    "capital": "Windhoek",
+    "population": 2587344,
+    "highest_point": {
+      "name": "Brandberg Mountain",
+      "elevation_m": 2573
+    },
+    "neighbour_count": 4,
+    "area_km2": 825615,
+    "iso_a2": "na"
+  },
+  "520": {
+    "name": "Nauru",
+    "capital": "Yaren",
+    "population": 10876,
+    "highest_point": {
+      "name": "Command Ridge",
+      "elevation_m": 71
+    },
+    "neighbour_count": 0,
+    "area_km2": 21,
+    "iso_a2": "nr"
+  },
+  "524": {
+    "name": "Nepal",
+    "capital": "Kathmandu",
+    "population": 29136808,
+    "highest_point": {
+      "name": "Mount Everest",
+      "elevation_m": 8849
+    },
+    "neighbour_count": 2,
+    "area_km2": 147181,
+    "iso_a2": "np"
+  },
+  "528": {
+    "name": "Netherlands",
+    "capital": "Amsterdam",
+    "population": 17618299,
+    "highest_point": {
+      "name": "Vaalserberg",
+      "elevation_m": 323
+    },
+    "neighbour_count": 3,
+    "area_km2": 41543,
+    "iso_a2": "nl"
+  },
+  "548": {
+    "name": "Vanuatu",
+    "capital": "Port Vila",
+    "population": 320763,
+    "highest_point": {
+      "name": "Tabwemasana",
+      "elevation_m": 1879
+    },
+    "neighbour_count": 0,
+    "area_km2": 12189,
+    "iso_a2": "vu"
+  },
+  "554": {
+    "name": "New Zealand",
+    "capital": "Wellington",
+    "population": 5123000,
+    "highest_point": {
+      "name": "Aoraki/Mount Cook",
+      "elevation_m": 3724
+    },
+    "neighbour_count": 0,
+    "area_km2": 268021,
+    "iso_a2": "nz"
+  },
+  "558": {
+    "name": "Nicaragua",
+    "capital": "Managua",
+    "population": 6948392,
+    "highest_point": {
+      "name": "Mogoton",
+      "elevation_m": 2438
+    },
+    "neighbour_count": 2,
+    "area_km2": 130373,
+    "iso_a2": "ni"
+  },
+  "562": {
+    "name": "Niger",
+    "capital": "Niamey",
+    "population": 25252722,
+    "highest_point": {
+      "name": "Mont Idoukal-n-Taghes",
+      "elevation_m": 2022
+    },
+    "neighbour_count": 7,
+    "area_km2": 1267000,
+    "iso_a2": "ne"
+  },
+  "566": {
+    "name": "Nigeria",
+    "capital": "Abuja",
+    "population": 218541212,
+    "highest_point": {
+      "name": "Chappal Waddi",
+      "elevation_m": 2419
+    },
+    "neighbour_count": 4,
+    "area_km2": 923768,
+    "iso_a2": "ng"
+  },
+  "578": {
+    "name": "Norway",
+    "capital": "Oslo",
+    "population": 5425270,
+    "highest_point": {
+      "name": "Galdhopiggen",
+      "elevation_m": 2469
+    },
+    "neighbour_count": 3,
+    "area_km2": 323802,
+    "iso_a2": "no"
+  },
+  "583": {
+    "name": "Micronesia",
+    "capital": "Palikir",
+    "population": 115023,
+    "highest_point": {
+      "name": "Nanlaud",
+      "elevation_m": 791
+    },
+    "neighbour_count": 0,
+    "area_km2": 702,
+    "iso_a2": "fm"
+  },
+  "584": {
+    "name": "Marshall Islands",
+    "capital": "Majuro",
+    "population": 42050,
+    "highest_point": {
+      "name": "unnamed point on Likiep",
+      "elevation_m": 10
+    },
+    "neighbour_count": 0,
+    "area_km2": 181,
+    "iso_a2": "mh"
+  },
+  "585": {
+    "name": "Palau",
+    "capital": "Ngerulmud",
+    "population": 18055,
+    "highest_point": {
+      "name": "Mount Ngerchelchuus",
+      "elevation_m": 242
+    },
+    "neighbour_count": 0,
+    "area_km2": 459,
+    "iso_a2": "pw"
+  },
+  "586": {
+    "name": "Pakistan",
+    "capital": "Islamabad",
+    "population": 231402117,
+    "highest_point": {
+      "name": "K2",
+      "elevation_m": 8611
+    },
+    "neighbour_count": 4,
+    "area_km2": 881913,
+    "iso_a2": "pk"
+  },
+  "591": {
+    "name": "Panama",
+    "capital": "Panama City",
+    "population": 4351267,
+    "highest_point": {
+      "name": "Volcan Baru",
+      "elevation_m": 3475
+    },
+    "neighbour_count": 2,
+    "area_km2": 75417,
+    "iso_a2": "pa"
+  },
+  "598": {
+    "name": "Papua New Guinea",
+    "capital": "Port Moresby",
+    "population": 10329931,
+    "highest_point": {
+      "name": "Mount Wilhelm",
+      "elevation_m": 4509
+    },
+    "neighbour_count": 1,
+    "area_km2": 462840,
+    "iso_a2": "pg"
+  },
+  "600": {
+    "name": "Paraguay",
+    "capital": "Asuncion",
+    "population": 7360000,
+    "highest_point": {
+      "name": "Cerro Pero",
+      "elevation_m": 842
+    },
+    "neighbour_count": 3,
+    "area_km2": 406752,
+    "iso_a2": "py"
+  },
+  "604": {
+    "name": "Peru",
+    "capital": "Lima",
+    "population": 32971854,
+    "highest_point": {
+      "name": "Nevado Huascaran",
+      "elevation_m": 6768
+    },
+    "neighbour_count": 5,
+    "area_km2": 1285216,
+    "iso_a2": "pe"
+  },
+  "608": {
+    "name": "Philippines",
+    "capital": "Manila",
+    "population": 115559009,
+    "highest_point": {
+      "name": "Mount Apo",
+      "elevation_m": 2954
+    },
+    "neighbour_count": 0,
+    "area_km2": 300000,
+    "iso_a2": "ph"
+  },
+  "616": {
+    "name": "Poland",
+    "capital": "Warsaw",
+    "population": 37840001,
+    "highest_point": {
+      "name": "Rysy",
+      "elevation_m": 2499
+    },
+    "neighbour_count": 7,
+    "area_km2": 312696,
+    "iso_a2": "pl"
+  },
+  "620": {
+    "name": "Portugal",
+    "capital": "Lisbon",
+    "population": 10290103,
+    "highest_point": {
+      "name": "Ponta do Pico",
+      "elevation_m": 2351
+    },
+    "neighbour_count": 1,
+    "area_km2": 92212,
+    "iso_a2": "pt"
+  },
+  "624": {
+    "name": "Guinea-Bissau",
+    "capital": "Bissau",
+    "population": 2060721,
+    "highest_point": {
+      "name": "Unnamed peak",
+      "elevation_m": 300
+    },
+    "neighbour_count": 2,
+    "area_km2": 36125,
+    "iso_a2": "gw"
+  },
+  "626": {
+    "name": "Timor-Leste",
+    "capital": "Dili",
+    "population": 1321929,
+    "highest_point": {
+      "name": "Tatamailau",
+      "elevation_m": 2963
+    },
+    "neighbour_count": 1,
+    "area_km2": 14874,
+    "iso_a2": "tl"
+  },
+  "634": {
+    "name": "Qatar",
+    "capital": "Doha",
+    "population": 2716391,
+    "highest_point": {
+      "name": "Qurayn Abu al Bawl",
+      "elevation_m": 103
+    },
+    "neighbour_count": 1,
+    "area_km2": 11586,
+    "iso_a2": "qa"
+  },
+  "642": {
+    "name": "Romania",
+    "capital": "Bucharest",
+    "population": 19237691,
+    "highest_point": {
+      "name": "Moldoveanu",
+      "elevation_m": 2544
+    },
+    "neighbour_count": 5,
+    "area_km2": 238397,
+    "iso_a2": "ro"
+  },
+  "643": {
+    "name": "Russia",
+    "capital": "Moscow",
+    "population": 145102755,
+    "highest_point": {
+      "name": "Mount Elbrus",
+      "elevation_m": 5642
+    },
+    "neighbour_count": 14,
+    "area_km2": 17098242,
+    "iso_a2": "ru"
+  },
+  "646": {
+    "name": "Rwanda",
+    "capital": "Kigali",
+    "population": 13776698,
+    "highest_point": {
+      "name": "Volcan Karisimbi",
+      "elevation_m": 4507
+    },
+    "neighbour_count": 4,
+    "area_km2": 26338,
+    "iso_a2": "rw"
+  },
+  "659": {
+    "name": "Saint Kitts and Nevis",
+    "capital": "Basseterre",
+    "population": 47755,
+    "highest_point": {
+      "name": "Mount Liamuiga",
+      "elevation_m": 1156
+    },
+    "neighbour_count": 0,
+    "area_km2": 261,
+    "iso_a2": "kn"
+  },
+  "662": {
+    "name": "Saint Lucia",
+    "capital": "Castries",
+    "population": 179651,
+    "highest_point": {
+      "name": "Mount Gimie",
+      "elevation_m": 950
+    },
+    "neighbour_count": 0,
+    "area_km2": 616,
+    "iso_a2": "lc"
+  },
+  "670": {
+    "name": "Saint Vincent and the Grenadines",
+    "capital": "Kingstown",
+    "population": 110872,
+    "highest_point": {
+      "name": "La Soufriere",
+      "elevation_m": 1234
+    },
+    "neighbour_count": 0,
+    "area_km2": 389,
+    "iso_a2": "vc"
+  },
+  "674": {
+    "name": "San Marino",
+    "capital": "San Marino",
+    "population": 33938,
+    "highest_point": {
+      "name": "Monte Titano",
+      "elevation_m": 755
+    },
+    "neighbour_count": 1,
+    "area_km2": 61,
+    "iso_a2": "sm"
+  },
+  "678": {
+    "name": "Sao Tome and Principe",
+    "capital": "Sao Tome",
+    "population": 223107,
+    "highest_point": {
+      "name": "Pico de Sao Tome",
+      "elevation_m": 2024
+    },
+    "neighbour_count": 0,
+    "area_km2": 964,
+    "iso_a2": "st"
+  },
+  "682": {
+    "name": "Saudi Arabia",
+    "capital": "Riyadh",
+    "population": 35013414,
+    "highest_point": {
+      "name": "Jabal Sawda",
+      "elevation_m": 3133
+    },
+    "neighbour_count": 7,
+    "area_km2": 2149690,
+    "iso_a2": "sa"
+  },
+  "686": {
+    "name": "Senegal",
+    "capital": "Dakar",
+    "population": 17196301,
+    "highest_point": {
+      "name": "Unnamed peak in Fouta Djallon",
+      "elevation_m": 648
+    },
+    "neighbour_count": 5,
+    "area_km2": 196722,
+    "iso_a2": "sn"
+  },
+  "688": {
+    "name": "Serbia",
+    "capital": "Belgrade",
+    "population": 6834326,
+    "highest_point": {
+      "name": "Midzor",
+      "elevation_m": 2169
+    },
+    "neighbour_count": 8,
+    "area_km2": 77474,
+    "iso_a2": "rs"
+  },
+  "690": {
+    "name": "Seychelles",
+    "capital": "Victoria",
+    "population": 98908,
+    "highest_point": {
+      "name": "Morne Seychellois",
+      "elevation_m": 905
+    },
+    "neighbour_count": 0,
+    "area_km2": 452,
+    "iso_a2": "sc"
+  },
+  "694": {
+    "name": "Sierra Leone",
+    "capital": "Freetown",
+    "population": 8420641,
+    "highest_point": {
+      "name": "Loma Mansa",
+      "elevation_m": 1948
+    },
+    "neighbour_count": 2,
+    "area_km2": 71740,
+    "iso_a2": "sl"
+  },
+  "702": {
+    "name": "Singapore",
+    "capital": "Singapore",
+    "population": 5850000,
+    "highest_point": {
+      "name": "Bukit Timah",
+      "elevation_m": 164
+    },
+    "neighbour_count": 0,
+    "area_km2": 733,
+    "iso_a2": "sg"
+  },
+  "703": {
+    "name": "Slovakia",
+    "capital": "Bratislava",
+    "population": 5460185,
+    "highest_point": {
+      "name": "Gerlachovsky stit",
+      "elevation_m": 2655
+    },
+    "neighbour_count": 5,
+    "area_km2": 49035,
+    "iso_a2": "sk"
+  },
+  "704": {
+    "name": "Vietnam",
+    "capital": "Hanoi",
+    "population": 98186989,
+    "highest_point": {
+      "name": "Fan Si Pan",
+      "elevation_m": 3144
+    },
+    "neighbour_count": 3,
+    "area_km2": 331212,
+    "iso_a2": "vn"
+  },
+  "705": {
+    "name": "Slovenia",
+    "capital": "Ljubljana",
+    "population": 2119844,
+    "highest_point": {
+      "name": "Triglav",
+      "elevation_m": 2864
+    },
+    "neighbour_count": 4,
+    "area_km2": 20273,
+    "iso_a2": "si"
+  },
+  "706": {
+    "name": "Somalia",
+    "capital": "Mogadishu",
+    "population": 17065581,
+    "highest_point": {
+      "name": "Shimbiris",
+      "elevation_m": 2460
+    },
+    "neighbour_count": 3,
+    "area_km2": 637657,
+    "iso_a2": "so"
+  },
+  "710": {
+    "name": "South Africa",
+    "capital": "Pretoria",
+    "population": 59893885,
+    "highest_point": {
+      "name": "Njesuthi",
+      "elevation_m": 3408
+    },
+    "neighbour_count": 6,
+    "area_km2": 1221037,
+    "iso_a2": "za"
+  },
+  "716": {
+    "name": "Zimbabwe",
+    "capital": "Harare",
+    "population": 15092171,
+    "highest_point": {
+      "name": "Mount Nyangani",
+      "elevation_m": 2592
+    },
+    "neighbour_count": 4,
+    "area_km2": 390757,
+    "iso_a2": "zw"
+  },
+  "724": {
+    "name": "Spain",
+    "capital": "Madrid",
+    "population": 47415750,
+    "highest_point": {
+      "name": "Pico del Teide",
+      "elevation_m": 3718
+    },
+    "neighbour_count": 5,
+    "area_km2": 505992,
+    "iso_a2": "es"
+  },
+  "728": {
+    "name": "South Sudan",
+    "capital": "Juba",
+    "population": 10748272,
+    "highest_point": {
+      "name": "Kinyeti",
+      "elevation_m": 3187
+    },
+    "neighbour_count": 6,
+    "area_km2": 619745,
+    "iso_a2": "ss"
+  },
+  "729": {
+    "name": "Sudan",
+    "capital": "Khartoum",
+    "population": 45657202,
+    "highest_point": {
+      "name": "Deriba Caldera",
+      "elevation_m": 3042
+    },
+    "neighbour_count": 7,
+    "area_km2": 1886068,
+    "iso_a2": "sd"
+  },
+  "740": {
+    "name": "Suriname",
+    "capital": "Paramaribo",
+    "population": 618040,
+    "highest_point": {
+      "name": "Juliana Top",
+      "elevation_m": 1280
+    },
+    "neighbour_count": 3,
+    "area_km2": 163820,
+    "iso_a2": "sr"
+  },
+  "748": {
+    "name": "Eswatini",
+    "capital": "Mbabane",
+    "population": 1172000,
+    "highest_point": {
+      "name": "Emlembe",
+      "elevation_m": 1862
+    },
+    "neighbour_count": 2,
+    "area_km2": 17364,
+    "iso_a2": "sz"
+  },
+  "752": {
+    "name": "Sweden",
+    "capital": "Stockholm",
+    "population": 10521556,
+    "highest_point": {
+      "name": "Kebnekaise",
+      "elevation_m": 2097
+    },
+    "neighbour_count": 2,
+    "area_km2": 450295,
+    "iso_a2": "se"
+  },
+  "756": {
+    "name": "Switzerland",
+    "capital": "Bern",
+    "population": 8738791,
+    "highest_point": {
+      "name": "Dufourspitze",
+      "elevation_m": 4634
+    },
+    "neighbour_count": 5,
+    "area_km2": 41285,
+    "iso_a2": "ch"
+  },
+  "760": {
+    "name": "Syria",
+    "capital": "Damascus",
+    "population": 21324000,
+    "highest_point": {
+      "name": "Mount Hermon",
+      "elevation_m": 2814
+    },
+    "neighbour_count": 5,
+    "area_km2": 185180,
+    "iso_a2": "sy"
+  },
+  "762": {
+    "name": "Tajikistan",
+    "capital": "Dushanbe",
+    "population": 9750064,
+    "highest_point": {
+      "name": "Ismoil Somoni Peak",
+      "elevation_m": 7495
+    },
+    "neighbour_count": 4,
+    "area_km2": 143100,
+    "iso_a2": "tj"
+  },
+  "764": {
+    "name": "Thailand",
+    "capital": "Bangkok",
+    "population": 71697030,
+    "highest_point": {
+      "name": "Doi Inthanon",
+      "elevation_m": 2565
+    },
+    "neighbour_count": 5,
+    "area_km2": 513120,
+    "iso_a2": "th"
+  },
+  "768": {
+    "name": "Togo",
+    "capital": "Lome",
+    "population": 8644829,
+    "highest_point": {
+      "name": "Mont Agou",
+      "elevation_m": 986
+    },
+    "neighbour_count": 3,
+    "area_km2": 56785,
+    "iso_a2": "tg"
+  },
+  "776": {
+    "name": "Tonga",
+    "capital": "Nuku'alofa",
+    "population": 100209,
+    "highest_point": {
+      "name": "Kao Island high point",
+      "elevation_m": 1046
+    },
+    "neighbour_count": 0,
+    "area_km2": 747,
+    "iso_a2": "to"
+  },
+  "780": {
+    "name": "Trinidad and Tobago",
+    "capital": "Port of Spain",
+    "population": 1403375,
+    "highest_point": {
+      "name": "El Cerro del Aripo",
+      "elevation_m": 940
+    },
+    "neighbour_count": 0,
+    "area_km2": 5130,
+    "iso_a2": "tt"
+  },
+  "784": {
+    "name": "United Arab Emirates",
+    "capital": "Abu Dhabi",
+    "population": 9770529,
+    "highest_point": {
+      "name": "Jabal Jais",
+      "elevation_m": 1934
+    },
+    "neighbour_count": 2,
+    "area_km2": 83600,
+    "iso_a2": "ae"
+  },
+  "788": {
+    "name": "Tunisia",
+    "capital": "Tunis",
+    "population": 11818619,
+    "highest_point": {
+      "name": "Jebel ech Chambi",
+      "elevation_m": 1544
+    },
+    "neighbour_count": 2,
+    "area_km2": 163610,
+    "iso_a2": "tn"
+  },
+  "792": {
+    "name": "Turkey",
+    "capital": "Ankara",
+    "population": 84775404,
+    "highest_point": {
+      "name": "Mount Ararat",
+      "elevation_m": 5137
+    },
+    "neighbour_count": 8,
+    "area_km2": 783562,
+    "iso_a2": "tr"
+  },
+  "795": {
+    "name": "Turkmenistan",
+    "capital": "Ashgabat",
+    "population": 6117924,
+    "highest_point": {
+      "name": "Ayrybaba",
+      "elevation_m": 3139
+    },
+    "neighbour_count": 4,
+    "area_km2": 488100,
+    "iso_a2": "tm"
+  },
+  "798": {
+    "name": "Tuvalu",
+    "capital": "Funafuti",
+    "population": 11931,
+    "highest_point": {
+      "name": "unnamed location on Niulakita",
+      "elevation_m": 5
+    },
+    "neighbour_count": 0,
+    "area_km2": 26,
+    "iso_a2": "tv"
+  },
+  "800": {
+    "name": "Uganda",
+    "capital": "Kampala",
+    "population": 47123531,
+    "highest_point": {
+      "name": "Margherita Peak",
+      "elevation_m": 5109
+    },
+    "neighbour_count": 5,
+    "area_km2": 241038,
+    "iso_a2": "ug"
+  },
+  "804": {
+    "name": "Ukraine",
+    "capital": "Kyiv",
+    "population": 43531422,
+    "highest_point": {
+      "name": "Hoverla",
+      "elevation_m": 2061
+    },
+    "neighbour_count": 7,
+    "area_km2": 603500,
+    "iso_a2": "ua"
+  },
+  "807": {
+    "name": "North Macedonia",
+    "capital": "Skopje",
+    "population": 2083000,
+    "highest_point": {
+      "name": "Korab",
+      "elevation_m": 2764
+    },
+    "neighbour_count": 4,
+    "area_km2": 25713,
+    "iso_a2": "mk"
+  },
+  "818": {
+    "name": "Egypt",
+    "capital": "Cairo",
+    "population": 104258327,
+    "highest_point": {
+      "name": "Mount Catherine",
+      "elevation_m": 2629
+    },
+    "neighbour_count": 4,
+    "area_km2": 1002450,
+    "iso_a2": "eg"
+  },
+  "826": {
+    "name": "United Kingdom",
+    "capital": "London",
+    "population": 67026292,
+    "highest_point": {
+      "name": "Ben Nevis",
+      "elevation_m": 1345
+    },
+    "neighbour_count": 1,
+    "area_km2": 242495,
+    "iso_a2": "gb"
+  },
+  "834": {
+    "name": "Tanzania",
+    "capital": "Dodoma",
+    "population": 63298550,
+    "highest_point": {
+      "name": "Mount Kilimanjaro",
+      "elevation_m": 5895
+    },
+    "neighbour_count": 8,
+    "area_km2": 945087,
+    "iso_a2": "tz"
+  },
+  "840": {
+    "name": "United States",
+    "capital": "Washington, D.C.",
+    "population": 335893238,
+    "highest_point": {
+      "name": "Denali",
+      "elevation_m": 6194
+    },
+    "neighbour_count": 2,
+    "area_km2": 9833520,
+    "iso_a2": "us"
+  },
+  "854": {
+    "name": "Burkina Faso",
+    "capital": "Ouagadougou",
+    "population": 22673762,
+    "highest_point": {
+      "name": "Tena Kourou",
+      "elevation_m": 749
+    },
+    "neighbour_count": 6,
+    "area_km2": 274222,
+    "iso_a2": "bf"
+  },
+  "858": {
+    "name": "Uruguay",
+    "capital": "Montevideo",
+    "population": 3517806,
+    "highest_point": {
+      "name": "Cerro Catedral",
+      "elevation_m": 514
+    },
+    "neighbour_count": 2,
+    "area_km2": 176215,
+    "iso_a2": "uy"
+  },
+  "860": {
+    "name": "Uzbekistan",
+    "capital": "Tashkent",
+    "population": 35300000,
+    "highest_point": {
+      "name": "Khazret Sultan",
+      "elevation_m": 4643
+    },
+    "neighbour_count": 5,
+    "area_km2": 449009,
+    "iso_a2": "uz"
+  },
+  "862": {
+    "name": "Venezuela",
+    "capital": "Caracas",
+    "population": 28301696,
+    "highest_point": {
+      "name": "Pico Bolivar",
+      "elevation_m": 4978
+    },
+    "neighbour_count": 3,
+    "area_km2": 916445,
+    "iso_a2": "ve"
+  },
+  "882": {
+    "name": "Samoa",
+    "capital": "Apia",
+    "population": 222382,
+    "highest_point": {
+      "name": "Mount Silisili",
+      "elevation_m": 1858
+    },
+    "neighbour_count": 0,
+    "area_km2": 2842,
+    "iso_a2": "ws"
+  },
+  "887": {
+    "name": "Yemen",
+    "capital": "Sanaa",
+    "population": 33696614,
+    "highest_point": {
+      "name": "Jabal an Nabi Shu'ayb",
+      "elevation_m": 3666
+    },
+    "neighbour_count": 2,
+    "area_km2": 527968,
+    "iso_a2": "ye"
+  },
+  "894": {
+    "name": "Zambia",
+    "capital": "Lusaka",
+    "population": 19473125,
+    "highest_point": {
+      "name": "Mafinga Hills",
+      "elevation_m": 2301
+    },
+    "neighbour_count": 8,
+    "area_km2": 752612,
+    "iso_a2": "zm"
+  }
+}

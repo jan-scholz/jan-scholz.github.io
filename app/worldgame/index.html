@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Map Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-phase="idle" data-screen="select">
+
+  <!-- SVG Map -->
+  <svg id="map"><g id="map-group"></g><g id="small-targets"></g></svg>
+
+  <!-- Explore Quit Button -->
+  <button id="btn-menu" class="btn btn-danger btn-sm">Quit</button>
+
+  <!-- Game Panel (top) -->
+  <div id="game-panel" class="panel">
+    <div id="game-flag-wrap" class="panel-flag">
+      <img id="game-flag" alt="Flag" />
+    </div>
+    <div class="panel-identity">
+      <div id="game-prompt"></div>
+    </div>
+    <div class="game-hud">
+      <span class="hud-item">Score: <strong id="hud-score">0</strong></span>
+      <span class="hud-item">Guesses: <strong id="hud-guesses">3</strong></span>
+      <button id="btn-skip" class="btn btn-secondary btn-sm">Skip</button>
+      <button id="btn-quit" class="btn btn-danger btn-sm">Quit</button>
+    </div>
+    <div class="game-progress">
+      <div id="progress-fill" class="game-progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- Bottom Panel Stack -->
+  <div class="bottom-panels">
+    <!-- Feedback Bar -->
+    <div id="feedback-bar" class="panel feedback-bar">
+      <span id="feedback-text"></span>
+      <button id="btn-next" class="btn btn-primary btn-sm">Next &rarr;</button>
+    </div>
+
+    <!-- Country Info Panel -->
+    <div id="country-panel" class="panel country-panel">
+      <div class="panel-flag">
+        <img id="info-flag" alt="Flag" />
+      </div>
+      <div class="panel-identity">
+        <div class="panel-name" id="info-name"></div>
+        <div class="panel-capital" id="info-capital"></div>
+      </div>
+      <div class="panel-facts" id="info-facts">
+        <div class="fact"><span class="fact-label">Area</span><span class="fact-value" id="info-area"></span></div>
+        <div class="fact"><span class="fact-label">Population</span><span class="fact-value" id="info-pop"></span></div>
+        <div class="fact"><span class="fact-label">Highest Point</span><span class="fact-value" id="info-peak"></span></div>
+        <div class="fact"><span class="fact-label">Neighbours</span><span class="fact-value" id="info-neighbours"></span></div>
+      </div>
+    </div>
+
+    <!-- Text Input Panel -->
+    <div id="input-panel" class="panel input-panel">
+      <div id="input-feedback"></div>
+      <div class="input-row">
+        <input id="guess-input" class="guess-input" type="text"
+               autocomplete="off" autocorrect="off" spellcheck="false" />
+        <button id="btn-submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay: Mode Selection -->
+  <div id="screen-select" class="overlay-screen">
+    <div class="overlay-card">
+      <h1 class="overlay-title">World Map Quiz</h1>
+      <div class="mode-cards">
+        <button class="mode-card" data-mode-choice="explore">
+          <span class="mode-icon">&#127758;</span>
+          <span class="mode-name">Explore</span>
+          <span class="mode-desc">Browse the map and discover facts</span>
+        </button>
+        <button class="mode-card" data-mode-choice="find">
+          <span class="mode-icon">&#128269;</span>
+          <span class="mode-name">Find the Country</span>
+          <span class="mode-desc">Click the correct country on the map</span>
+        </button>
+        <button class="mode-card" data-mode-choice="name-country">
+          <span class="mode-icon">&#9999;&#65039;</span>
+          <span class="mode-name">Name the Country</span>
+          <span class="mode-desc">Type the name of the highlighted country</span>
+        </button>
+        <button class="mode-card" data-mode-choice="name-capital">
+          <span class="mode-icon">&#127963;&#65039;</span>
+          <span class="mode-name">Name the Capital</span>
+          <span class="mode-desc">Type the capital of the shown country</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay: Settings -->
+  <div id="screen-settings" class="overlay-screen">
+    <div class="overlay-card overlay-card--narrow">
+      <h1 class="overlay-title" id="settings-title"></h1>
+      <div class="settings-row">
+        <span class="settings-label">Rounds</span>
+        <div class="stepper">
+          <button class="stepper-btn" data-setting="rounds" data-dir="-1">&minus;</button>
+          <span class="stepper-val" id="val-rounds">10</span>
+          <button class="stepper-btn" data-setting="rounds" data-dir="1">+</button>
+        </div>
+      </div>
+      <div class="settings-row">
+        <span class="settings-label">Guesses per round</span>
+        <div class="stepper">
+          <button class="stepper-btn" data-setting="guesses" data-dir="-1">&minus;</button>
+          <span class="stepper-val" id="val-guesses">3</span>
+          <button class="stepper-btn" data-setting="guesses" data-dir="1">+</button>
+        </div>
+      </div>
+      <div class="settings-row">
+        <span class="settings-label">Auto-advance</span>
+        <label class="toggle">
+          <input type="checkbox" id="chk-auto" />
+          <span class="toggle-track"></span>
+        </label>
+      </div>
+      <div class="settings-actions">
+        <button id="btn-back-settings" class="btn btn-secondary">Back</button>
+        <button id="btn-start" class="btn btn-primary">Start Game</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay: Stats -->
+  <div id="screen-stats" class="overlay-screen">
+    <div class="overlay-card overlay-card--narrow">
+      <h1 class="overlay-title">Game Over</h1>
+      <div class="stats-grid">
+        <div class="stat-row">
+          <span class="stat-label">Rounds played</span>
+          <span class="stat-value" id="stat-rounds"></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Correct</span>
+          <span class="stat-value" id="stat-correct"></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Skipped</span>
+          <span class="stat-value" id="stat-skipped"></span>
+        </div>
+        <div class="stat-row stat-row--score">
+          <span class="stat-label">Score</span>
+          <span class="stat-value" id="stat-score"></span>
+        </div>
+      </div>
+      <button id="btn-back-menu" class="btn btn-primary" style="width:100%">Back to Menu</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+  <script src="main.js"></script>
+</body>
+</html>
