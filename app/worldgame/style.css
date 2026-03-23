@@ -200,7 +200,7 @@ body[data-mode="name-country"] #game-prompt { visibility: hidden; }
   flex-direction: row; justify-content: space-between; align-items: center;
   padding: 10px 20px; gap: 12px; border-radius: 12px;
 }
-#feedback-text { font-size: 0.95rem; font-weight: 600; white-space: nowrap; }
+#feedback-text { font-size: 0.95rem; font-weight: 600; flex: 1; min-width: 0; }
 body[data-phase="feedback"] #feedback-bar { display: flex; }
 .feedback-bar--correct #feedback-text { color: #1a7a3a; }
 .feedback-bar--wrong #feedback-text { color: #c03030; }

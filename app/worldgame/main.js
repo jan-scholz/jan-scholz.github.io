@@ -417,7 +417,7 @@
       feedbackBar.classList.add('feedback-bar--correct');
       feedbackBar.classList.remove('feedback-bar--wrong');
     } else {
-      feedbackText.textContent = `No more guesses \u2014 the answer was ${answer}`;
+      feedbackText.textContent = `Out of guesses: It was ${answer}`;
       feedbackBar.classList.add('feedback-bar--wrong');
       feedbackBar.classList.remove('feedback-bar--correct');
     }
