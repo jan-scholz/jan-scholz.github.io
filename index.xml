@@ -11,8 +11,19 @@
     </image>
     <generator>Hugo -- 0.158.0</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 11 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.talesofindustry.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://www.talesofindustry.org/about/</link>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.talesofindustry.org/about/</guid>
+      <description>&lt;h2 id=&#34;who-am-i&#34;&gt;Who am I?&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m &lt;strong&gt;Jan&lt;/strong&gt;. In my past life as a Neuroscientist I studied how the brain learns. This peaked my interest into complex dynamical systems, what laws govern them, and how they can be improved.&lt;/p&gt;
+&lt;p&gt;After transitioning into the Data Science and Machine Learning (ML) industry, I become fascinated by the complex dynamics that play out when data, software, and humans come together to build products.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;All machine learning challenges are technical challenges. All technical challenges are people challenges.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>LLMs Are Done. What Are Agents?</title>
       <link>https://www.talesofindustry.org/post/2025-09-11-llms-are-done/</link>
@@ -82,17 +93,6 @@
       <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
       <guid>https://www.talesofindustry.org/post/2022-05-08-ai-product-development-part1/</guid>
       <description>Build a product, not a model.</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>https://www.talesofindustry.org/about/</link>
-      <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.talesofindustry.org/about/</guid>
-      <description>&lt;h2 id=&#34;who-am-i&#34;&gt;Who am I?&lt;/h2&gt;
-&lt;p&gt;I&amp;rsquo;m &lt;strong&gt;Jan&lt;/strong&gt;. In my past life as a Neuroscientist I studied how the brain learns. This peaked my interest into complex dynamical systems, what laws govern them, and how they can be improved.&lt;/p&gt;
-&lt;p&gt;After transitioning into the Data Science and Machine Learning (ML) industry, I become fascinated by the complex dynamics that play out when data, software, and humans come together to build products.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;All machine learning challenges are technical challenges. All technical challenges are people challenges.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Disclaimer</title>
