@@ -461,6 +461,18 @@
     showStats();
   }
 
+  function getHistory(mode) {
+    try { return JSON.parse(localStorage.getItem('stats-' + mode)) || []; }
+    catch { return []; }
+  }
+
+  function saveHistory(mode, entry) {
+    const hist = getHistory(mode);
+    if (hist.length >= 10) hist.shift();
+    hist.push(entry);
+    localStorage.setItem('stats-' + mode, JSON.stringify(hist));
+  }
+
   function showStats() {
     clearAdvanceTimer();
     clearMapClasses();
@@ -477,6 +489,24 @@
     $('stat-skipped').textContent = gameState.skipped;
     const pct = roundsPlayed > 0 ? Math.round((gameState.score / roundsPlayed) * 100) : 0;
     $('stat-score').textContent = pct + '%';
+
+    const hist = getHistory(gameState.mode);
+    const avgRow = $('stat-avg-row');
+    const avgEl = $('stat-avg');
+    if (hist.length > 0) {
+      const totalCorrect = hist.reduce((s, h) => s + h.correct, 0);
+      const totalRounds  = hist.reduce((s, h) => s + h.rounds, 0);
+      const avg = Math.round((totalCorrect / totalRounds) * 100);
+      const tip = 'Score %: ' + hist.slice(-8).map(h => Math.round((h.correct / h.rounds) * 100)).join(', ');
+      $('stat-avg-pct').textContent = avg + '%';
+      avgEl.className = 'stat-value stat-avg-wrap';
+      $('stat-avg-tooltip').textContent = tip;
+      $('stat-avg-label').textContent = 'Average of last ' + totalRounds + ' rounds';
+      avgRow.style.display = '';
+    } else {
+      avgRow.style.display = 'none';
+    }
+    saveHistory(gameState.mode, { rounds: roundsPlayed, correct: gameState.score, skipped: gameState.skipped });
 
     setPhase('idle');
     setScreen('stats');

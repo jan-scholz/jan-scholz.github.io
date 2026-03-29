@@ -143,6 +143,16 @@ body[data-screen="stats"] #screen-stats { display: flex; }
   font-size: 1.2rem; font-weight: 700;
   border-bottom: none; padding-top: 16px;
 }
+.stat-row--avg { border-bottom: none; }
+.stat-avg-wrap { position: relative; cursor: default; }
+.stat-avg-tooltip {
+  display: none; position: absolute; bottom: calc(100% + 8px); right: 0;
+  background: #222; color: #eee; font-size: 0.75rem; font-weight: 400;
+  padding: 8px 12px; border-radius: 6px; font-family: monospace;
+  white-space: nowrap;
+  z-index: 20; pointer-events: none;
+}
+.stat-avg-wrap:hover .stat-avg-tooltip { display: block; }
 
 /* === Game Panel === */
 #game-panel {
