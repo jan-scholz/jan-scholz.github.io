@@ -1,0 +1,25 @@
+Jean-Luc Picard, the captain of the Starship Enterprise, famously orders his tea from a replicator with the words "Tea, Earl Grey, hot", which then materializes right in front of him. Replicators play a relatively minor role in the Star Trek series, given that they can convert pure energy into physical matter. Were it not for Captain Picard's insatiable thirst for tea, they'd hardly make an appearance.
+
+But it's not difficult to imagine that replicators would have an enormous effect on society. They could be used to create near-unlimited amounts of food, medicine, and even copies of themselves, finally ushering in the age of Fully Automated Luxury Communism¹.
+
+While we haven't invented a matter replicator yet, we do have *digital* replicators. And as our lives have become more and more reliant on the digital world, some aspects of Fully Automated Luxury Communism have already arrived.
+
+It's been possible to make infinite copies of digital media, such as music, movies, literature, and software at zero cost for a while. Copyright holders have tried to prevent this with encryption and other annoying measures. But this doesn't change the fact that we already live in a world of *potential* abundance where it's *technically* possible to create unlimited copies of any song, movie, or book in existence -- instantaneously and at no cost.
+
+Recently, we've taken another step. In February 2026, Cloudflare announced that they had rebuilt the popular front-end framework Next.js using AI². All Cloudflare engineers had to do was point Claude Code at Next.js's years of documentation and test suites. Within a week, the AI essentially reimplemented Vercel's Next.js framework from scratch³.
+
+The writing is on the wall for all software companies that rely on their moat to charge ever-increasing fees. Vendors of accounting⁴, tax⁵, and photo editing⁶ software have forced loyal customers to upgrade to cloud products or monthly subscription plans over recent years. Features have been removed or require higher subscription tiers. But the shoe is now on the other foot. Two recent examples show that the barrier to replicating software and even entire business workflows has been lowered considerably.
+
+Blake Oliver, a CPA rather than a software engineer by trade, built a double-entry accounting system using Claude and a small MCP server⁷. It turns out, the core application logic isn't that hard, and a QuickBooks subscription is not required.
+
+Similarly, Deirdre Bosa, a journalist with no engineering background, opened Claude Code during a CNBC segment and described the project management tool she wanted in plain English. The resulting app was fully wired into her calendar and Gmail, and cost less than $20 in tokens⁸. Clearly, the seat-based pricing model that companies like Asana, Trello, and Linear relied on is on thin ice when an absolute novice can replicate their software for less than the cost of a two-month subscription.
+
+It's easy to underestimate the impact of this development by ignoring the fact that the digital world is in large part the "real" world. Most of our interactions are digital, whether they are communication, shopping, business, healthcare, or government-related.
+
+Creating your own software and workflows is now within reach of an increasing number of people. If nothing else, this will pressure the most egregious rent-seekers and *Enshittifiers*⁹ to rethink their business models. At the same time, governments and corporations will come under pressure to open up access to data and APIs, which will further accelerate this transformation.
+
+While AI isn't able to reconstitute matter, it will bring us closer to a post-software-scarcity society. When producing new software is just as easy as saying "Earl Grey, hot", who knows what people will come up with!
+
+---
+
+Footnote key: ¹ falc · ² nextjs · ³ cloudflare · ⁴ quickbooks · ⁵ turbotax · ⁶ adobe · ⁷ blake · ⁸ bosa · ⁹ enshittification
