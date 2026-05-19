@@ -10,7 +10,7 @@ Recently, we've taken another step. In February 2026, Cloudflare announced that 
 
 The writing is on the wall for all software companies that rely on their moat to charge ever-increasing fees. Vendors of accounting⁴, tax⁵, and photo editing⁶ software have forced loyal customers to upgrade to cloud products or monthly subscription plans over recent years. Features have been removed or require higher subscription tiers. But the shoe is now on the other foot. Two recent examples show that the barrier to replicating software and even entire business workflows has been lowered considerably.
 
-Blake Oliver, a CPA rather than a software engineer by trade, built a double-entry accounting system using Claude and a small MCP server⁷. It turns out, the core application logic isn't that hard, and a QuickBooks subscription is not required.
+A solo developer built a full double-entry accounting system, *Tidwell*, on Claude with a small MCP server⁷. It turns out the core application logic isn't that hard — and a QuickBooks subscription is not required.
 
 Similarly, Deirdre Bosa, a journalist with no engineering background, opened Claude Code during a CNBC segment and described the project management tool she wanted in plain English. The resulting app was fully wired into her calendar and Gmail, and cost less than $20 in tokens⁸. Clearly, the seat-based pricing model that companies like Asana, Trello, and Linear relied on is on thin ice when an absolute novice can replicate their software for less than the cost of a two-month subscription.
 
